@@ -1,197 +1,216 @@
 'use client';
 import AnimatedButton from '@/components/animations/AnimatedButtons';
+import { features } from '@/lib/data/features';
+import { testimonials } from '@/lib/data/testimonials';
+import type { Feature } from '@/types';
 import { motion } from 'framer-motion';
+// Replace heroicons import with local SVG components
+const ChartBarIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg {...props} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <rect x="3" y="13" width="4" height="8" rx="1" />
+    <rect x="9" y="9" width="4" height="12" rx="1" />
+    <rect x="15" y="5" width="4" height="16" rx="1" />
+  </svg>
+);
+const ClipboardDocumentListIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg {...props} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <rect x="6" y="4" width="12" height="16" rx="2" />
+    <path d="M9 8h6M9 12h6M9 16h2" />
+  </svg>
+);
+const ShieldCheckIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg {...props} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path d="M12 3l8 4v5c0 5.25-3.5 9.75-8 11-4.5-1.25-8-5.75-8-11V7l8-4z" />
+    <path d="M9 12l2 2 4-4" />
+  </svg>
+);
 
-/**
- * Animation configuration reused across motion components.
- * The cubic-bezier curve provides a natural easing for UI transitions.
- */
 const transitionConfig = { duration: 0.8, ease: [0.4, 0, 0.2, 1] } as const;
 
-/** Basic types for data-driven sections */
-interface Feature {
-  title: string;
-  description: string;
-  image: string;
-}
-
-interface Testimonial {
-  name: string;
-  quote: string;
-  image: string;
-}
-
-/** Data for the feature grid */
-const features: Feature[] = [
-  {
-    title: 'Streamlined Billing',
-    description: 'Efficient processes to ensure timely and accurate billing.',
-    image: '/static/images/feature-billing.jpg', // Local or brand-approved
-  },
-  {
-    title: 'Compliance Assurance',
-    description: 'Stay compliant with the latest healthcare regulations.',
-    image: '/static/images/feature-compliance.jpg',
-  },
-  {
-    title: 'Dedicated Support',
-    description: 'Expert support to handle all your billing inquiries.',
-    image: '/static/images/feature-support.jpg',
-  },
-];
-
-/** Client testimonials displayed in a scrollable list */
-const testimonials: Testimonial[] = [
-  {
-    name: 'Dr. Emily Carter',
-    quote: 'BrightWell has transformed our billing process, making it seamless and stress-free.',
-    image: 'https://source.unsplash.com/100x100/?portrait,doctor',
-  },
-  {
-    name: 'Clinic Manager, NY',
-    quote: 'Our claims are processed faster and with greater accuracy thanks to BrightWell.',
-    image: 'https://source.unsplash.com/100x100/?portrait,manager',
-  },
-  {
-    name: 'Healthcare Provider, TX',
-    quote: 'The support team is always ready to assist with any billing issues we encounter.',
-    image: 'https://source.unsplash.com/100x100/?portrait,provider',
-  },
-];
-
-/**
- * Individual card for a feature item.
- * Extracted for readability and reusability.
- */
 const FeatureCard = ({ feature, delay = 0 }: { feature: Feature; delay?: number }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ ...transitionConfig, delay }}
-    className="flex flex-col items-center text-center bg-white rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow duration-500"
-    whileHover={{ scale: 1.03 }}
+    className="flex flex-col items-center text-center bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100"
+    whileHover={{ scale: 1.02, y: -5 }}
   >
-    <img
-      src={feature.image}
-      alt={feature.title}
-      loading="lazy"
-      className="rounded-xl object-cover w-full h-60 mb-6 transition-transform duration-500 hover:scale-105"
-    />
-    <h3 className="text-2xl font-semibold mb-2">{feature.title}</h3>
-    <p className="text-gray-600">{feature.description}</p>
+    <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-full mb-4">
+      {feature.icon}
+    </div>
+    <h3 className="text-2xl font-bold mb-3 text-gray-900">{feature.title}</h3>
+    <p className="text-gray-600 leading-relaxed">{feature.description}</p>
   </motion.div>
 );
 
-/** Visual card representing a testimonial */
-const TestimonialCard = ({
-  testimonial,
-  delay = 0,
-}: {
-  testimonial: Testimonial;
-  delay?: number;
-}) => (
-  <motion.div
-    className="min-w-[300px] snap-center flex-shrink-0 bg-gray-50 rounded-2xl shadow-lg p-6 text-center"
-    initial={{ opacity: 0 }}
-    whileInView={{ opacity: 1 }}
-    viewport={{ once: true }}
-    transition={{ ...transitionConfig, delay }}
-  >
-    <img
-      src={testimonial.image}
-      alt={testimonial.name}
-      loading="lazy"
-      className="w-20 h-20 rounded-full object-cover mx-auto mb-4"
-    />
-    <p className="text-gray-600 italic mb-2">&ldquo;{testimonial.quote}&rdquo;</p>
-    <p className="font-medium text-gray-900">{testimonial.name}</p>
-  </motion.div>
-);
-
-export default function UltraPage() {
+export default function BrightWellsPage() {
   return (
-    <>
-      <main className="flex flex-col bg-gradient-to-b from-white to-gray-50 text-gray-800 font-sans">
-        {/* </ParallaxHero> */}
+    <main className="flex flex-col bg-gradient-to-b from-white to-gray-50 text-gray-800 font-sans">
+      {/* ENHANCED HERO SECTION */}
+      <section className="relative h-screen flex flex-col justify-center items-center text-center bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/90"></div>
 
-        <section className="relative h-screen flex flex-col justify-center items-center text-center bg-cover bg-center hero-bg">
-          {/* Removed inline style */}
-          <div className="absolute inset-0 bg-white/30 backdrop-blur-sm"></div>
-          {/* Keep this overlay BEFORE content to blur background only */}
-          <div className="relative z-10 flex flex-col items-center">
-            <motion.h1
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-              className="text-6xl font-bold text-gray-900 tracking-tight"
-            >
-              Reliable Medical Billing
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
-              className="mt-6 max-w-xl text-lg text-gray-600"
-            >
-              Streamline your practice’s billing process with our expert solutions.
-            </motion.p>
+        <div className="relative z-10 flex flex-col items-center max-w-6xl mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="mb-8"
+          >
+            <div className="bg-white/10 backdrop-blur-sm rounded-full p-4 mb-6">
+              <ShieldCheckIcon className="w-16 h-16 text-white mx-auto" />
+            </div>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+            className="text-6xl md:text-7xl font-bold text-white tracking-tight mb-6"
+          >
+            Illuminate Your
+            <br />
+            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              Medical Revenue
+            </span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
+            className="mt-6 max-w-3xl text-xl text-blue-100 leading-relaxed"
+          >
+            HIPAA-compliant medical billing solutions that maximize your revenue, reduce claim
+            denials, and ensure regulatory compliance.
+            <strong className="text-white">Transform your practice today.</strong>
+          </motion.p>
+
+          <div className="flex flex-col sm:flex-row gap-6 mt-10">
             <AnimatedButton
-              label="Get Started"
-              aria-label="Get started with BrightWell"
-              className="mt-8"
+              label="Start Free Trial"
+              variant="primary"
+              size="lg"
+              className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 shadow-2xl shadow-blue-500/25"
+            />
+            <AnimatedButton
+              label="Client Portal"
+              variant="outline"
+              size="lg"
+              className="border-white text-white hover:bg-white hover:text-blue-900"
             />
           </div>
-        </section>
-        {/* </ParallaxHero>  */}
 
-        <section className="py-24 px-4 md:px-16 grid grid-cols-1 md:grid-cols-3 gap-12">
+          {/* Stats Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 w-full max-w-4xl"
+          >
+            <div className="text-center">
+              <div className="text-4xl font-bold text-white mb-2">98%</div>
+              <div className="text-blue-200">First-Pass Rate</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-white mb-2">34%</div>
+              <div className="text-blue-200">Revenue Increase</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-white mb-2">60%</div>
+              <div className="text-blue-200">Faster Collections</div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ENHANCED FEATURES SECTION */}
+      <section className="py-24 px-4 md:px-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={transitionConfig}
+          className="text-center mb-16"
+        >
+          <h2 className="text-5xl font-bold text-gray-900 mb-6">
+            Why Healthcare Providers Choose BrightWells
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Comprehensive medical billing solutions designed for modern healthcare practices
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto">
           {features.map((feature, idx) => (
             <FeatureCard key={feature.title} feature={feature} delay={idx * 0.2} />
           ))}
-        </section>
+        </div>
+      </section>
 
-        {/* Testimonials */}
-        <section className="py-24 bg-white">
-          <motion.h2
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={transitionConfig}
-            className="text-4xl font-bold text-center mb-12"
-          >
-            What Our Clients Say
-          </motion.h2>
-          <div className="flex overflow-x-scroll gap-8 px-4 md:px-16 snap-x">
-            {testimonials.map((testimonial, idx) => (
-              <TestimonialCard key={testimonial.name} testimonial={testimonial} delay={idx * 0.2} />
-            ))}
-          </div>
-        </section>
+      {/* ENHANCED TESTIMONIALS */}
+      <section className="py-24 bg-gradient-to-r from-blue-50 to-purple-50">
+        <motion.h2
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={transitionConfig}
+          className="text-5xl font-bold text-center mb-16 text-gray-900"
+        >
+          Trusted by Healthcare Professionals
+        </motion.h2>
+        <div className="flex overflow-x-scroll gap-8 px-4 md:px-16 snap-x">
+          {testimonials.map((testimonial, idx) => (
+            <motion.div
+              key={testimonial.name}
+              className="min-w-[350px] snap-center flex-shrink-0 bg-white rounded-2xl shadow-lg p-8 text-center"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ ...transitionConfig, delay: idx * 0.2 }}
+            >
+              <img
+                src={testimonial.image}
+                alt={testimonial.name}
+                className="w-20 h-20 rounded-full object-cover mx-auto mb-6 ring-4 ring-blue-100"
+              />
+              <p className="text-gray-700 italic mb-6 text-lg leading-relaxed">
+                "{testimonial.quote}"
+              </p>
+              <div>
+                <p className="font-bold text-gray-900">{testimonial.name}</p>
+                <p className="text-blue-600">{testimonial.position}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
-        {/* Call To Action */}
-        <section className="py-24 px-4 md:px-16 text-center bg-gray-50">
-          <motion.h2
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={transitionConfig}
-            className="text-4xl font-bold mb-4"
-          >
-            Ready to Optimize Your Billing?
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ ...transitionConfig, delay: 0.2 }}
-            className="max-w-2xl mx-auto mb-8 text-gray-600"
-          >
-            Join countless healthcare providers who trust us with their billing needs.
-          </motion.p>
-          <AnimatedButton
-            className="relative mt-8 bg-blue-600 text-white px-8 py-4 rounded-full font-medium shadow-lg transition-transform hover:scale-105"
-            label="Get Started"
-          />
-        </section>
-      </main>
-    </>
+      {/* ENHANCED CTA */}
+      <section className="py-24 px-4 md:px-16 text-center bg-gradient-to-r from-blue-900 to-purple-900">
+        <motion.h2
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={transitionConfig}
+          className="text-5xl font-bold mb-6 text-white"
+        >
+          Ready to Transform Your Practice?
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ ...transitionConfig, delay: 0.2 }}
+          className="max-w-3xl mx-auto mb-10 text-xl text-blue-100"
+        >
+          Join thousands of healthcare providers who trust BrightWells with their revenue cycle
+          management.
+        </motion.p>
+        <AnimatedButton
+          className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-12 py-6 rounded-full font-bold text-lg shadow-2xl"
+          label="Start Free Trial Today"
+          size="lg"
+        />
+      </section>
+    </main>
   );
 }

@@ -5,6 +5,8 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['framer-motion'],
   },
+  // Explicitly set the app directory
+  appDir: true,
 };
 
 module.exports = nextConfig;

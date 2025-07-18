@@ -34,28 +34,100 @@ export const staggerConfig: StaggerConfig = {
   delayChildren: 0.05,
 };
 
-// Enhanced spring presets
+// Enhanced spring presets (Framer Motion compatible)
 export const springTransition: Transition = {
-  type: 'spring',
-  stiffness: 300,
+  type: 'spring' as const,
+  stiffness: 400,
   damping: 30,
   mass: 0.8,
 };
 
 export const bouncySpring: Transition = {
-  type: 'spring',
-  stiffness: 400,
+  type: 'spring' as const,
+  stiffness: 500,
   damping: 25,
   mass: 0.6,
 };
 
+export const smoothSpring: Transition = {
+  type: 'spring' as const,
+  stiffness: 300,
+  damping: 35,
+  mass: 1,
+};
+
 export const gentleSpring: Transition = {
-  type: 'spring',
+  type: 'spring' as const,
   stiffness: 200,
   damping: 35,
   mass: 1,
 };
 
+// Animation variants for consistent usage
+export const fadeInVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: baseTransition,
+  },
+  exit: {
+    opacity: 0,
+    y: -20,
+    transition: fastTransition,
+  },
+};
+
+export const scaleVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: springTransition,
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.9,
+    transition: fastTransition,
+  },
+};
+
+export const slideVariants: Variants = {
+  hidden: { opacity: 0, x: -30 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: smoothSpring,
+  },
+  exit: {
+    opacity: 0,
+    x: 30,
+    transition: fastTransition,
+  },
+};
+
+// Stagger configuration for list animations
+export const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+export const staggerItem: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: baseTransition,
+  },
+};
+
+// Legacy motion configurations for backward compatibility
 export const fadeInUp: MotionConfig = {
   initial: { opacity: 0, y: 40 },
   animate: { opacity: 1, y: 0 },
@@ -77,6 +149,7 @@ export const fadeInScale: MotionConfig = {
   transition: springTransition,
 };
 
+// Parallax motion utility
 export interface ParallaxMotion {
   y: number;
 }
@@ -84,68 +157,6 @@ export interface ParallaxMotion {
 export const parallaxMotion = (scrollY: number): ParallaxMotion => ({
   y: scrollY * 0.2,
 });
-
-// Modern animation variants using the Variants type
-export const fadeVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 20,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: fastTransition,
-  },
-  exit: {
-    opacity: 0,
-    y: -20,
-    transition: fastTransition,
-  },
-};
-
-export const slideVariants: Variants = {
-  hidden: {
-    x: -100,
-    opacity: 0,
-  },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: springTransition,
-  },
-  exit: {
-    x: 100,
-    opacity: 0,
-    transition: fastTransition,
-  },
-};
-
-export const scaleVariants: Variants = {
-  hidden: {
-    scale: 0.8,
-    opacity: 0,
-  },
-  visible: {
-    scale: 1,
-    opacity: 1,
-    transition: bouncySpring,
-  },
-  exit: {
-    scale: 0.9,
-    opacity: 0,
-    transition: fastTransition,
-  },
-};
-
-export const staggerContainer: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: staggerConfig.staggerChildren,
-      delayChildren: staggerConfig.delayChildren,
-    },
-  },
-};
 
 // Enhanced hover and tap animations
 export const buttonHover = {

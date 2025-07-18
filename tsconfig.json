@@ -22,7 +22,12 @@
       { "name": "typescript-plugin-css-modules" } // If you use CSS Modules
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@/components/*": ["./components/*"],
+      "@/lib/*": ["./lib/*"],
+      "@/types/*": ["./types/*"],
+      "@/app/*": ["./app/*"],
+      "@/styles/*": ["./styles/*"]
     },
     "baseUrl": ".", // Ensures path aliases work everywhere
     "types": [

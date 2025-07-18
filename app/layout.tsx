@@ -8,9 +8,27 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Brightwell Website - Modern Framer Motion',
+  title: 'BrightWell Medical Billing | Streamline Your Practice',
   description:
-    'Experience the latest Framer Motion features with enhanced animations and modern React patterns.',
+    'Professional medical billing services for healthcare providers. Streamline your practice with our expert solutions, compliance assurance, and dedicated support.',
+  keywords:
+    'medical billing, healthcare billing, practice management, billing services, medical coding',
+  authors: [{ name: 'BrightWell Systems' }],
+  viewport: 'width=device-width, initial-scale=1',
+  robots: 'index, follow',
+  openGraph: {
+    title: 'BrightWell Medical Billing | Streamline Your Practice',
+    description: 'Professional medical billing services for healthcare providers.',
+    type: 'website',
+    locale: 'en_US',
+  },
+  icons: [
+    { rel: 'icon', url: '/favicon.ico' },
+    { rel: 'apple-touch-icon', sizes: '180x180', url: '/apple-touch-icon.png' },
+    { rel: 'icon', type: 'image/png', sizes: '32x32', url: '/favicon-32x32.png' },
+    { rel: 'icon', type: 'image/png', sizes: '16x16', url: '/favicon-16x16.png' },
+  ],
+  manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({
@@ -20,6 +38,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* Remove icon links, handled by metadata */}
+      </head>
       <body className={`${inter.variable} font-sans antialiased`}>{children}</body>
     </html>
   );

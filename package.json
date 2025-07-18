@@ -11,29 +11,31 @@
     "check-lint": "next lint",
     "format": "prettier --write .",
     "postinstall": "echo 'Install completed successfully'",
-    "clear-cache": "npm cache clean --force && rmdir /s /q node_modules && rmdir /s /q .next && del package-lock.json",
-    "fresh-install": "npm run clear-cache && npm install"
+    "clear-cache": "npm cache clean --force"
   },
   "dependencies": {
     "autoprefixer": "^10.4.21",
     "eslint-config-next": "^15.4.1",
-    "framer-motion": "^11.18.2",
-    "next": "^14.2.0",
-    "react": "^18.3.0",
-    "react-dom": "^18.3.0"
+    "framer-motion": "^12.23.6",
+    "next": "^15.4.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "sharp": "^0.34.3"
   },
   "devDependencies": {
-    "@types/node": "^20.0.0",
-    "@types/react": "^18.3.0",
-    "@types/react-dom": "^18.3.0",
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
+    "@next/bundle-analyzer": "^15.4.1",
+    "@types/node": "^24.0.14",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vercel/analytics": "^1.5.0",
+    "eslint": "^9.31.0",
+    "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.34.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "postcss": "^8.4.40",
     "prettier": "^3.3.0",
-    "tailwindcss": "^3.4.0",
+    "tailwindcss": "^4.1.11",
     "typescript": "^5.5.0"
   }
 }
