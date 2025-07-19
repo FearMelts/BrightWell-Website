@@ -1,89 +1,105 @@
+/**
+ * Theme provider component with dark mode toggle functionality
+ * Provides theme context and toggle button for switching between light/dark modes
+ */
 'use client';
-import { motion } from 'framer-motion';
-import { createContext, useContext, useEffect, useState } from 'react';
 
-interface ThemeContextType {
-  isDark: boolean;
-  toggleTheme: () => void;
+import { Moon, Sun } from 'lucide-react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { Button } from './ui/button';
+
+type Theme = 'dark' | 'light' | 'system';
+
+type ThemeProviderProps = {
+  children: React.ReactNode;
+  defaultTheme?: Theme;
+  storageKey?: string;
+};
+
+type ThemeProviderState = {
+  theme: Theme;
+  setTheme: (theme: Theme) => void;
+};
+
+const initialState: ThemeProviderState = {
+  theme: 'system',
+  setTheme: () => null,
+};
+
+const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
+
+/**
+ * Theme provider component that manages theme state and persistence
+ */
+export function ThemeProvider({
+  children,
+  defaultTheme = 'system',
+  storageKey = 'vite-ui-theme',
+  ...props
+}: ThemeProviderProps) {
+  const [theme, setTheme] = useState<Theme>(
+    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
+  );
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+
+    root.classList.remove('light', 'dark');
+
+    if (theme === 'system') {
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light';
+
+      root.classList.add(systemTheme);
+      return;
+    }
+
+    root.classList.add(theme);
+  }, [theme]);
+
+  const value = {
+    theme,
+    setTheme: (theme: Theme) => {
+      localStorage.setItem(storageKey, theme);
+      setTheme(theme);
+    },
+  };
+
+  return (
+    <ThemeProviderContext.Provider {...props} value={value}>
+      {children}
+    </ThemeProviderContext.Provider>
+  );
 }
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
-
+/**
+ * Hook to access theme context
+ */
 export const useTheme = () => {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error('useTheme must be used within a ThemeProvider');
-  }
+  const context = useContext(ThemeProviderContext);
+
+  if (context === undefined) throw new Error('useTheme must be used within a ThemeProvider');
+
   return context;
 };
 
-export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    // Check for saved theme preference or default to light mode
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      setIsDark(true);
-      document.documentElement.classList.add('dark');
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    const newTheme = !isDark;
-    setIsDark(newTheme);
-
-    if (newTheme) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  };
-
-  return <ThemeContext.Provider value={{ isDark, toggleTheme }}>{children}</ThemeContext.Provider>;
-};
-
-export const DarkModeToggle = () => {
-  const { isDark, toggleTheme } = useTheme();
+/**
+ * Dark mode toggle button component with smooth animations
+ */
+export function DarkModeToggle() {
+  const { theme, setTheme } = useTheme();
 
   return (
-    <motion.button
-      onClick={toggleTheme}
-      className="fixed top-6 right-6 z-50 w-16 h-16 rounded-2xl bg-white/95 dark:bg-slate-800/95 backdrop-blur-xl shadow-2xl hover:shadow-cyan-500/25 dark:hover:shadow-blue-500/25 transition-all duration-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center group"
-      whileHover={{ scale: 1.05, rotate: 15 }}
-      whileTap={{ scale: 0.95 }}
-      transition={{ duration: 0.3 }}
-      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+    <Button
+      variant="outline"
+      size="icon"
+      onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+      className="fixed top-4 right-4 z-50 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200 dark:border-slate-600 hover:bg-white dark:hover:bg-slate-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
     >
-      <motion.div
-        animate={{ rotate: isDark ? 180 : 0 }}
-        transition={{ duration: 0.6, ease: 'easeInOut' }}
-        className="w-8 h-8 flex items-center justify-center"
-      >
-        {isDark ? (
-          <motion.span
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-3xl drop-shadow-lg filter brightness-110"
-          >
-            ☀️
-          </motion.span>
-        ) : (
-          <motion.span
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-3xl drop-shadow-lg filter brightness-110"
-          >
-            🌙
-          </motion.span>
-        )}
-      </motion.div>
-    </motion.button>
+      <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+      <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+      <span className="sr-only">Toggle theme</span>
+    </Button>
   );
-};
+}
