@@ -3,8 +3,8 @@
 export interface Feature {
   title: string;
   description: string;
-  image: string;
-  icon?: React.ReactNode;
+  image?: string;
+  icon: 'chart' | 'clipboard' | 'shield';
 }
 
 export interface Testimonial {
@@ -44,4 +44,10 @@ export const animationPresets = {
     animate: { opacity: 1, scale: 1 },
     exit: { opacity: 0, scale: 0.9 },
   },
+  slideUp: {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: 20 },
+  },
+  spring: { type: 'spring' as const, stiffness: 400, damping: 30 },
 } as const;

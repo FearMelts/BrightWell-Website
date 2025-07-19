@@ -5,30 +5,52 @@ import './globals.css';
 const inter = Inter({
   variable: '--font-inter',
   subsets: ['latin'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: 'BrightWell Medical Billing | Streamline Your Practice',
+  title: {
+    default: 'BrightWell Medical Billing | Streamlined Healthcare Revenue Cycle',
+    template: '%s | BrightWell Medical Billing',
+  },
   description:
-    'Professional medical billing services for healthcare providers. Streamline your practice with our expert solutions, compliance assurance, and dedicated support.',
-  keywords:
-    'medical billing, healthcare billing, practice management, billing services, medical coding',
+    'Professional medical billing services with 99% accuracy. Streamline your healthcare practice revenue cycle with our expert billing solutions.',
+  keywords: [
+    'medical billing',
+    'healthcare',
+    'revenue cycle',
+    'claims processing',
+    'practice management',
+  ],
   authors: [{ name: 'BrightWell Systems' }],
-  viewport: 'width=device-width, initial-scale=1',
-  robots: 'index, follow',
+  creator: 'BrightWell Systems',
   openGraph: {
-    title: 'BrightWell Medical Billing | Streamline Your Practice',
-    description: 'Professional medical billing services for healthcare providers.',
     type: 'website',
     locale: 'en_US',
+    url: 'https://brightwell.com',
+    title: 'BrightWell Medical Billing | Streamlined Healthcare Revenue Cycle',
+    description: 'Professional medical billing services with 99% accuracy.',
+    siteName: 'BrightWell Medical Billing',
   },
-  icons: [
-    { rel: 'icon', url: '/favicon.ico' },
-    { rel: 'apple-touch-icon', sizes: '180x180', url: '/apple-touch-icon.png' },
-    { rel: 'icon', type: 'image/png', sizes: '32x32', url: '/favicon-32x32.png' },
-    { rel: 'icon', type: 'image/png', sizes: '16x16', url: '/favicon-16x16.png' },
-  ],
-  manifest: '/site.webmanifest',
+  twitter: {
+    card: 'summary_large_image',
+    title: 'BrightWell Medical Billing',
+    description: 'Professional medical billing services with 99% accuracy.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code',
+  },
 };
 
 export default function RootLayout({
@@ -37,12 +59,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* Remove icon links, handled by metadata */}
-      </head>
-      <body className={`${inter.variable} font-sans antialiased`}>{children}</body>
+    <html lang="en" className={inter.variable}>
+      <body className={`${inter.className} antialiased`}>
+        <div id="root">{children}</div>
+      </body>
     </html>
   );
 }

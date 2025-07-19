@@ -1,41 +1,49 @@
 {
   "name": "brightwell-website",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
-  "description": "Brightwell's modern medical billing website built with Next.js and React.",
+  "description": "Modern medical billing website built with Next.js 15, React 19, TypeScript, and Framer Motion",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint --fix",
-    "check-lint": "next lint",
+    "lint": "next lint",
     "format": "prettier --write .",
-    "postinstall": "echo 'Install completed successfully'",
-    "clear-cache": "npm cache clean --force"
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf .next out",
+    "deploy": "npm run build && npm run start"
   },
   "dependencies": {
-    "autoprefixer": "^10.4.21",
-    "eslint-config-next": "^15.4.1",
-    "framer-motion": "^12.23.6",
+    "framer-motion": "^11.15.0",
     "next": "^15.4.1",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "sharp": "^0.34.3"
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^15.4.1",
-    "@types/node": "^24.0.14",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
-    "@vercel/analytics": "^1.5.0",
-    "eslint": "^9.31.0",
-    "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-react": "^7.34.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "postcss": "^8.4.40",
-    "prettier": "^3.3.0",
-    "tailwindcss": "^4.1.11",
-    "typescript": "^5.5.0"
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.17.0",
+    "eslint-config-next": "^15.4.1",
+    "postcss": "^8.5.2",
+    "prettier": "^3.4.2",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.2"
+  },
+  "keywords": [
+    "medical-billing",
+    "nextjs",
+    "framer-motion",
+    "healthcare",
+    "typescript",
+    "react",
+    "tailwindcss"
+  ],
+  "author": "BrightWell Systems",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
   }
 }

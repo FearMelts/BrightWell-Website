@@ -6,7 +6,7 @@ export const testimonials: Testimonial[] = [
     position: 'Family Medicine Physician',
     company: 'Carter Family Practice',
     quote:
-      'BrightWell has transformed our billing process, making it seamless and stress-free. Our revenue cycle is now more efficient than ever.',
+      'BrightWell has transformed our billing process, making it seamless and stress-free. Our revenue increased by 40% in the first quarter.',
     image: '/images/testimonials/dr-carter.jpg',
   },
   {
@@ -14,7 +14,7 @@ export const testimonials: Testimonial[] = [
     position: 'Practice Manager',
     company: 'Downtown Medical Center',
     quote:
-      'Our claims are processed faster and with greater accuracy thanks to BrightWell. The support team is exceptional.',
+      'Our claims are processed faster and with greater accuracy thanks to BrightWell. The support team is exceptional and always available.',
     image: '/images/testimonials/michael-rodriguez.jpg',
   },
   {
@@ -22,15 +22,7 @@ export const testimonials: Testimonial[] = [
     position: 'Orthopedic Surgeon',
     company: 'Johnson Orthopedics',
     quote:
-      'The compliance features give me peace of mind. I can focus on patient care while BrightWell handles our billing needs.',
+      'The automated compliance monitoring gives us peace of mind. We can focus on patients while BrightWell handles our revenue cycle.',
     image: '/images/testimonials/dr-johnson.jpg',
-  },
-  {
-    name: 'Lisa Thompson',
-    position: 'Healthcare Administrator',
-    company: 'Regional Health Network',
-    quote:
-      'BrightWell scaled with our growing practice. Their technology and support have been invaluable to our success.',
-    image: '/images/testimonials/lisa-thompson.jpg',
   },
 ];

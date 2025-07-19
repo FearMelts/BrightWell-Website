@@ -4,18 +4,20 @@ export const features: Feature[] = [
   {
     title: 'Streamlined Billing',
     description:
-      'Efficient processes to ensure timely and accurate billing with automated workflows.',
-    image: '/images/feature-billing.jpg',
+      'Automated workflows reduce processing time by 60% while maintaining 99% accuracy in claims submission.',
+    icon: 'chart',
+  },
+  {
+    title: 'Claims Processing',
+    description:
+      'Real-time claim tracking and automated follow-up ensure faster reimbursements and reduced denials.',
+    icon: 'clipboard',
   },
   {
     title: 'Compliance Assurance',
-    description: 'Stay compliant with the latest healthcare regulations and HIPAA requirements.',
-    image: '/images/feature-compliance.jpg',
-  },
-  {
-    title: 'Dedicated Support',
-    description: 'Expert support team available to handle all your billing inquiries and concerns.',
-    image: '/images/feature-support.jpg',
+    description:
+      'Stay current with HIPAA, ICD-10, and Medicare regulations through our automated compliance monitoring.',
+    icon: 'shield',
   },
 ];
 

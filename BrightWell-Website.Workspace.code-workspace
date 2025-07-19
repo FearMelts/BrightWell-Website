@@ -1,11 +1,13 @@
 {
-	"folders": [
-		{
-			"path": "."
-		},
-		{
-			"path": "../Cosmic-Agent/.github/instructions"
-		}
-	],
-	"settings": {}
+  "folders": [
+    {
+      "path": ".",
+    },
+    {
+      "path": "../Cosmic-Agent/.github/instructions",
+    },
+  ],
+  "settings": {
+    "powershell.cwd": "BrightWell-Website",
+  },
 }

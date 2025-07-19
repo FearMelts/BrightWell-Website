@@ -14,36 +14,16 @@
     "jsx": "preserve",
     "incremental": true,
     "forceConsistentCasingInFileNames": true,
-    "allowImportingTsExtensions": false,
-    "verbatimModuleSyntax": false,
-    "plugins": [
-      { "name": "next" },
-      { "name": "@typescript-eslint/ts-plugin" }, // For ESLint/TS integration
-      { "name": "typescript-plugin-css-modules" } // If you use CSS Modules
-    ],
+    "plugins": [{ "name": "next" }],
     "paths": {
       "@/*": ["./*"],
       "@/components/*": ["./components/*"],
       "@/lib/*": ["./lib/*"],
       "@/types/*": ["./types/*"],
-      "@/app/*": ["./app/*"],
-      "@/styles/*": ["./styles/*"]
+      "@/app/*": ["./app/*"]
     },
-    "baseUrl": ".", // Ensures path aliases work everywhere
-    "types": [
-      "node",
-      "jest", // If you use Jest for testing
-      "jsdom" // If you use jsdom for testing
-    ]
+    "baseUrl": "."
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    "next-env.d.ts",
-    "./.next/types/**/*.ts",
-    "**/*.js", // Allow JS files if allowJs is true
-    "**/*.d.ts"
-  ],
-  "exclude": ["node_modules", "dist", "build", ".next"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", ".next"]
 }
