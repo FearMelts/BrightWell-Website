@@ -26,6 +26,7 @@ import {
   useTransform,
 } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
+// (AnimatedCounter now imported above)
 
 /*******  678479bc-25b0-4c6e-ab46-b43629113e27  *******/
 // --- Data ---
@@ -65,39 +66,8 @@ const testimonials = [
   },
 ];
 
-// --- Animated Counter Component ---
-function AnimatedCounter({ value, duration = 2 }: { value: string; duration?: number }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true });
+import AnimatedCounter from "@/components/AnimatedCounter";
 
-  useEffect(() => {
-    if (isInView) {
-      const numericValue = parseInt(value.replace(/[^0-9]/g, ''));
-      let start = 0;
-      const increment = numericValue / (duration * 60);
-
-      const timer = setInterval(() => {
-        start += increment;
-        if (start >= numericValue) {
-          setCount(numericValue);
-          clearInterval(timer);
-        } else {
-          setCount(Math.floor(start));
-        }
-      }, 1000 / 60);
-
-      return () => clearInterval(timer);
-    }
-  }, [isInView, value, duration]);
-
-  return (
-    <span ref={ref}>
-      {count}
-      {value.replace(/[0-9]/g, '')}
-    </span>
-  );
-}
 
 // --- FeatureCard ---
 function FeatureCard({ feature, delay = 0 }: { feature: (typeof features)[0]; delay?: number }) {
@@ -290,7 +260,7 @@ export default function UltraAnimatedPage() {
                   variants={pulseVariants}
                   animate="animate"
                 >
-                  <AnimatedCounter value="98%" duration={2} />
+                  <AnimatedCounter value={98} suffix="%" duration={2} decimals={0} />
                 </motion.div>
                 <p className="text-white font-bold text-xl group-hover:text-neon-400 transition-colors tracking-wide uppercase drop-shadow-[0_2px_16px_rgba(139,92,246,0.25)]">
                   First-Pass Rate
@@ -307,7 +277,7 @@ export default function UltraAnimatedPage() {
                   variants={pulseVariants}
                   animate="animate"
                 >
-                  <AnimatedCounter value="34%" duration={2.5} />
+                  <AnimatedCounter value={34} suffix="%" duration={2.5} decimals={0} />
                 </motion.div>
                 <p className="text-white font-bold text-xl group-hover:text-magenta-400 transition-colors tracking-wide uppercase drop-shadow-[0_2px_16px_rgba(139,92,246,0.25)]">
                   Revenue Increase
@@ -324,7 +294,7 @@ export default function UltraAnimatedPage() {
                   variants={pulseVariants}
                   animate="animate"
                 >
-                  <AnimatedCounter value="60%" duration={3} />
+                  <AnimatedCounter value={60} suffix="%" duration={3} decimals={0} />
                 </motion.div>
                 <p className="text-white font-bold text-xl group-hover:text-royal-400 transition-colors tracking-wide uppercase drop-shadow-[0_2px_16px_rgba(139,92,246,0.25)]">
                   Faster Collections
