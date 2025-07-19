@@ -1,7 +1,7 @@
 import SEOEnhancer from '@/components/SEOEnhancer';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import Analytics from '@/lib/analytics';
-import type { Metadata } from 'next';
+import { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import ClientLayout from './ClientLayout';
 import './globals.css';
@@ -19,8 +19,14 @@ export const metadata: Metadata = {
   title: 'BrightWell Medical Billing - Illuminate Your Medical Revenue',
   description:
     'Transform your medical billing with cutting-edge solutions. Experience unprecedented accuracy, lightning-fast processing, and maximum revenue recovery with BrightWell.',
-  keywords:
-    'medical billing, healthcare billing, revenue cycle management, medical coding, claims processing, HIPAA compliance',
+  keywords: [
+    'medical billing',
+    'healthcare billing',
+    'revenue cycle management',
+    'medical coding',
+    'claims processing',
+    'HIPAA compliance',
+  ],
   authors: [{ name: 'BrightWell Systems' }],
   creator: 'BrightWell Systems',
   publisher: 'BrightWell Systems',
@@ -69,30 +75,18 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-verification-code',
-    yandex: 'your-yandex-verification-code',
-  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#3b82f6" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased transition-colors duration-300`}
-      >
-        <Analytics />
-        <SEOEnhancer />
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <ThemeProvider>
+          <SEOEnhancer />
+          <Analytics />
           <ClientLayout>{children}</ClientLayout>
         </ThemeProvider>
       </body>
