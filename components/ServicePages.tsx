@@ -3,8 +3,11 @@
  * Features detailed service descriptions, pricing, benefits, and implementation guides
  */
 'use client';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { useState } from 'react';
+import { Button } from './ui/button';
+import { Badge } from './ui/badge';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { 
   ArrowRight,
   CheckCircle,
@@ -97,7 +100,7 @@ const serviceDetails: ServiceDetail[] = [
     shortDescription: 'Efficient processes to ensure timely and accurate billing with automated workflows.',
     fullDescription: 'Our streamlined billing solution revolutionizes your revenue cycle management through advanced automation, intelligent claim processing, and real-time analytics. Eliminate manual errors, reduce processing time by 75%, and maximize your revenue potential.',
     icon: Zap,
-    heroImage: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop',
+    heroImage: 'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/4d477f27-4582-4137-98ef-10986c37bf91.jpg',
     benefits: [
       'Automated claim submission and tracking',
       'Real-time eligibility verification',
@@ -243,7 +246,7 @@ const serviceDetails: ServiceDetail[] = [
     shortDescription: 'Stay compliant with the latest healthcare regulations including HIPAA, ICD-10, and billing standards.',
     fullDescription: 'Ensure your practice meets all regulatory requirements with our comprehensive compliance management system. Stay up-to-date with changing regulations, maintain audit trails, and protect patient data with enterprise-grade security.',
     icon: Shield,
-    heroImage: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop',
+    heroImage: 'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/61d8c221-7bab-4330-b160-d9f121aeada0.jpg',
     benefits: [
       'HIPAA compliance monitoring',
       'Automated audit trail generation',
@@ -388,7 +391,7 @@ const serviceDetails: ServiceDetail[] = [
     shortDescription: 'Expert support team available 24/7 to handle all your billing inquiries and provide personalized assistance.',
     fullDescription: 'Our dedicated support team consists of certified medical billing specialists, compliance experts, and technology professionals committed to your practice\'s success. Get personalized assistance, proactive account management, and expert guidance whenever you need it.',
     icon: Headphones,
-    heroImage: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=800&h=600&fit=crop',
+    heroImage: 'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/8bb35300-2601-4cb1-9cfe-1040d2b6c31a.jpg',
     benefits: [
       '24/7 expert support availability',
       'Dedicated account managers',
@@ -566,19 +569,14 @@ export function ServicePages() {
         <ServiceDetailPage 
           service={service} 
           onBack={() => setSelectedService(null)}
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
         />
       );
     }
   }
 
   return (
-    <section className="py-32 bg-gradient-to-br from-royal-600 via-electric-600 to-neon-600 dark:from-royal-800 dark:via-electric-800 dark:to-neon-800 relative overflow-hidden animate-gradient-x">
-      {/* Glassy Overlay */}
-      <div className="absolute inset-0 bg-glass dark:bg-glass-dark backdrop-blur-2xl z-0" />
-      
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
+    <section className="py-24 bg-gradient-to-br from-white via-slate-50 to-blue-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-blue-950/30 transition-colors duration-700">
+      <div className="max-w-7xl mx-auto px-4">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -590,15 +588,15 @@ export function ServicePages() {
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             transition={{ delay: 0.2 }}
-            className="w-16 h-16 bg-gradient-to-r from-magenta-500 to-royal-500 rounded-glass flex items-center justify-center mx-auto mb-6 shadow-neon-purple animate-float"
+            className="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-6"
           >
             <Settings className="w-8 h-8 text-white" />
           </motion.div>
           
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-magenta-400 via-royal-400 to-neon-400 mb-6 animate-gradient-x drop-shadow-[0_4px_32px_rgba(139,92,246,0.45)]">
-            Our <span className="text-white">Services</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 via-teal-600 to-blue-600">Services</span>
           </h2>
-          <p className="text-2xl text-white/90 max-w-4xl mx-auto font-semibold drop-shadow-[0_2px_16px_rgba(139,92,246,0.25)]">
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Comprehensive medical billing solutions tailored to your practice's unique needs and growth objectives.
           </p>
         </motion.div>
@@ -608,7 +606,7 @@ export function ServicePages() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {serviceDetails.map((service) => (
             <ServiceCard
@@ -624,23 +622,21 @@ export function ServicePages() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-32 bg-card-glass dark:bg-card-glass backdrop-blur-2xl rounded-glass p-12 text-center border-2 border-electric-400 dark:border-electric-500 shadow-neon-purple"
+          className="mt-20 text-center bg-gradient-to-r from-green-500 via-teal-600 to-blue-600 rounded-3xl p-12 text-white"
         >
-          <h3 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-magenta-400 to-neon-400 mb-6 animate-gradient-x">
-            Ready to Transform Your Billing?
-          </h3>
-          <p className="text-xl text-white/90 mb-10 max-w-3xl mx-auto font-semibold">
+          <h3 className="text-3xl font-bold mb-4">Ready to Transform Your Billing?</h3>
+          <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
             Let our experts analyze your current billing processes and recommend the perfect solution for your practice.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="bg-gradient-to-r from-magenta-500 to-royal-500 text-white px-8 py-4 rounded-glass font-extrabold shadow-neon-purple hover:shadow-neon-cyan transition-all duration-300 animate-gradient-x flex items-center justify-center gap-2">
-              <Phone className="w-5 h-5" />
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button className="bg-white text-green-600 hover:bg-gray-100 rounded-xl px-8 py-3 font-semibold">
+              <Phone className="w-5 h-5 mr-2" />
               Schedule Consultation
-            </button>
-            <button className="bg-white/10 backdrop-blur-2xl border-2 border-electric-400 text-white hover:bg-white/20 rounded-glass px-8 py-4 font-extrabold transition-all duration-300 flex items-center justify-center gap-2">
-              <Download className="w-5 h-5" />
+            </Button>
+            <Button variant="outline" className="border-white text-white hover:bg-white/10 rounded-xl px-8 py-3 font-semibold bg-transparent">
+              <Download className="w-5 h-5 mr-2" />
               Download Service Guide
-            </button>
+            </Button>
           </div>
         </motion.div>
       </div>
@@ -659,51 +655,51 @@ function ServiceCard({ service, onClick }: { service: ServiceDetail; onClick: ()
       variants={itemVariants}
       whileHover={{ y: -8, scale: 1.02 }}
       onClick={onClick}
-      className="bg-card-glass dark:bg-card-glass backdrop-blur-2xl rounded-glass p-8 shadow-neon-purple hover:shadow-neon-cyan transition-all duration-500 cursor-pointer group border-2 border-electric-400/50 dark:border-electric-500/50 hover:border-magenta-400 animate-float"
+      className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer group border border-slate-200 dark:border-slate-700"
     >
       <div className="flex items-center justify-between mb-6">
-        <div className="w-16 h-16 bg-gradient-to-br from-royal-500 to-neon-500 rounded-glass flex items-center justify-center shadow-neon-purple">
+        <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center">
           <IconComponent className="w-8 h-8 text-white" />
         </div>
-        <ChevronRight className="w-6 h-6 text-white/60 group-hover:text-neon-400 group-hover:translate-x-1 transition-all" />
+        <ChevronRight className="w-6 h-6 text-gray-400 group-hover:text-green-600 group-hover:translate-x-1 transition-all" />
       </div>
       
-      <h3 className="text-2xl font-extrabold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-magenta-400 group-hover:to-neon-400 transition-all duration-300">
+      <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4 group-hover:text-green-600 transition-colors">
         {service.title}
       </h3>
       
-      <p className="text-white/80 mb-6 line-clamp-3 leading-relaxed">
+      <p className="text-gray-600 dark:text-gray-400 mb-6 line-clamp-3">
         {service.shortDescription}
       </p>
       
       {/* Key Metrics */}
-      <div className="grid grid-cols-3 gap-3 mb-6">
-        <div className="text-center bg-white/10 backdrop-blur-2xl rounded-glass p-3 border border-white/20">
-          <div className="text-sm font-bold text-neon-400">
+      <div className="grid grid-cols-3 gap-2 mb-6">
+        <div className="text-center bg-green-50 dark:bg-green-900/30 rounded-lg p-3">
+          <div className="text-sm font-bold text-green-600 dark:text-green-400">
             {service.metrics.accuracy}
           </div>
-          <div className="text-xs text-white/60">Accuracy</div>
+          <div className="text-xs text-gray-600 dark:text-gray-400">Accuracy</div>
         </div>
-        <div className="text-center bg-white/10 backdrop-blur-2xl rounded-glass p-3 border border-white/20">
-          <div className="text-sm font-bold text-electric-400">
+        <div className="text-center bg-teal-50 dark:bg-teal-900/30 rounded-lg p-3">
+          <div className="text-sm font-bold text-teal-600 dark:text-teal-400">
             {service.metrics.efficiency}
           </div>
-          <div className="text-xs text-white/60">Efficiency</div>
+          <div className="text-xs text-gray-600 dark:text-gray-400">Efficiency</div>
         </div>
-        <div className="text-center bg-white/10 backdrop-blur-2xl rounded-glass p-3 border border-white/20">
-          <div className="text-sm font-bold text-magenta-400">
+        <div className="text-center bg-blue-50 dark:bg-blue-900/30 rounded-lg p-3">
+          <div className="text-sm font-bold text-blue-600 dark:text-blue-400">
             {service.metrics.satisfaction}
           </div>
-          <div className="text-xs text-white/60">Satisfaction</div>
+          <div className="text-xs text-gray-600 dark:text-gray-400">Satisfaction</div>
         </div>
       </div>
       
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-          <span className="text-sm text-white/70 font-medium">Top Rated Service</span>
+          <span className="text-sm text-gray-600 dark:text-gray-400">Top Rated Service</span>
         </div>
-        <ArrowRight className="w-5 h-5 text-white/60 group-hover:text-neon-400 transition-colors" />
+        <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-green-600 transition-colors" />
       </div>
     </motion.div>
   );
@@ -712,108 +708,93 @@ function ServiceCard({ service, onClick }: { service: ServiceDetail; onClick: ()
 /**
  * Detailed service page component
  */
-function ServiceDetailPage({ service, onBack, activeTab, setActiveTab }: { 
-  service: ServiceDetail; 
-  onBack: () => void;
-  activeTab: string;
-  setActiveTab: (tab: string) => void;
-}) {
+function ServiceDetailPage({ service, onBack }: { service: ServiceDetail; onBack: () => void }) {
   const IconComponent = service.icon;
   
   return (
-    <div className="min-h-screen bg-gradient-to-br from-royal-600 via-electric-600 to-neon-600 dark:from-royal-800 dark:via-electric-800 dark:to-neon-800 animate-gradient-x">
-      {/* Glassy Overlay */}
-      <div className="absolute inset-0 bg-glass dark:bg-glass-dark backdrop-blur-2xl z-0" />
-      
-      <div className="relative z-10">
-        {/* Hero Section */}
-        <div className="py-24">
-          <div className="max-w-7xl mx-auto px-4">
-            <button
-              onClick={onBack}
-              className="mb-8 bg-white/10 backdrop-blur-2xl border-2 border-electric-400 text-white hover:bg-white/20 rounded-glass px-6 py-3 font-semibold transition-all duration-300"
-            >
-              ← Back to Services
-            </button>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="text-white">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-20 h-20 bg-gradient-to-br from-magenta-500 to-royal-500 rounded-glass flex items-center justify-center shadow-neon-purple">
-                    <IconComponent className="w-10 h-10 text-white" />
-                  </div>
-                  <div className="px-4 py-2 bg-white/20 backdrop-blur-2xl text-white rounded-full font-bold border border-white/30">
-                    Premium Service
-                  </div>
+    <div className="min-h-screen bg-gradient-to-br from-white via-slate-50 to-blue-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-blue-950/30">
+      {/* Hero Section */}
+      <div className="relative py-24 bg-gradient-to-r from-green-500 via-teal-600 to-blue-600">
+        <div className="max-w-7xl mx-auto px-4">
+          <Button
+            onClick={onBack}
+            variant="outline"
+            className="mb-8 border-white/30 text-white hover:bg-white/10 bg-transparent"
+          >
+            ← Back to Services
+          </Button>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="text-white">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center">
+                  <IconComponent className="w-10 h-10 text-white" />
                 </div>
-                
-                <h1 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-magenta-400 to-neon-400 mb-6 animate-gradient-x">
-                  {service.title}
-                </h1>
-                
-                <p className="text-xl text-white/90 mb-8 leading-relaxed font-medium">
-                  {service.fullDescription}
-                </p>
-                
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <button className="bg-gradient-to-r from-magenta-500 to-royal-500 text-white px-8 py-4 rounded-glass font-extrabold shadow-neon-purple hover:shadow-neon-cyan transition-all duration-300 animate-gradient-x">
-                    Get Started Today
-                  </button>
-                  <button className="bg-white/10 backdrop-blur-2xl border-2 border-electric-400 text-white hover:bg-white/20 rounded-glass px-8 py-4 font-extrabold transition-all duration-300 flex items-center justify-center gap-2">
-                    <PlayCircle className="w-5 h-5" />
-                    Watch Demo
-                  </button>
-                </div>
+                <Badge className="bg-white/20 text-white">Premium Service</Badge>
               </div>
               
-              <div className="relative">
-                <img
-                  src={service.heroImage}
-                  alt={service.title}
-                  className="rounded-glass shadow-neon-purple w-full h-auto"
-                />
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                {service.title}
+              </h1>
+              
+              <p className="text-xl opacity-90 mb-8">
+                {service.fullDescription}
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button className="bg-white text-green-600 hover:bg-gray-100 rounded-xl px-8 py-3 font-semibold">
+                  Get Started Today
+                </Button>
+                <Button variant="outline" className="border-white text-white hover:bg-white/10 bg-transparent rounded-xl px-8 py-3 font-semibold">
+                  <PlayCircle className="w-5 h-5 mr-2" />
+                  Watch Demo
+                </Button>
               </div>
+            </div>
+            
+            <div className="relative">
+              <img
+                src={service.heroImage}
+                alt={service.title}
+                className="rounded-2xl shadow-2xl"
+              />
             </div>
           </div>
         </div>
-        
-        {/* Content Tabs */}
-        <div className="py-20">
-          <div className="max-w-7xl mx-auto px-4">
-            {/* Tab Navigation */}
-            <div className="mb-12">
-              <div className="flex flex-wrap gap-2 bg-card-glass backdrop-blur-2xl rounded-glass p-2 border-2 border-electric-400 shadow-neon-purple">
-                {[
-                  { key: 'overview', label: 'Overview' },
-                  { key: 'features', label: 'Features' },
-                  { key: 'pricing', label: 'Pricing' },
-                  { key: 'implementation', label: 'Implementation' },
-                  { key: 'support', label: 'Support' }
-                ].map((tab) => (
-                  <button
-                    key={tab.key}
-                    onClick={() => setActiveTab(tab.key)}
-                    className={`px-6 py-3 rounded-glass font-semibold transition-all duration-300 ${
-                      activeTab === tab.key
-                        ? 'bg-gradient-to-r from-magenta-500 to-royal-500 text-white shadow-neon-purple animate-gradient-x'
-                        : 'text-white/80 hover:bg-white/10 hover:text-white'
-                    }`}
-                  >
-                    {tab.label}
-                  </button>
-                ))}
-              </div>
-            </div>
+      </div>
+      
+      {/* Content Tabs */}
+      <div className="py-20">
+        <div className="max-w-7xl mx-auto px-4">
+          <Tabs defaultValue="overview" className="space-y-8">
+            <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 bg-white dark:bg-slate-800 rounded-xl p-2 shadow-lg">
+              <TabsTrigger value="overview" className="rounded-lg">Overview</TabsTrigger>
+              <TabsTrigger value="features" className="rounded-lg">Features</TabsTrigger>
+              <TabsTrigger value="pricing" className="rounded-lg">Pricing</TabsTrigger>
+              <TabsTrigger value="implementation" className="rounded-lg">Implementation</TabsTrigger>
+              <TabsTrigger value="support" className="rounded-lg">Support</TabsTrigger>
+            </TabsList>
 
-            {/* Tab Content */}
-            <div className="bg-card-glass backdrop-blur-2xl rounded-glass p-12 border-2 border-electric-400 shadow-neon-purple">
-              {activeTab === 'overview' && <ServiceOverview service={service} />}
-              {activeTab === 'features' && <ServiceFeatures service={service} />}
-              {activeTab === 'pricing' && <ServicePricing service={service} />}
-              {activeTab === 'implementation' && <ServiceImplementation service={service} />}
-              {activeTab === 'support' && <ServiceSupport service={service} />}
-            </div>
-          </div>
+            <TabsContent value="overview">
+              <ServiceOverview service={service} />
+            </TabsContent>
+
+            <TabsContent value="features">
+              <ServiceFeatures service={service} />
+            </TabsContent>
+
+            <TabsContent value="pricing">
+              <ServicePricing service={service} />
+            </TabsContent>
+
+            <TabsContent value="implementation">
+              <ServiceImplementation service={service} />
+            </TabsContent>
+
+            <TabsContent value="support">
+              <ServiceSupport service={service} />
+            </TabsContent>
+          </Tabs>
         </div>
       </div>
     </div>
@@ -825,10 +806,10 @@ function ServiceDetailPage({ service, onBack, activeTab, setActiveTab }: {
  */
 function ServiceOverview({ service }: { service: ServiceDetail }) {
   return (
-    <div className="space-y-16">
+    <div className="space-y-12">
       {/* Benefits Grid */}
       <div>
-        <h3 className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-magenta-400 to-neon-400 mb-10 animate-gradient-x">Key Benefits</h3>
+        <h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8">Key Benefits</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {service.benefits.map((benefit, index) => (
             <motion.div
@@ -836,10 +817,10 @@ function ServiceOverview({ service }: { service: ServiceDetail }) {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white/10 backdrop-blur-2xl rounded-glass p-6 border border-white/20 hover:border-magenta-400 transition-all duration-300"
+              className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg border border-slate-200 dark:border-slate-700"
             >
-              <CheckCircle className="w-8 h-8 text-neon-400 mb-4" />
-              <p className="text-white/90 leading-relaxed">{benefit}</p>
+              <CheckCircle className="w-8 h-8 text-green-500 mb-4" />
+              <p className="text-gray-700 dark:text-gray-300">{benefit}</p>
             </motion.div>
           ))}
         </div>
@@ -848,31 +829,31 @@ function ServiceOverview({ service }: { service: ServiceDetail }) {
       {/* Case Study */}
       {service.caseStudies.length > 0 && (
         <div>
-          <h3 className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-magenta-400 to-neon-400 mb-10 animate-gradient-x">Success Story</h3>
-          <div className="bg-white/10 backdrop-blur-2xl rounded-glass p-10 border border-white/20">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8">Success Story</h3>
+          <div className="bg-gradient-to-br from-green-50 to-teal-50 dark:from-green-900/20 dark:to-teal-900/20 rounded-2xl p-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div>
-                <h4 className="text-2xl font-extrabold text-white mb-6">
+                <h4 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
                   {service.caseStudies[0].client}
                 </h4>
-                <div className="space-y-6">
+                <div className="space-y-4">
                   <div>
-                    <h5 className="font-bold text-neon-400 mb-3 text-lg">Challenge</h5>
-                    <p className="text-white/80 leading-relaxed">{service.caseStudies[0].challenge}</p>
+                    <h5 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">Challenge</h5>
+                    <p className="text-gray-600 dark:text-gray-400">{service.caseStudies[0].challenge}</p>
                   </div>
                   <div>
-                    <h5 className="font-bold text-electric-400 mb-3 text-lg">Solution</h5>
-                    <p className="text-white/80 leading-relaxed">{service.caseStudies[0].solution}</p>
+                    <h5 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">Solution</h5>
+                    <p className="text-gray-600 dark:text-gray-400">{service.caseStudies[0].solution}</p>
                   </div>
                 </div>
               </div>
               <div>
-                <h5 className="font-bold text-magenta-400 mb-6 text-lg">Results</h5>
-                <ul className="space-y-3">
+                <h5 className="font-semibold text-gray-800 dark:text-gray-200 mb-4">Results</h5>
+                <ul className="space-y-2">
                   {service.caseStudies[0].results.map((result, index) => (
-                    <li key={index} className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-neon-400 flex-shrink-0" />
-                      <span className="text-white/90 font-medium">{result}</span>
+                    <li key={index} className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                      <span className="text-gray-700 dark:text-gray-300">{result}</span>
                     </li>
                   ))}
                 </ul>
@@ -897,13 +878,13 @@ function ServiceFeatures({ service }: { service: ServiceDetail }) {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: index * 0.1 }}
-          className="bg-white/10 backdrop-blur-2xl rounded-glass p-8 border border-white/20 hover:border-magenta-400 transition-all duration-300"
+          className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg border border-slate-200 dark:border-slate-700"
         >
           <div className="flex items-start gap-4">
-            <CheckCircle className={`w-6 h-6 mt-1 ${feature.included ? 'text-neon-400' : 'text-white/40'}`} />
+            <CheckCircle className={`w-6 h-6 mt-1 ${feature.included ? 'text-green-500' : 'text-gray-400'}`} />
             <div>
-              <h4 className="font-extrabold text-white mb-3 text-lg">{feature.name}</h4>
-              <p className="text-white/80 leading-relaxed">{feature.description}</p>
+              <h4 className="font-bold text-gray-900 dark:text-gray-100 mb-2">{feature.name}</h4>
+              <p className="text-gray-600 dark:text-gray-400">{feature.description}</p>
             </div>
           </div>
         </motion.div>
@@ -932,42 +913,42 @@ function ServicePricing({ service }: { service: ServiceDetail }) {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
-            className={`relative bg-white/10 backdrop-blur-2xl rounded-glass p-8 border transition-all duration-300 ${
+            className={`relative bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg border ${
               plan.popular 
-                ? 'border-magenta-400 ring-2 ring-magenta-400/20 shadow-neon-purple' 
-                : 'border-white/20 hover:border-electric-400'
+                ? 'border-green-500 ring-2 ring-green-500/20' 
+                : 'border-slate-200 dark:border-slate-700'
             }`}
           >
             {plan.popular && (
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-magenta-500 to-royal-500 text-white px-4 py-2 rounded-full text-sm font-bold animate-gradient-x">
+              <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-green-500">
                 Most Popular
-              </div>
+              </Badge>
             )}
             
             <div className="text-center mb-8">
-              <h4 className="text-2xl font-extrabold text-white mb-4">{plan.name}</h4>
-              <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-magenta-400 to-neon-400 mb-4 animate-gradient-x">
+              <h4 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">{plan.name}</h4>
+              <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">
                 {planData.price}
               </div>
-              <p className="text-white/80 leading-relaxed">{planData.description}</p>
+              <p className="text-gray-600 dark:text-gray-400">{planData.description}</p>
             </div>
             
-            <ul className="space-y-4 mb-8">
+            <ul className="space-y-3 mb-8">
               {planData.features.map((feature, i) => (
-                <li key={i} className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-neon-400 flex-shrink-0" />
-                  <span className="text-white/90 font-medium">{feature}</span>
+                <li key={i} className="flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <span className="text-gray-700 dark:text-gray-300">{feature}</span>
                 </li>
               ))}
             </ul>
             
-            <button className={`w-full py-4 rounded-glass font-extrabold transition-all duration-300 ${
+            <Button className={`w-full rounded-xl ${
               plan.popular
-                ? 'bg-gradient-to-r from-magenta-500 to-royal-500 text-white shadow-neon-purple hover:shadow-neon-cyan animate-gradient-x'
-                : 'bg-white/10 border-2 border-electric-400 text-white hover:bg-white/20'
+                ? 'bg-green-500 hover:bg-green-600 text-white'
+                : 'bg-gray-100 hover:bg-gray-200 text-gray-900 dark:bg-slate-700 dark:hover:bg-slate-600 dark:text-gray-100'
             }`}>
               Get Started
-            </button>
+            </Button>
           </motion.div>
         );
       })}
@@ -980,22 +961,22 @@ function ServicePricing({ service }: { service: ServiceDetail }) {
  */
 function ServiceImplementation({ service }: { service: ServiceDetail }) {
   return (
-    <div className="space-y-12">
-      <div className="text-center mb-16">
-        <h3 className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-magenta-400 to-neon-400 mb-6 animate-gradient-x">
+    <div className="space-y-8">
+      <div className="text-center mb-12">
+        <h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">
           Implementation Timeline: {service.implementation.timeline}
         </h3>
-        <p className="text-xl text-white/90 font-medium">
+        <p className="text-xl text-gray-600 dark:text-gray-400">
           Our proven implementation process ensures a smooth transition to your new billing system
         </p>
       </div>
       
       <div className="relative">
         {/* Timeline Line */}
-        <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-magenta-500 via-royal-500 to-neon-500 animate-gradient-x"></div>
+        <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-green-500 to-teal-600"></div>
         
         {/* Steps */}
-        <div className="space-y-16">
+        <div className="space-y-12">
           {service.implementation.steps.map((step, index) => (
             <motion.div
               key={index}
@@ -1004,18 +985,18 @@ function ServiceImplementation({ service }: { service: ServiceDetail }) {
               transition={{ delay: index * 0.2 }}
               className="relative flex items-start gap-8"
             >
-              <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-magenta-500 to-royal-500 rounded-full flex items-center justify-center text-white font-extrabold text-lg shadow-neon-purple animate-gradient-x">
+              <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
                 {index + 1}
               </div>
               
-              <div className="bg-white/10 backdrop-blur-2xl rounded-glass p-8 border border-white/20 hover:border-magenta-400 transition-all duration-300 flex-1">
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg border border-slate-200 dark:border-slate-700 flex-1">
                 <div className="flex items-center justify-between mb-4">
-                  <h4 className="text-xl font-extrabold text-white">{step.title}</h4>
-                  <div className="px-4 py-2 bg-neon-500/20 border border-neon-400 text-neon-400 rounded-full text-sm font-bold">
+                  <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100">{step.title}</h4>
+                  <Badge variant="outline" className="text-green-600 border-green-600">
                     {step.duration}
-                  </div>
+                  </Badge>
                 </div>
-                <p className="text-white/80 leading-relaxed">{step.description}</p>
+                <p className="text-gray-600 dark:text-gray-400">{step.description}</p>
               </div>
             </motion.div>
           ))}
@@ -1030,10 +1011,10 @@ function ServiceImplementation({ service }: { service: ServiceDetail }) {
  */
 function ServiceSupport({ service }: { service: ServiceDetail }) {
   return (
-    <div className="space-y-16">
+    <div className="space-y-12">
       {/* FAQ Section */}
       <div>
-        <h3 className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-magenta-400 to-neon-400 mb-10 animate-gradient-x">Frequently Asked Questions</h3>
+        <h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8">Frequently Asked Questions</h3>
         <div className="space-y-6">
           {service.faqs.map((faq, index) => (
             <motion.div
@@ -1041,30 +1022,28 @@ function ServiceSupport({ service }: { service: ServiceDetail }) {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white/10 backdrop-blur-2xl rounded-glass p-8 border border-white/20 hover:border-magenta-400 transition-all duration-300"
+              className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg border border-slate-200 dark:border-slate-700"
             >
-              <h4 className="font-extrabold text-white mb-4 text-lg">{faq.question}</h4>
-              <p className="text-white/80 leading-relaxed">{faq.answer}</p>
+              <h4 className="font-bold text-gray-900 dark:text-gray-100 mb-3">{faq.question}</h4>
+              <p className="text-gray-600 dark:text-gray-400">{faq.answer}</p>
             </motion.div>
           ))}
         </div>
       </div>
       
       {/* Contact CTA */}
-      <div className="bg-white/10 backdrop-blur-2xl rounded-glass p-12 text-center border border-white/20">
-        <h3 className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-magenta-400 to-neon-400 mb-6 animate-gradient-x">
-          Still Have Questions?
-        </h3>
-        <p className="text-xl text-white/90 mb-8 font-medium">
+      <div className="bg-gradient-to-r from-green-500 via-teal-600 to-blue-600 rounded-2xl p-8 text-center text-white">
+        <h3 className="text-3xl font-bold mb-4">Still Have Questions?</h3>
+        <p className="text-xl opacity-90 mb-6">
           Our experts are here to help you choose the perfect solution for your practice
         </p>
-        <div className="flex flex-col sm:flex-row gap-6 justify-center">
-          <button className="bg-gradient-to-r from-magenta-500 to-royal-500 text-white px-8 py-4 rounded-glass font-extrabold shadow-neon-purple hover:shadow-neon-cyan transition-all duration-300 animate-gradient-x">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button className="bg-white text-green-600 hover:bg-gray-100 rounded-xl px-8 py-3 font-semibold">
             Schedule a Call
-          </button>
-          <button className="bg-white/10 backdrop-blur-2xl border-2 border-electric-400 text-white hover:bg-white/20 rounded-glass px-8 py-4 font-extrabold transition-all duration-300">
+          </Button>
+          <Button variant="outline" className="border-white text-white hover:bg-white/10 bg-transparent rounded-xl px-8 py-3 font-semibold">
             Live Chat Support
-          </button>
+          </Button>
         </div>
       </div>
     </div>

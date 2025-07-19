@@ -4,8 +4,8 @@
  */
 'use client';
 
-import { Moon, Sun } from 'lucide-react';
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { Moon, Sun } from 'lucide-react';
 import { Button } from './ui/button';
 
 type Theme = 'dark' | 'light' | 'system';
