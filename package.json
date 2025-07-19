@@ -10,8 +10,15 @@
     "lint": "next lint",
     "format": "prettier --write .",
     "type-check": "tsc --noEmit",
-    "clean": "rm -rf .next out",
-    "deploy": "npm run build && npm run start"
+    "clean": "rimraf .next out",
+    "deploy": "npm run build && npm run start",
+    "epic-dev": "echo 🚀 Starting EPIC BrightWell with maxed animations! && npm run dev",
+    "super-build": "echo 🔥 Building MAXED OUT website! && npm run clean && npm run build",
+    "show-website": "echo ✨ Opening BrightWell website... && start http://localhost:3001",
+    "full-deploy": "npm run format && npm run lint && npm run type-check && npm run super-build",
+    "count-lines": "powershell -Command \"(Get-Content app/page.tsx | Measure-Object -Line).Lines\"",
+    "animation-stats": "powershell -Command \"echo 'Page.tsx lines:'; (Get-Content app/page.tsx | Measure-Object -Line).Lines; echo 'MotionConfig lines:'; (Get-Content lib/motionConfig.ts | Measure-Object -Line).Lines\"",
+    "dev-and-open": "start npm run dev && timeout 3 && start http://localhost:3001"
   },
   "dependencies": {
     "framer-motion": "^11.15.0",
