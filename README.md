@@ -1,32 +1,83 @@
 # 🏥 BrightWell Medical Billing Website
 
-A modern, responsive website for BrightWell Medical Billing Services built with Next.js 14, React 18, TypeScript, and Tailwind CSS. Features advanced animations with Framer Motion and optimized performance.
+A modern, responsive website for BrightWell Medical Billing Services built with **Next.js 15.4.1**, **React 19.1.0**, **TypeScript 5.5+**, and **Tailwind CSS 4.1.11**. Features advanced animations with Framer Motion and optimized performance.
 
-## ✨ Features
+## 🤖 AI Assistant Guide
 
-- **Modern Tech Stack**: Next.js 14 with App Router, React 18, TypeScript 5
-- **Stunning Animations**: Framer Motion with optimized motion configurations
-- **Responsive Design**: Mobile-first design with Tailwind CSS
+This README is designed to help AI assistants understand and work with this project effectively. The project is a **production-ready medical billing website** with comprehensive features and modern architecture.
+
+### Current Project Status (July 18, 2025)
+
+- ✅ **Fully Functional**: Website runs cleanly on `http://localhost:3000`
+- ✅ **No Errors**: Clean compilation with no 404s or TypeScript errors
+- ✅ **Production Ready**: 217 lines of professional medical billing content
+- ✅ **Modern Stack**: Latest Next.js 15, React 19, TypeScript 5.5+
+- ✅ **Animations**: Advanced Framer Motion 12.23.6 implementation
+
+## ✨ Current Features
+
+- **Latest Tech Stack**: Next.js 15.4.1 with App Router, React 19.1.0, TypeScript 5.5+
+- **Advanced Animations**: Framer Motion 12.23.6 with optimized motion configurations
+- **Professional Content**: Complete medical billing website with hero, features, testimonials
+- **Responsive Design**: Mobile-first design with Tailwind CSS 4.1.11
+- **Hero Section**: "Illuminate Your Medical Revenue" with animated statistics
+- **Statistics Showcase**: 98% First-Pass Rate, 34% Revenue Increase, 60% Faster Collections
+- **HIPAA Compliance**: Professional medical billing messaging
+- **Testimonials**: Horizontal scrolling with gradient avatars (no image dependencies)
 - **Performance Optimized**: Sharp image optimization, bundle analysis, and analytics
 - **Type Safety**: Comprehensive TypeScript integration with strict configuration
 - **Code Quality**: ESLint, Prettier, and automated formatting
 - **Accessibility**: WCAG compliant with comprehensive a11y testing
 
-## 🚀 Quick Start
+## 🚀 Quick Start for AI Assistants
+
+When helping with this project, follow these commands:
 
 ```bash
-# Clone the repository
-git clone <repository-url>
-cd brightwell-website
+# 1. Navigate to project directory
+cd c:\Users\Fe4rm\BrightWell-Website
 
-# Install dependencies
-npm install
-
-# Start development server
+# 2. Check current development server status
 npm run dev
+# Server runs on http://localhost:3000 or 3001
 
-# Open browser to http://localhost:3000
+# 3. Build for production testing
+npm run build
+
+# 4. Check Git status for changes
+git status
+
+# 5. Common debugging commands
+npm run lint          # Check for linting errors
+Get-Content app/page.tsx | Measure-Object -Line  # Count lines in PowerShell
+taskkill /f /im node.exe    # Stop all Node processes if needed
 ```
+
+## 🎯 AI Assistant Instructions
+
+### Key Project Context
+
+- **Main file**: `app/page.tsx` (217 lines of comprehensive medical billing content)
+- **Working directory**: `c:\Users\Fe4rm\BrightWell-Website`
+- **Shell**: PowerShell (pwsh.exe) on Windows
+- **Current status**: Fully functional with clean development server
+
+### When Making Changes
+
+1. **Always check current file contents** before editing
+2. **Use absolute paths** in tool calls
+3. **PowerShell commands** for Windows environment
+4. **Preserve existing content** - this is a complete, working website
+5. **Test changes** by checking dev server output
+
+### Common Issues & Solutions
+
+- **Import errors**: Remove `.tsx` extensions from imports
+- **Missing images**: Use gradient avatars instead of image files
+- **Port conflicts**: Next.js will auto-switch to available port
+- **Multiple lock files**: Normal warning, can be ignored
+
+### File Structure to Maintain
 
 ## 📁 Project Structure
 

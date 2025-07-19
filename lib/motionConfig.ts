@@ -186,3 +186,316 @@ export const pageVariants: Variants = {
     transition: baseTransition,
   },
 };
+
+// 🚀 MAXED OUT ANIMATION VARIANTS 🚀
+
+// Hero section animations
+export const heroVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 100,
+    scale: 0.8,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 1.2,
+      ease: [0.22, 1, 0.36, 1],
+      staggerChildren: 0.3,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+export const heroTitleVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 50,
+    rotateX: -90,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    rotateX: 0,
+    transition: {
+      duration: 1,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+export const heroTextVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    x: -50,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.8,
+      delay: 0.3,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+// Statistics counter animations
+export const statsVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.5,
+    rotateY: -180,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    rotateY: 0,
+    transition: {
+      duration: 1.5,
+      ease: [0.22, 1, 0.36, 1],
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+export const statItemVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 30,
+    scale: 0.8,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 400,
+      damping: 25,
+    },
+  },
+  hover: {
+    scale: 1.1,
+    y: -10,
+    transition: {
+      type: 'spring',
+      stiffness: 600,
+      damping: 20,
+    },
+  },
+};
+
+// Card animations with 3D effects
+export const cardVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 80,
+    rotateX: -45,
+    scale: 0.8,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    rotateX: 0,
+    scale: 1,
+    transition: {
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+  hover: {
+    y: -15,
+    scale: 1.05,
+    rotateX: 5,
+    rotateY: 5,
+    transition: {
+      type: 'spring',
+      stiffness: 400,
+      damping: 25,
+    },
+  },
+  tap: {
+    scale: 0.95,
+    transition: {
+      duration: 0.1,
+    },
+  },
+};
+
+// Testimonial scroll animations
+export const testimonialVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    x: 100,
+    rotateY: 90,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    rotateY: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+  hover: {
+    scale: 1.02,
+    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+    transition: {
+      duration: 0.3,
+    },
+  },
+};
+
+// Feature grid animations
+export const featureGridVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+export const featureItemVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 60,
+    scale: 0.8,
+    rotateZ: -5,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    rotateZ: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 300,
+      damping: 30,
+    },
+  },
+  hover: {
+    y: -8,
+    scale: 1.03,
+    rotateZ: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 600,
+      damping: 20,
+    },
+  },
+};
+
+// CTA section animations
+export const ctaVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.9,
+    y: 50,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      duration: 1,
+      ease: [0.22, 1, 0.36, 1],
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+// Advanced button animations
+export const advancedButtonVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.8,
+    rotateX: -90,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    rotateX: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 400,
+      damping: 25,
+    },
+  },
+  hover: {
+    scale: 1.05,
+    y: -2,
+    boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+    transition: {
+      type: 'spring',
+      stiffness: 600,
+      damping: 20,
+    },
+  },
+  tap: {
+    scale: 0.95,
+    y: 0,
+    transition: {
+      duration: 0.1,
+    },
+  },
+};
+
+// Text reveal animations
+export const textRevealVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 20,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+// Container for staggered text
+export const textContainerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+// Floating animations for background elements
+export const floatingVariants: Variants = {
+  animate: {
+    y: [-10, 10, -10],
+    rotate: [-2, 2, -2],
+    transition: {
+      duration: 6,
+      repeat: Infinity,
+      ease: 'easeInOut',
+    },
+  },
+};
+
+// Pulse animation for attention-grabbing elements
+export const pulseVariants: Variants = {
+  animate: {
+    scale: [1, 1.05, 1],
+    transition: {
+      duration: 2,
+      repeat: Infinity,
+      ease: 'easeInOut',
+    },
+  },
+};
