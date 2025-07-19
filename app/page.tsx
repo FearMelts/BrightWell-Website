@@ -1,4 +1,6 @@
 'use client';
+import { LightningIcon, ShieldIcon, TargetIcon } from '@/components/icons/FeatureIcons';
+import { DarkModeToggle } from '@/components/ThemeProvider';
 import {
   advancedButtonVariants,
   ctaVariants,
@@ -29,18 +31,18 @@ import { useEffect, useRef, useState } from 'react';
 const features = [
   {
     title: 'Streamlined Billing',
-    description: 'Efficient processes to ensure timely and accurate billing.',
-    icon: '⚡',
+    description: 'Lightning-fast, automated, and accurate. No more paperwork headaches.',
+    icon: <LightningIcon />,
   },
   {
     title: 'Compliance Assurance',
-    description: 'Stay compliant with the latest healthcare regulations.',
-    icon: '🛡️',
+    description: 'Stay ahead of regulations with real-time updates and bulletproof security.',
+    icon: <ShieldIcon />,
   },
   {
     title: 'Dedicated Support',
-    description: 'Expert support to handle all your billing inquiries.',
-    icon: '🎯',
+    description: '24/7 expert help. Real humans, real answers, real fast.',
+    icon: <TargetIcon />,
   },
 ];
 
@@ -103,12 +105,12 @@ function FeatureCard({ feature, delay = 0 }: { feature: (typeof features)[0]; de
       variants={featureItemVariants}
       whileHover="hover"
       whileTap="tap"
-      className="flex flex-col items-center text-center bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 will-change-transform border border-gray-100 group relative overflow-hidden"
+      className="flex flex-col items-center text-center bg-card-glass dark:bg-card-glass backdrop-blur-2xl rounded-glass p-10 shadow-neon-purple border-2 border-royal-400 dark:border-royal-500 group relative overflow-hidden transition-all duration-700 hover:scale-105 hover:shadow-neon-cyan animate-float"
     >
-      <motion.div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <motion.div className="absolute inset-0 bg-gradient-to-br from-royal-500/10 via-electric-500/10 to-neon-500/10 dark:from-royal-400/10 dark:via-electric-400/10 dark:to-neon-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-gradient-x" />
 
       <motion.div
-        className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl mb-6 flex items-center justify-center text-3xl relative z-10"
+        className="w-24 h-24 flex items-center justify-center mb-8 relative z-10"
         whileHover={{ rotate: 360, scale: 1.1 }}
         transition={{ duration: 0.8, ease: 'easeInOut' }}
       >
@@ -116,14 +118,14 @@ function FeatureCard({ feature, delay = 0 }: { feature: (typeof features)[0]; de
       </motion.div>
 
       <motion.h3
-        className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors relative z-10"
+        className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-royal-500 via-electric-500 to-neon-500 dark:from-royal-400 dark:via-electric-400 dark:to-neon-400 group-hover:text-white transition-colors relative z-10 animate-gradient-x drop-shadow-[0_2px_16px_rgba(139,92,246,0.25)]"
         variants={textRevealVariants}
       >
         {feature.title}
       </motion.h3>
 
       <motion.p
-        className="text-gray-600 leading-relaxed relative z-10"
+        className="text-white/90 dark:text-white/90 leading-relaxed relative z-10 transition-colors duration-700 font-medium drop-shadow-[0_2px_16px_rgba(139,92,246,0.15)]"
         variants={textRevealVariants}
       >
         {feature.description}
@@ -144,16 +146,16 @@ function TestimonialCard({
     <motion.div
       variants={testimonialVariants}
       whileHover="hover"
-      className="min-w-[380px] snap-center flex-shrink-0 bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-xl p-8 text-center will-change-transform border border-gray-100 group relative overflow-hidden"
+      className="min-w-[380px] snap-center flex-shrink-0 bg-card-glass dark:bg-card-glass backdrop-blur-2xl rounded-glass shadow-neon-purple border-2 border-electric-400 dark:border-electric-500 p-10 text-center will-change-transform group relative overflow-hidden transition-all duration-700 hover:scale-105 hover:shadow-neon-cyan animate-float"
     >
-      <motion.div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <motion.div className="absolute inset-0 bg-gradient-to-br from-royal-500/10 via-electric-500/10 to-neon-500/10 dark:from-royal-400/10 dark:via-electric-400/10 dark:to-neon-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-gradient-x" />
 
       <motion.div
-        className="w-24 h-24 rounded-full mx-auto mb-6 bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 p-1 relative z-10"
+        className="w-24 h-24 rounded-full mx-auto mb-6 bg-gradient-to-br from-royal-500 via-electric-500 to-neon-500 dark:from-royal-400 dark:via-electric-400 dark:to-neon-400 p-1 relative z-10 shadow-lg animate-gradient-x"
         whileHover={{ rotate: 360, scale: 1.1 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="w-full h-full rounded-full bg-white flex items-center justify-center text-2xl font-bold text-gray-700">
+        <div className="w-full h-full rounded-full bg-white/80 dark:bg-slate-800/80 flex items-center justify-center text-2xl font-extrabold text-royal-700 dark:text-royal-300 transition-colors duration-700">
           {testimonial.name
             .split(' ')
             .map(n => n[0])
@@ -162,20 +164,23 @@ function TestimonialCard({
       </motion.div>
 
       <motion.p
-        className="text-gray-600 italic mb-6 text-lg leading-relaxed relative z-10"
+        className="text-white/90 dark:text-white/90 italic mb-6 text-xl leading-relaxed relative z-10 transition-colors duration-700 font-semibold drop-shadow-[0_2px_16px_rgba(139,92,246,0.15)]"
         variants={textRevealVariants}
       >
-        "{testimonial.quote}"
+        “{testimonial.quote}”
       </motion.p>
 
       <motion.div className="relative z-10">
         <motion.p
-          className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors"
+          className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-electric-500 to-magenta-500 dark:from-electric-400 dark:to-magenta-400 group-hover:text-white transition-colors duration-700 animate-gradient-x"
           variants={textRevealVariants}
         >
           {testimonial.name}
         </motion.p>
-        <motion.p className="text-sm text-gray-500" variants={textRevealVariants}>
+        <motion.p
+          className="text-sm text-white/70 dark:text-white/70 transition-colors duration-700 font-medium"
+          variants={textRevealVariants}
+        >
           {testimonial.position}
         </motion.p>
       </motion.div>
@@ -196,8 +201,9 @@ export default function UltraAnimatedPage() {
 
   return (
     <LazyMotion features={domAnimation}>
+      <DarkModeToggle />
       <div ref={containerRef}>
-        <main className="flex flex-col bg-gradient-to-b from-white via-blue-50/30 to-purple-50/30 text-gray-800 font-sans relative overflow-hidden">
+        <main className="flex flex-col bg-gradient-to-br from-slate-50 via-white to-blue-50/40 dark:from-slate-900 dark:via-gray-900 dark:to-blue-950/40 text-gray-900 dark:text-gray-50 font-sans relative overflow-hidden transition-colors duration-700">
           {/* Floating Background Elements */}
           <motion.div
             className="fixed top-20 left-20 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-purple-500/20 rounded-full blur-xl pointer-events-none"
@@ -218,11 +224,13 @@ export default function UltraAnimatedPage() {
           />
 
           {/* Hero Section */}
-          <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-4">
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-purple-600/5 to-pink-600/5"
-              style={{ y: backgroundY }}
-            />
+          <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 bg-hero-purple bg-[length:200%_200%] animate-gradient-x overflow-hidden">
+            {/* Glassmorphism Overlay */}
+            <div className="absolute inset-0 bg-glass dark:bg-glass-dark backdrop-blur-2xl z-0" />
+            {/* Animated Geometric Shapes */}
+            <motion.div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-gradient-to-br from-royal-500 via-electric-500 to-neon-500 opacity-40 blur-3xl animate-float z-0" />
+            <motion.div className="absolute top-1/2 right-0 w-80 h-80 bg-gradient-to-br from-magenta-500 via-royal-400 to-electric-400 opacity-30 blur-2xl animate-float z-0" />
+            <motion.div className="absolute bottom-0 left-1/3 w-72 h-72 bg-gradient-to-br from-neon-400 via-royal-400 to-magenta-400 opacity-30 blur-2xl animate-float z-0" />
 
             <motion.div
               className="relative z-10 flex flex-col items-center max-w-6xl mx-auto"
@@ -232,11 +240,11 @@ export default function UltraAnimatedPage() {
             >
               <motion.div variants={heroTitleVariants} className="mb-8" style={{ y: textY }}>
                 <motion.h1
-                  className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 tracking-tight leading-none mb-6"
+                  className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-royal-500 via-electric-500 to-neon-500 dark:from-royal-400 dark:via-electric-400 dark:to-neon-400 tracking-tight leading-none mb-6 drop-shadow-[0_4px_32px_rgba(139,92,246,0.45)]"
                   variants={textContainerVariants}
                 >
                   <motion.span variants={textRevealVariants} className="inline-block">
-                    Illuminate
+                    Dominate
                   </motion.span>{' '}
                   <motion.span variants={textRevealVariants} className="inline-block">
                     Your
@@ -250,41 +258,29 @@ export default function UltraAnimatedPage() {
                   </motion.span>
                 </motion.h1>
                 <motion.div
-                  className="h-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full mx-auto"
+                  className="h-3 bg-gradient-to-r from-royal-500 via-electric-500 to-neon-500 dark:from-royal-400 dark:via-electric-400 dark:to-neon-400 rounded-full mx-auto shadow-neon-purple animate-gradient-x"
                   initial={{ width: 0 }}
-                  animate={{ width: '300px' }}
+                  animate={{ width: '340px' }}
                   transition={{ delay: 1.5, duration: 1.2 }}
                 />
               </motion.div>
 
               <motion.p
                 variants={heroTextVariants}
-                className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed max-w-4xl"
+                className="text-2xl md:text-3xl text-white/90 dark:text-white/90 mb-12 leading-relaxed max-w-4xl transition-colors duration-700 font-semibold drop-shadow-[0_2px_16px_rgba(139,92,246,0.25)]"
               >
-                Transform your medical billing with our cutting-edge solutions. Experience{' '}
-                <motion.span
-                  className="text-blue-600 font-bold"
-                  whileHover={{ scale: 1.1, color: '#8B5CF6' }}
-                  transition={{ duration: 0.3 }}
-                >
-                  unprecedented accuracy
-                </motion.span>
-                ,{' '}
-                <motion.span
-                  className="text-purple-600 font-bold"
-                  whileHover={{ scale: 1.1, color: '#EC4899' }}
-                  transition={{ duration: 0.3 }}
-                >
-                  lightning-fast processing
-                </motion.span>
-                , and{' '}
-                <motion.span
-                  className="text-pink-600 font-bold"
-                  whileHover={{ scale: 1.1, color: '#3B82F6' }}
-                  transition={{ duration: 0.3 }}
-                >
-                  maximum revenue recovery
-                </motion.span>
+                Supercharge your billing with{' '}
+                <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-magenta-400 via-royal-400 to-neon-400 animate-gradient-x">
+                  AI-driven automation
+                </span>
+                ,
+                <span className="mx-2 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-neon-400 via-electric-400 to-magenta-400 animate-gradient-x">
+                  real-time compliance
+                </span>
+                , and
+                <span className="mx-2 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-royal-400 via-magenta-400 to-electric-400 animate-gradient-x">
+                  24/7 expert support
+                </span>
                 .
               </motion.p>
 
@@ -294,9 +290,9 @@ export default function UltraAnimatedPage() {
                 whileTap="tap"
                 className="mb-16"
               >
-                <button className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white px-12 py-6 rounded-2xl text-xl font-bold shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 relative overflow-hidden group">
-                  <motion.span className="absolute inset-0 bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <span className="relative z-10">Start Your Journey</span>
+                <button className="bg-gradient-to-r from-royal-500 via-electric-500 to-neon-500 dark:from-royal-400 dark:via-electric-400 dark:to-neon-400 text-white px-16 py-7 rounded-glass text-2xl font-extrabold shadow-neon-purple hover:shadow-neon-cyan transition-all duration-700 relative overflow-hidden group border-0 animate-gradient-x">
+                  <motion.span className="absolute inset-0 bg-gradient-to-r from-magenta-500 via-royal-500 to-neon-500 dark:from-magenta-400 dark:via-royal-400 dark:to-neon-400 opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-gradient-x" />
+                  <span className="relative z-10 tracking-wider">Get Started Instantly</span>
                 </button>
               </motion.div>
 
@@ -308,16 +304,16 @@ export default function UltraAnimatedPage() {
                 <motion.div
                   variants={statItemVariants}
                   whileHover="hover"
-                  className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/50 text-center group cursor-pointer"
+                  className="bg-card-glass dark:bg-card-glass backdrop-blur-2xl rounded-glass p-10 shadow-neon-purple border-2 border-royal-400 dark:border-royal-500 text-center group cursor-pointer transition-all duration-700 hover:scale-105 hover:shadow-neon-cyan animate-float"
                 >
                   <motion.div
-                    className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-3"
+                    className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-royal-500 to-neon-500 dark:from-royal-400 dark:to-neon-400 mb-3 animate-gradient-x"
                     variants={pulseVariants}
                     animate="animate"
                   >
                     <AnimatedCounter value="98%" duration={2} />
                   </motion.div>
-                  <p className="text-gray-600 font-bold text-lg group-hover:text-gray-800 transition-colors">
+                  <p className="text-white font-bold text-xl group-hover:text-neon-400 transition-colors tracking-wide uppercase drop-shadow-[0_2px_16px_rgba(139,92,246,0.25)]">
                     First-Pass Rate
                   </p>
                 </motion.div>
@@ -325,16 +321,16 @@ export default function UltraAnimatedPage() {
                 <motion.div
                   variants={statItemVariants}
                   whileHover="hover"
-                  className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/50 text-center group cursor-pointer"
+                  className="bg-card-glass dark:bg-card-glass backdrop-blur-2xl rounded-glass p-10 shadow-neon-purple border-2 border-electric-400 dark:border-electric-500 text-center group cursor-pointer transition-all duration-700 hover:scale-105 hover:shadow-neon-cyan animate-float"
                 >
                   <motion.div
-                    className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-3"
+                    className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-electric-500 to-magenta-500 dark:from-electric-400 dark:to-magenta-400 mb-3 animate-gradient-x"
                     variants={pulseVariants}
                     animate="animate"
                   >
                     <AnimatedCounter value="34%" duration={2.5} />
                   </motion.div>
-                  <p className="text-gray-600 font-bold text-lg group-hover:text-gray-800 transition-colors">
+                  <p className="text-white font-bold text-xl group-hover:text-magenta-400 transition-colors tracking-wide uppercase drop-shadow-[0_2px_16px_rgba(139,92,246,0.25)]">
                     Revenue Increase
                   </p>
                 </motion.div>
@@ -342,16 +338,16 @@ export default function UltraAnimatedPage() {
                 <motion.div
                   variants={statItemVariants}
                   whileHover="hover"
-                  className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/50 text-center group cursor-pointer"
+                  className="bg-card-glass dark:bg-card-glass backdrop-blur-2xl rounded-glass p-10 shadow-neon-purple border-2 border-magenta-400 dark:border-magenta-500 text-center group cursor-pointer transition-all duration-700 hover:scale-105 hover:shadow-neon-cyan animate-float"
                 >
                   <motion.div
-                    className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-600 mb-3"
+                    className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-magenta-500 to-royal-500 dark:from-magenta-400 dark:to-royal-400 mb-3 animate-gradient-x"
                     variants={pulseVariants}
                     animate="animate"
                   >
                     <AnimatedCounter value="60%" duration={3} />
                   </motion.div>
-                  <p className="text-gray-600 font-bold text-lg group-hover:text-gray-800 transition-colors">
+                  <p className="text-white font-bold text-xl group-hover:text-royal-400 transition-colors tracking-wide uppercase drop-shadow-[0_2px_16px_rgba(139,92,246,0.25)]">
                     Faster Collections
                   </p>
                 </motion.div>
@@ -361,7 +357,7 @@ export default function UltraAnimatedPage() {
 
           {/* Features Section */}
           <motion.section
-            className="py-32 px-4 md:px-16 bg-white relative"
+            className="py-32 px-4 md:px-16 bg-gradient-to-br from-slate-50 to-white dark:from-slate-900 dark:to-slate-800 relative transition-colors duration-700"
             variants={featureGridVariants}
             initial="hidden"
             whileInView="visible"
@@ -370,13 +366,13 @@ export default function UltraAnimatedPage() {
             <motion.div className="max-w-7xl mx-auto">
               <motion.div className="text-center mb-20" variants={textContainerVariants}>
                 <motion.h2
-                  className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-8 leading-tight"
+                  className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-purple-600 dark:from-cyan-400 dark:to-purple-400 mb-8 leading-tight"
                   variants={textRevealVariants}
                 >
                   Powerful Features
                 </motion.h2>
                 <motion.p
-                  className="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
+                  className="text-2xl text-slate-700 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed transition-colors duration-700"
                   variants={textRevealVariants}
                 >
                   Discover the comprehensive suite of tools designed to revolutionize your medical
@@ -397,7 +393,7 @@ export default function UltraAnimatedPage() {
 
           {/* Testimonials Section */}
           <motion.section
-            className="py-32 bg-gradient-to-br from-gray-50 to-blue-50/50 relative overflow-hidden"
+            className="py-32 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-800 dark:to-slate-900 relative overflow-hidden transition-colors duration-700"
             variants={textContainerVariants}
             initial="hidden"
             whileInView="visible"
@@ -406,13 +402,13 @@ export default function UltraAnimatedPage() {
             <motion.div className="max-w-7xl mx-auto px-4">
               <motion.div className="text-center mb-20" variants={textContainerVariants}>
                 <motion.h2
-                  className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-8 leading-tight"
+                  className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-violet-600 dark:from-blue-400 dark:to-violet-400 mb-8 leading-tight"
                   variants={textRevealVariants}
                 >
                   Client Success Stories
                 </motion.h2>
                 <motion.p
-                  className="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
+                  className="text-2xl text-slate-700 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed transition-colors duration-700"
                   variants={textRevealVariants}
                 >
                   Hear from healthcare professionals who transformed their billing with BrightWell
@@ -436,33 +432,34 @@ export default function UltraAnimatedPage() {
 
           {/* CTA Section */}
           <motion.section
-            className="py-32 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white relative overflow-hidden"
+            className="py-36 bg-cta-gradient bg-[length:200%_200%] animate-gradient-x text-white relative overflow-hidden transition-colors duration-700"
             variants={ctaVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <motion.div
-              className="absolute inset-0 bg-black/20"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 2 }}
-            />
+            {/* Glassy Overlay & Animated Shapes */}
+            <div className="absolute inset-0 bg-glass dark:bg-glass-dark backdrop-blur-2xl z-0" />
+            <motion.div className="absolute -top-24 left-1/2 w-96 h-96 rounded-full bg-gradient-to-br from-magenta-500 via-royal-500 to-neon-500 opacity-30 blur-3xl animate-float z-0" />
+            <motion.div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-br from-neon-400 via-electric-400 to-magenta-400 opacity-20 blur-2xl animate-float z-0" />
 
             <motion.div className="max-w-5xl mx-auto px-4 text-center relative z-10">
               <motion.h2
-                className="text-7xl font-black mb-10 leading-tight"
+                className="text-7xl font-black mb-10 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-magenta-500 via-royal-500 to-neon-500 animate-gradient-x drop-shadow-[0_4px_32px_rgba(139,92,246,0.45)]"
                 variants={heroTitleVariants}
               >
-                Ready to Transform Your Practice?
+                Ready to Dominate Your Revenue?
               </motion.h2>
 
               <motion.p
-                className="text-2xl mb-16 opacity-90 leading-relaxed max-w-4xl mx-auto"
+                className="text-3xl mb-16 opacity-90 leading-relaxed max-w-4xl mx-auto font-semibold drop-shadow-[0_2px_16px_rgba(139,92,246,0.25)]"
                 variants={heroTextVariants}
               >
-                Join thousands of healthcare providers who have revolutionized their billing process
-                with BrightWell
+                Join the movement. Thousands of providers are already maximizing their billing with{' '}
+                <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-royal-400 via-electric-400 to-neon-400 animate-gradient-x">
+                  BrightWell
+                </span>
+                .
               </motion.p>
 
               <motion.div
@@ -471,9 +468,9 @@ export default function UltraAnimatedPage() {
                 whileTap="tap"
                 className="inline-block"
               >
-                <button className="bg-white text-gray-900 px-16 py-8 rounded-2xl text-2xl font-bold shadow-2xl hover:shadow-white/25 transition-all duration-500 relative overflow-hidden group">
-                  <motion.span className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
-                  <span className="relative z-10">Start Your Free Trial</span>
+                <button className="bg-gradient-to-r from-magenta-500 via-royal-500 to-neon-500 dark:from-magenta-400 dark:via-royal-400 dark:to-neon-400 text-white px-20 py-8 rounded-glass text-3xl font-extrabold shadow-neon-purple hover:shadow-neon-cyan transition-all duration-700 relative overflow-hidden group border-0 animate-gradient-x">
+                  <motion.span className="absolute inset-0 bg-gradient-to-r from-royal-500 via-electric-500 to-neon-500 dark:from-royal-400 dark:via-electric-400 dark:to-neon-400 opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-gradient-x" />
+                  <span className="relative z-10 tracking-wider">Start Your Free Trial</span>
                 </button>
               </motion.div>
             </motion.div>
