@@ -1,0 +1,194 @@
+/* Ultimate Performance CSS Optimizations */
+.ultimate-performance-layer {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.ultimate-gpu-acceleration {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.ultimate-contain-layout {
+  contain: layout style paint;
+  content-visibility: auto;
+}
+
+.ultimate-animation-layer {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.ultimate-text-optimized {
+  text-rendering: optimizeSpeed;
+  font-display: swap;
+}
+
+.ultimate-critical-path {
+  contain: strict;
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* High-performance card animations */
+.ultimate-card {
+  transition:
+    transform 0.3s ease-out,
+    box-shadow 0.3s ease-out;
+}
+
+.ultimate-card:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Optimized image loading */
+.ultimate-image {
+  transition: transform 0.3s ease-out;
+}
+
+.ultimate-image:hover {
+  transform: scale(1.05);
+}
+
+/* Memory-efficient animations */
+.ultimate-fade-in {
+  animation: ultimateFadeIn 0.4s ease-out forwards;
+}
+
+.ultimate-slide-up {
+  animation: ultimateSlideUp 0.4s ease-out forwards;
+}
+
+@keyframes ultimateFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ultimateSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Performance-optimized gradients */
+.ultimate-gradient-bg {
+  background: linear-gradient(135deg, #f8fafc 0%, #dbeafe 100%);
+  background-attachment: fixed;
+}
+
+.ultimate-dark-gradient-bg {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background-attachment: fixed;
+}
+
+/* Optimized button effects */
+.ultimate-button {
+  transition: all 0.2s ease-out;
+  will-change: transform;
+}
+
+.ultimate-button:hover {
+  transform: translateY(-1px);
+}
+
+.ultimate-button:active {
+  transform: translateY(0);
+}
+
+/* Efficient shadow effects */
+.ultimate-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-out;
+}
+
+.ultimate-shadow:hover {
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Layout stability */
+.ultimate-stable-layout {
+  aspect-ratio: 16/9;
+  background-color: #f3f4f6;
+}
+
+/* Performance monitoring overlay */
+.ultimate-perf-overlay {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  z-index: 9999;
+  font-family: monospace;
+}
+
+/* Reduced motion fallbacks */
+@media (prefers-reduced-motion: reduce) {
+  .ultimate-card,
+  .ultimate-image,
+  .ultimate-button {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .ultimate-fade-in,
+  .ultimate-slide-up {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .ultimate-card {
+    border: 2px solid;
+  }
+
+  .ultimate-gradient-bg,
+  .ultimate-dark-gradient-bg {
+    background: none;
+  }
+}
+
+/* Low bandwidth optimizations */
+@media (prefers-reduced-data: reduce) {
+  .ultimate-gradient-bg,
+  .ultimate-dark-gradient-bg {
+    background: #f8fafc;
+  }
+
+  .ultimate-shadow {
+    box-shadow: none;
+    border: 1px solid #e5e7eb;
+  }
+}
+
+/* Print styles */
+@media print {
+  .ultimate-card,
+  .ultimate-button {
+    transform: none !important;
+    transition: none !important;
+    box-shadow: none !important;
+  }
+}
