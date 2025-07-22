@@ -1,7 +1,7 @@
 'use client';
 
-import { DarkModeToggle } from '@/components/DarkModeToggle';
-import { LightningIcon, ShieldIcon, TargetIcon } from '@/components/icons/FeatureIcons';
+import { DarkModeToggle } from '@/components/darkModeToggle';
+import { LightningIcon, ShieldIcon, TargetIcon } from '@/components/icons/featureIcons';
 import {
   advancedButtonVariants,
   ctaVariants,
