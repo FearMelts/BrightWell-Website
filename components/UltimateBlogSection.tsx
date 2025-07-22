@@ -1,8 +1,8 @@
-/**
+i; /**
  * ULTIMATE OPTIMIZED BLOG SECTION
  * Production-grade component with maximum performance enhancements
  */
-'use client';
+('use client');
 import {
   ArrowRight,
   BookOpen,

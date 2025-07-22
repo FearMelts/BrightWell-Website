@@ -1,11 +1,6 @@
-/**
- * Production-grade asset optimization and preloading
- * Advanced resource management with intelligent caching
- */
 import { motion, useAnimation, useMotionValue } from 'framer-motion';
 import React, { Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
-// Asset types for optimization
 export enum AssetType {
   IMAGE = 'image',
   VIDEO = 'video',
@@ -15,15 +10,13 @@ export enum AssetType {
   AUDIO = 'audio',
 }
 
-// Asset priority levels
 export enum AssetPriority {
-  CRITICAL = 'high',
+  CRITICAL = 'critical',
   HIGH = 'high',
-  MEDIUM = 'low',
+  MEDIUM = 'medium',
   LOW = 'low',
 }
 
-// Asset loading strategies
 export enum LoadingStrategy {
   EAGER = 'eager',
   LAZY = 'lazy',
@@ -44,7 +37,6 @@ interface AssetConfig {
   media?: string;
 }
 
-// Advanced asset preloader with intelligent caching
 export class AssetPreloader {
   private cache = new Map<string, Promise<any>>();
   private loadedAssets = new Set<string>();
@@ -147,13 +139,13 @@ export class AssetPreloader {
           break;
 
         case AssetType.STYLE:
-          const link = document.createElement('link');
-          link.rel = 'stylesheet';
-          link.onload = () => resolve(link);
-          link.onerror = reject;
-          if (crossOrigin) link.crossOrigin = crossOrigin;
-          link.href = src;
-          document.head.appendChild(link);
+          const styleLink = document.createElement('link');
+          styleLink.rel = 'stylesheet';
+          styleLink.onload = () => resolve(styleLink);
+          styleLink.onerror = reject;
+          if (crossOrigin) styleLink.crossOrigin = crossOrigin;
+          styleLink.href = src;
+          document.head.appendChild(styleLink);
           break;
 
         default:
@@ -320,227 +312,14 @@ export const OptimizedImage = ({
   }
 
   return (
-    <AssetErrorBoundary>
-      <motion.img
-        src={optimizedSrc}
-        alt={alt}
-        width={width}
-        height={height}
-        sizes={sizes}
-        loading={strategy === LoadingStrategy.LAZY ? 'lazy' : 'eager'}
-        decoding="async"
-        onLoad={() => {
-          setIsLoaded(true);
-          onLoad?.();
-        }}
-        onError={e => {
-          setHasError(true);
-          onError?.(new Error('Image failed to load'));
-        }}
-        className={`${className} will-change-transform`}
-        initial={{ opacity: 0 }}
-        animate={controls}
-        style={{ opacity: motionOpacity, backfaceVisibility: 'hidden', transform: 'translateZ(0)' }}
-      />
-    </AssetErrorBoundary>
-  );
-};
-
-// --- Error Boundary for production reliability ---
-class AssetErrorBoundary extends React.Component<
-  { children: React.ReactNode },
-  { hasError: boolean }
-> {
-  constructor(props: any) {
-    super(props);
-    this.state = { hasError: false };
-  }
-  static getDerivedStateFromError() {
-    return { hasError: true };
-  }
-  componentDidCatch(error: any, info: any) {
-    // TODO: Integrate with production monitoring (e.g., Sentry)
-    if (process.env.NODE_ENV === 'production') {
-      // sendErrorToMonitoringService(error, info);
-    }
-  }
-  render() {
-    if (this.state.hasError) {
-      return (
-        <div className="bg-red-100 text-red-700 p-2 rounded">
-          Something went wrong loading this asset.
-        </div>
-      );
-    }
-    return this.props.children;
-  }
-}
-
-// --- Debounce utility for gestures ---
-function debounce<T extends (...args: any[]) => void>(fn: T, ms = 100) {
-  let timeout: ReturnType<typeof setTimeout>;
-  return (...args: Parameters<T>) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => fn(...args), ms);
-  };
-}
-
-// --- Animation queue for resource management ---
-const animationQueue: Array<() => void> = [];
-let isAnimating = false;
-function queueAnimation(fn: () => void) {
-  animationQueue.push(fn);
-  if (!isAnimating) {
-    isAnimating = true;
-    requestAnimationFrame(runAnimationQueue);
-  }
-}
-function runAnimationQueue() {
-  while (animationQueue.length) {
-    const fn = animationQueue.shift();
-    fn && fn();
-  }
-  isAnimating = false;
-}
-
-// --- Lazy load heavy components ---
-const LazyOptimizedVideo = lazy(
-  () => import(/* webpackChunkName: "OptimizedVideo" */ './OptimizedVideoImpl')
-);
-
-// --- OptimizedVideo moved to a separate chunk for code splitting ---
-/*
-  To enable bundle splitting, move OptimizedVideo to its own file:
-  ./OptimizedVideoImpl.tsx
-  and export as default.
-  Here, we lazy load it and wrap with Suspense.
-*/
-export const OptimizedVideo = (props: any) => (
-  <AssetErrorBoundary>
-    <Suspense fallback={<div className="bg-gray-100 animate-pulse w-full h-48" />}>
-      <LazyOptimizedVideo {...props} />
-    </Suspense>
-  </AssetErrorBoundary>
-);
-
-// --- Enhanced font optimization with progressive enhancement ---
-export const optimizeFonts = (
-  fonts: Array<{
-    family: string;
-    weights: number[];
-    display?: 'auto' | 'swap' | 'fallback' | 'optional';
-  }>
-) => {
-  if (typeof document === 'undefined' || !('fonts' in document)) return;
-
-  fonts.forEach(({ family, weights, display = 'swap' }) => {
-    weights.forEach(weight => {
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.as = 'font';
-      link.type = 'font/woff2';
-      link.crossOrigin = 'anonymous';
-      link.href = `/fonts/${family}-${weight}.woff2`;
-      document.head.appendChild(link);
-    });
-
-    // Add font-display CSS
-    const style = document.createElement('style');
-    style.textContent = `
-      @font-face {
-        font-family: '${family}';
-        font-display: ${display};
-      }
-    `;
-    document.head.appendChild(style);
-  });
-};
-
-// --- Production monitoring hook (placeholder) ---
-export function useProductionMonitoring() {
-  useEffect(() => {
-    if (process.env.NODE_ENV === 'production') {
-      // Integrate with analytics/monitoring here
-      // e.g., window.monitoringService?.init();
-    }
-  }, []);
-}
-// --- Critical CSS inlining utility ---
-    if (strategy === LoadingStrategy.INTERSECTION && videoRef.current) {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setShouldLoad(true);
-            observer.disconnect();
-          }
-        },
-        { rootMargin: '100px 0px' }
-      );
-
-      observer.observe(videoRef.current);
-      return () => observer.disconnect();
-    }
-  }, [strategy]);
-
-  return (
-    <video
-      ref={videoRef}
+    <motion.img
+      src={optimizedSrc}
+      alt={alt}
       width={width}
       height={height}
-      poster={poster}
-      autoPlay={autoPlay && isLoaded}
-      muted={muted}
-      loop={loop}
-      controls={controls}
-      className={className}
-      preload="metadata"
-      playsInline
-    >
-      {shouldLoad && <source src={src} type="video/mp4" />}
-    </video>
-  );
-};
+      sizes={sizes}
+      loading={strategy === LoadingStrategy.LAZY ? 'lazy' : 'eager'}
+      decoding="async"
+      onLoad={() => {
+        setIsLoaded(true);
 
-// --- Enhanced font optimization with progressive enhancement ---
-export const optimizeFonts = (
-  fonts: Array<{
-    family: string;
-    weights: number[];
-    display?: 'auto' | 'swap' | 'fallback' | 'optional';
-  }>
-) => {
-  if (typeof document === 'undefined' || !('fonts' in document)) return;
-
-  fonts.forEach(({ family, weights, display = 'swap' }) => {
-    weights.forEach(weight => {
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.as = 'font';
-      link.type = 'font/woff2';
-      link.crossOrigin = 'anonymous';
-      link.href = `/fonts/${family}-${weight}.woff2`;
-      document.head.appendChild(link);
-    });
-
-    // Add font-display CSS
-    const style = document.createElement('style');
-    style.textContent = `
-      @font-face {
-        font-family: '${family}';
-        font-display: ${display};
-      }
-    `;
-    document.head.appendChild(style);
-  });
-};
-
-// --- Production monitoring hook (placeholder) ---
-export function useProductionMonitoring() {
-  useEffect(() => {
-    if (process.env.NODE_ENV === 'production') {
-      // Integrate with analytics/monitoring here
-      // e.g., window.monitoringService?.init();
-    }
-  }, []);
-}
-// --- Critical CSS inlining utility ---
