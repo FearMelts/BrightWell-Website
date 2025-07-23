@@ -1,0 +1,214 @@
+name: ✨ Feature Request
+description: Suggest a new feature for BrightWell Website
+title: "[FEATURE] "
+labels: ["enhancement", "feature-request"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🏥 BrightWell Medical Billing - Feature Request
+        
+        Thank you for suggesting a new feature! Your input helps us improve our medical billing platform.
+        Please provide detailed information about your feature request.
+
+  - type: checkboxes
+    id: preliminary-checks
+    attributes:
+      label: 🔍 Preliminary Checks
+      description: Please confirm you have completed these checks
+      options:
+        - label: I have searched existing issues and feature requests
+          required: true
+        - label: This feature doesn't already exist
+          required: true
+        - label: I have checked the roadmap/documentation
+          required: true
+
+  - type: dropdown
+    id: feature-category
+    attributes:
+      label: 🏷️ Feature Category
+      description: What category does this feature belong to?
+      options:
+        - "🏥 Medical Billing Core Features"
+        - "🎨 UI/UX Improvements"
+        - "⚡ Performance Enhancements"
+        - "🔒 Security Features"
+        - "📱 Mobile/Responsive Features"
+        - "♿ Accessibility Features"
+        - "📊 Analytics/Reporting"
+        - "🤖 Automation Features"
+        - "🔧 Developer Experience"
+        - "📚 Documentation"
+        - "Other"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 🚨 Priority Level
+      description: How important is this feature to you?
+      options:
+        - "🔴 Critical - Blocking business operations"
+        - "🟠 High - Significantly improves workflow"
+        - "🟡 Medium - Nice to have improvement"
+        - "🔵 Low - Minor enhancement"
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: 📝 Feature Summary
+      description: A clear and concise description of the feature you'd like to see
+      placeholder: Briefly describe the feature you want
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem-statement
+    attributes:
+      label: 🎯 Problem Statement
+      description: What problem does this feature solve?
+      placeholder: |
+        Is your feature request related to a problem? Please describe.
+        e.g., "I'm always frustrated when..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: 💡 Proposed Solution
+      description: Describe the solution you'd like
+      placeholder: A clear and concise description of what you want to happen
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternative-solutions
+    attributes:
+      label: 🔄 Alternative Solutions
+      description: Describe alternatives you've considered
+      placeholder: A clear and concise description of any alternative solutions or features you've considered
+
+  - type: textarea
+    id: user-stories
+    attributes:
+      label: 👥 User Stories
+      description: Describe how different users would interact with this feature
+      placeholder: |
+        As a [user type], I want [goal] so that [benefit]
+        
+        Example:
+        - As a medical billing specialist, I want automated claim status checking so that I can reduce manual follow-up work
+        - As a practice manager, I want real-time revenue reports so that I can make informed business decisions
+
+  - type: checkboxes
+    id: user-types
+    attributes:
+      label: 🎭 Target Users
+      description: Who would benefit from this feature?
+      options:
+        - label: Medical billing specialists
+        - label: Practice managers
+        - label: Healthcare providers/doctors
+        - label: Administrative staff
+        - label: Patients
+        - label: System administrators
+        - label: Developers/integrators
+        - label: Compliance officers
+
+  - type: checkboxes
+    id: medical-billing-aspects
+    attributes:
+      label: 🏥 Medical Billing Aspects
+      description: Which aspects of medical billing does this feature touch?
+      options:
+        - label: Claims processing
+        - label: Revenue cycle management
+        - label: Denial management
+        - label: Patient billing
+        - label: Insurance verification
+        - label: Coding (ICD-10, CPT)
+        - label: Compliance/HIPAA
+        - label: Reporting and analytics
+        - label: Payment processing
+        - label: Prior authorization
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: ✅ Acceptance Criteria
+      description: What criteria must be met for this feature to be considered complete?
+      placeholder: |
+        - [ ] Criterion 1
+        - [ ] Criterion 2
+        - [ ] Criterion 3
+
+  - type: textarea
+    id: mockups-wireframes
+    attributes:
+      label: 🎨 Mockups/Wireframes
+      description: Add any visual mockups, wireframes, or design ideas
+      placeholder: Drag and drop images here or paste links to design files
+
+  - type: dropdown
+    id: complexity-estimate
+    attributes:
+      label: ⚙️ Complexity Estimate
+      description: How complex do you think this feature would be to implement?
+      options:
+        - "🟢 Simple - Minor UI changes or configuration"
+        - "🟡 Medium - New component or moderate backend work"
+        - "🟠 Complex - Major system changes or integrations"
+        - "🔴 Very Complex - Requires significant architecture changes"
+        - "❓ Unsure"
+
+  - type: textarea
+    id: business-impact
+    attributes:
+      label: 📈 Business Impact
+      description: How would this feature impact business operations or revenue?
+      placeholder: |
+        - Potential revenue increase
+        - Cost savings
+        - Efficiency improvements
+        - Risk reduction
+        - Compliance benefits
+
+  - type: checkboxes
+    id: dependencies
+    attributes:
+      label: 🔗 Dependencies
+      description: Does this feature depend on or integrate with any existing systems?
+      options:
+        - label: EHR/EMR systems
+        - label: Practice management software
+        - label: Insurance portals
+        - label: Payment processors
+        - label: Third-party APIs
+        - label: Existing BrightWell features
+        - label: No external dependencies
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: 📋 Additional Context
+      description: Add any other context, screenshots, or research about the feature
+      placeholder: Any additional information that might be helpful
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: 🤝 Contribution
+      description: Would you like to contribute to this feature?
+      options:
+        - label: I would like to help implement this feature
+        - label: I can provide design mockups
+        - label: I can help with testing
+        - label: I can help with documentation
+        - label: I can provide domain expertise

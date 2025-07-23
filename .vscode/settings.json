@@ -198,17 +198,43 @@
     "*": true,
     "yaml": true,
     "plaintext": false,
-    "markdown": true
+    "markdown": true,
+    "json": true,
+    "jsonc": true,
+    "javascript": true,
+    "javascriptreact": true,
+    "typescript": true,
+    "typescriptreact": true,
+    "css": true,
+    "scss": true,
+    "html": true
   },
   "github.copilot.editor.enableAutoCompletions": true,
+  "github.copilot.editor.enableCodeActions": true,
+  "github.copilot.editor.iterativeFixing": true,
   "github.copilot.advanced": {
     "secret_key": "anonymous",
-    "length": 500,
-    "temperature": "",
-    "top_p": "",
+    "length": 1000,
+    "temperature": "0.1",
+    "top_p": "0.95",
     "listCount": 10,
-    "inlineSuggestCount": 3
+    "inlineSuggestCount": 5
   },
+  "github.copilot.chat.localeOverride": "en",
+  "github.copilot.chat.followUps": "always",
+  "github.copilot.chat.welcomeMessage": "always",
+  "github.copilot.renameSuggestions.triggerAutomatically": true,
+  "github.copilot.suggestions.trigger.automatic": true,
+  "github.copilot.contextualSuggestions.enabled": true,
+
+  // === COPILOT CHAT & INLINE FEATURES ===
+  "inlineChat.acceptedOrDiscardBeforeSave": true,
+  "inlineChat.enabled": true,
+  "inlineChat.mode": "live",
+
+  // === COPILOT PRIVACY & SECURITY ===
+  "github.copilot.telemetry.enabled": false,
+  "github.copilot.remoteLogging.enabled": false,
 
   // === LIVE SHARE CONFIGURATION ===
   "liveshare.featureSet": "stable",

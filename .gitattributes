@@ -118,10 +118,10 @@ bower_components/* linguist-vendored=true
 *.bundle.css linguist-generated=true
 
 # Export options
-export-ignore .gitattributes
-export-ignore .gitignore
-export-ignore .vscode/
-export-ignore node_modules/
-export-ignore .next/
-export-ignore coverage/
-export-ignore *.log
+.gitattributes export-ignore
+.gitignore export-ignore
+.vscode/ export-ignore
+node_modules/ export-ignore
+.next/ export-ignore
+coverage/ export-ignore
+*.log export-ignore
