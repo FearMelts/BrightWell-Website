@@ -118,7 +118,7 @@ export class AssetPreloader {
             font.load().then(resolve).catch(reject);
           } else {
             // Fallback for older browsers
-            const link = document.createElement('link');
+            const link = (document as Document).createElement('link');
             link.rel = 'preload';
             link.as = 'font';
             link.href = src;
@@ -332,7 +332,5 @@ export const OptimizedImage = ({
       animate={controls}
       exit={{ opacity: 0 }}
     />
-  );
-};
   );
 };

@@ -4,9 +4,8 @@
  */
 'use client';
 
-import { UltimateOptimizedBlogSection } from '@/components/ProductionBlogSection';
+import { UltimateOptimizedBlogSection } from '@/components/SimpleBlogSection';
 import { UltimatePerformanceProvider } from '@/lib/performance/ultimateOptimization';
-import { PerformanceMonitor } from '@/lib/performance/performanceMonitor';
 import { motion, LazyMotion, domAnimation } from 'framer-motion';
 import {
   ArrowRight,
@@ -164,13 +163,6 @@ export default function HomePage() {
     <LazyMotion features={domAnimation}>
       <UltimatePerformanceProvider>
         <main className="min-h-screen">
-          {/* Performance monitor for development */}
-          {process.env.NODE_ENV === 'development' && (
-            <Suspense fallback={null}>
-              <PerformanceMonitor />
-            </Suspense>
-          )}
-          
           <OptimizedHeroSection />
           <PerformanceShowcase />
           

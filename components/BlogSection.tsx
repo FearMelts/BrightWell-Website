@@ -3,7 +3,7 @@
  * Features medical billing tips, industry news, and expert insights
  */
 'use client';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';

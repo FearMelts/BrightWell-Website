@@ -3,7 +3,7 @@
  * Features customer success stories with video content and engagement metrics
  */
 'use client';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';

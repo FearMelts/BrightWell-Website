@@ -480,7 +480,7 @@ export const bundleOptimizations = {
 
     modules.forEach(moduleCode => {
       const imports = moduleCode.match(/import .* from ['"](.*)['"]/g) || [];
-      imports.forEach(importLine => {
+      imports.forEach((importLine: string) => {
         const match = importLine.match(/from ['"](.*)['"]/);
         if (match) {
           const dependency = match[1];

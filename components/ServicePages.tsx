@@ -3,7 +3,7 @@
  * Features detailed service descriptions, pricing, benefits, and implementation guides
  */
 'use client';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';

@@ -4,7 +4,7 @@ import AnimatedButton from '@/components/animations/AnimatedButtons';
 import AnimatedMetric from '@/components/animations/AnimatedMetric';
 import ModernAnimations from '@/components/animations/ModernAnimations';
 import ParallaxHero from '@/components/animations/ParallaxHero';
-import { fadeVariants, staggerContainer } from '@/lib/motionConfig';
+import { fadeInVariants, staggerContainer } from '@/lib/motionConfig';
 import { motion } from 'framer-motion';
 
 export default function AnimationShowcase() {
@@ -42,7 +42,7 @@ export default function AnimationShowcase() {
         className="py-20 bg-white"
       >
         <div className="container mx-auto px-4">
-          <motion.h2 variants={fadeVariants} className="text-4xl font-bold text-center mb-12">
+          <motion.h2 variants={fadeInVariants} className="text-4xl font-bold text-center mb-12">
             Performance Metrics
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -51,7 +51,7 @@ export default function AnimationShowcase() {
               { value: 150, suffix: '+', label: 'Components' },
               { value: 2.5, suffix: 's', label: 'Load Time', decimals: 1 },
             ].map((metric, index) => (
-              <motion.div key={index} variants={fadeVariants} className="text-center">
+              <motion.div key={index} variants={fadeInVariants} className="text-center">
                 <div className="text-5xl font-bold text-blue-600 mb-2">
                   <AnimatedMetric
                     from={0}
