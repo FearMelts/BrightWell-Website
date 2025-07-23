@@ -43,12 +43,7 @@
     "source.organizeImports": "explicit",
     "source.removeUnusedImports": "explicit"
   },
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "eslint.format.enable": true,
   "prettier.requireConfig": true,
   "prettier.useEditorConfig": false,
@@ -167,7 +162,6 @@
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.rightClickBehavior": "default",
   "terminal.integrated.confirmOnExit": "hasChildProcesses",
-  "terminal.integrated.enableBell": false,
   "terminal.integrated.scrollback": 10000,
 
   // === WORKBENCH APPEARANCE ===
@@ -282,5 +276,12 @@
   "typescript.preferences.quoteStyle": "single",
   "javascript.preferences.quoteStyle": "single",
   "typescript.format.semicolons": "insert",
-  "javascript.format.semicolons": "insert"
+  "javascript.format.semicolons": "insert",
+  "workbench.editor.tabActionLocation": "right",
+  "accessibility.signals.terminalBell": {
+    "sound": "off"
+  },
+  "terminal.integrated.enableVisualBell": false,
+  "cSpell.words": ["AUTOCODING"],
+  "todo-tree.tree.scanMode": "workspace only"
 }

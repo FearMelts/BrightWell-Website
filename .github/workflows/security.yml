@@ -4,9 +4,9 @@ on:
   schedule:
     - cron: '0 2 * * 1' # Every Monday at 2 AM
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -14,7 +14,6 @@ jobs:
   dependency-audit:
     name: 📦 Dependency Security Audit
     runs-on: ubuntu-latest
-    
     steps:
       - name: 📥 Checkout code
         uses: actions/checkout@v4
@@ -50,7 +49,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'javascript', 'typescript' ]
+        language: ['javascript', 'typescript']
 
     steps:
       - name: 📥 Checkout code
@@ -71,7 +70,7 @@ jobs:
   secret-scan:
     name: 🔐 Secret Scanning
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: 📥 Checkout code
         uses: actions/checkout@v4
@@ -91,7 +90,7 @@ jobs:
     name: 🐳 Container Security Scan
     runs-on: ubuntu-latest
     if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
-    
+
     steps:
       - name: 📥 Checkout code
         uses: actions/checkout@v4
@@ -116,7 +115,7 @@ jobs:
   hipaa-compliance:
     name: 🏥 HIPAA Compliance Check
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: 📥 Checkout code
         uses: actions/checkout@v4
@@ -124,19 +123,19 @@ jobs:
       - name: 🔍 Check for HIPAA violations
         run: |
           echo "🏥 Checking HIPAA compliance..."
-          
+
           # Check for hardcoded sensitive data patterns
           if grep -r -i "ssn\|social.*security\|patient.*id\|medical.*record" --include="*.js" --include="*.ts" --include="*.jsx" --include="*.tsx" .; then
             echo "❌ Potential HIPAA violation: Hardcoded sensitive data found"
             exit 1
           fi
-          
+
           # Check for insecure data handling
           if grep -r -i "localStorage.*patient\|sessionStorage.*medical" --include="*.js" --include="*.ts" --include="*.jsx" --include="*.tsx" .; then
             echo "❌ Potential HIPAA violation: Insecure patient data storage"
             exit 1
           fi
-          
+
           echo "✅ HIPAA compliance check passed"
 
   # === SECURITY SUMMARY ===
@@ -145,7 +144,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [dependency-audit, codeql-analysis, secret-scan, hipaa-compliance]
     if: always()
-    
+
     steps:
       - name: 📊 Generate security report
         run: |

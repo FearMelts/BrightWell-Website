@@ -2,14 +2,14 @@ name: ✨ Feature Request
 description: Suggest a new feature for BrightWell Website
 title: "[FEATURE] "
 labels: ["enhancement", "feature-request"]
-assignees: []
+assignees: [enhancement]
 
 body:
   - type: markdown
     attributes:
       value: |
         ## 🏥 BrightWell Medical Billing - Feature Request
-        
+
         Thank you for suggesting a new feature! Your input helps us improve our medical billing platform.
         Please provide detailed information about your feature request.
 
@@ -102,7 +102,7 @@ body:
       description: Describe how different users would interact with this feature
       placeholder: |
         As a [user type], I want [goal] so that [benefit]
-        
+        ---
         Example:
         - As a medical billing specialist, I want automated claim status checking so that I can reduce manual follow-up work
         - As a practice manager, I want real-time revenue reports so that I can make informed business decisions

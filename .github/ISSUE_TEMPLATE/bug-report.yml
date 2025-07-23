@@ -2,14 +2,14 @@ name: 🐛 Bug Report
 description: Report a bug to help us improve BrightWell Website
 title: "[BUG] "
 labels: ["bug", "triage"]
-assignees: []
+assignees: [bug]
 
 body:
   - type: markdown
     attributes:
       value: |
         ## 🏥 BrightWell Medical Billing - Bug Report
-        
+
         Thank you for reporting a bug! This helps us improve our medical billing platform.
         Please fill out the sections below to help us understand and resolve the issue.
 
