@@ -1,0 +1,165 @@
+name: 🔒 Security Audit
+
+on:
+  schedule:
+    - cron: '0 2 * * 1' # Every Monday at 2 AM
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  # === DEPENDENCY AUDIT ===
+  dependency-audit:
+    name: 📦 Dependency Security Audit
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: 🔧 Install dependencies
+        run: npm ci
+
+      - name: 🛡️ Run npm audit
+        run: npm audit --audit-level high
+
+      - name: 🔍 Run Snyk security scan
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity-threshold=high
+
+  # === CODE SCANNING ===
+  codeql-analysis:
+    name: 🔎 CodeQL Analysis
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'javascript', 'typescript' ]
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🔧 Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+
+      - name: 🏗️ Build code
+        uses: github/codeql-action/autobuild@v3
+
+      - name: 🔍 Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+
+  # === SECRET SCANNING ===
+  secret-scan:
+    name: 🔐 Secret Scanning
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🔍 Run TruffleHog
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          base: main
+          head: HEAD
+          extra_args: --debug --only-verified
+
+  # === CONTAINER SECURITY ===
+  container-scan:
+    name: 🐳 Container Security Scan
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🐳 Build Docker image
+        run: |
+          docker build -t brightwell-website:latest .
+
+      - name: 🔍 Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'brightwell-website:latest'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+
+      - name: 📊 Upload Trivy scan results
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: 'trivy-results.sarif'
+
+  # === HIPAA COMPLIANCE CHECK ===
+  hipaa-compliance:
+    name: 🏥 HIPAA Compliance Check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🔍 Check for HIPAA violations
+        run: |
+          echo "🏥 Checking HIPAA compliance..."
+          
+          # Check for hardcoded sensitive data patterns
+          if grep -r -i "ssn\|social.*security\|patient.*id\|medical.*record" --include="*.js" --include="*.ts" --include="*.jsx" --include="*.tsx" .; then
+            echo "❌ Potential HIPAA violation: Hardcoded sensitive data found"
+            exit 1
+          fi
+          
+          # Check for insecure data handling
+          if grep -r -i "localStorage.*patient\|sessionStorage.*medical" --include="*.js" --include="*.ts" --include="*.jsx" --include="*.tsx" .; then
+            echo "❌ Potential HIPAA violation: Insecure patient data storage"
+            exit 1
+          fi
+          
+          echo "✅ HIPAA compliance check passed"
+
+  # === SECURITY SUMMARY ===
+  security-summary:
+    name: 📋 Security Summary
+    runs-on: ubuntu-latest
+    needs: [dependency-audit, codeql-analysis, secret-scan, hipaa-compliance]
+    if: always()
+    
+    steps:
+      - name: 📊 Generate security report
+        run: |
+          echo "# 🔒 Security Audit Summary" > security-report.md
+          echo "" >> security-report.md
+          echo "## 📦 Dependency Audit: ${{ needs.dependency-audit.result }}" >> security-report.md
+          echo "## 🔎 Code Analysis: ${{ needs.codeql-analysis.result }}" >> security-report.md
+          echo "## 🔐 Secret Scan: ${{ needs.secret-scan.result }}" >> security-report.md
+          echo "## 🏥 HIPAA Compliance: ${{ needs.hipaa-compliance.result }}" >> security-report.md
+          echo "" >> security-report.md
+          echo "Generated on: $(date)" >> security-report.md
+
+      - name: 📎 Upload security report
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-report
+          path: security-report.md

@@ -1,0 +1,101 @@
+{
+  "recommendations": [
+    // === CORE DEVELOPMENT ===
+    "ms-vscode.vscode-typescript-next",
+    "bradlc.vscode-tailwindcss",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "ms-vscode.vscode-json",
+
+    // === REACT & NEXT.JS ===
+    "dsznajder.es7-react-js-snippets",
+    "formulahendry.auto-rename-tag",
+    "christian-kohler.path-intellisense",
+    "christian-kohler.npm-intellisense",
+    "ms-vscode.vscode-node-azure-pack",
+
+    // === GITHUB INTEGRATION ===
+    "github.copilot",
+    "github.copilot-chat",
+    "github.vscode-pull-request-github",
+    "github.vscode-github-actions",
+    "github.remotehub",
+
+    // === COLLABORATION ===
+    "ms-vsliveshare.vsliveshare",
+    "ms-vsliveshare.vsliveshare-audio",
+    "ms-vsliveshare.vsliveshare-pack",
+
+    // === REMOTE DEVELOPMENT ===
+    "ms-vscode-remote.remote-containers",
+    "ms-vscode-remote.remote-ssh",
+    "ms-vscode-remote.remote-wsl",
+    "ms-vscode-remote.vscode-remote-extensionpack",
+
+    // === TESTING ===
+    "orta.vscode-jest",
+    "ms-playwright.playwright",
+    "hbenl.vscode-test-explorer",
+    "firsttris.vscode-jest-runner",
+
+    // === DATABASE & API ===
+    "ms-vscode.vscode-json",
+    "humao.rest-client",
+    "rangav.vscode-thunder-client",
+
+    // === MARKDOWN & DOCUMENTATION ===
+    "yzhang.markdown-all-in-one",
+    "shd101wyy.markdown-preview-enhanced",
+    "davidanson.vscode-markdownlint",
+    "bierner.markdown-mermaid",
+
+    // === DOCKER & DEPLOYMENT ===
+    "ms-azuretools.vscode-docker",
+    "ms-vscode.azure-account",
+    "ms-azuretools.vscode-azureappservice",
+
+    // === PRODUCTIVITY ===
+    "alefragnani.bookmarks",
+    "oderwat.indent-rainbow",
+    "pkief.material-icon-theme",
+    "gruntfuggly.todo-tree",
+    "streetsidesoftware.code-spell-checker",
+
+    // === CSS & STYLING ===
+    "zignd.html-css-class-completion",
+    "ecmel.vscode-html-css",
+    "pranaygp.vscode-css-peek",
+    "kamikillerto.vscode-colorize",
+
+    // === CODE QUALITY ===
+    "sonarsource.sonarlint-vscode",
+    "ms-vscode.hexeditor",
+    "shardulm94.trailing-spaces",
+    "aaron-bond.better-comments",
+
+    // === FILE MANAGEMENT ===
+    "sleistner.vscode-fileutils",
+    "patbenatar.advanced-new-file",
+    "formulahendry.auto-close-tag",
+
+    // === FRAMER MOTION & ANIMATIONS ===
+    "bradlc.vscode-tailwindcss",
+    "styled-components.vscode-styled-components",
+
+    // === PERFORMANCE & MONITORING ===
+    "ms-vscode.vscode-performance",
+    "wallabyjs.wallaby-vscode",
+
+    // === SECURITY ===
+    "ms-vscode.vscode-security",
+    "snyk-security.snyk-vulnerability-scanner"
+  ],
+  "unwantedRecommendations": [
+    // Prevent conflicting extensions
+    "ms-vscode.vscode-typescript",
+    "hookyqr.beautify",
+    "ms-vscode.vscode-css",
+    "ms-vscode.vscode-html",
+    "bradlc.vscode-tailwindcss-legacy"
+  ]
+}
