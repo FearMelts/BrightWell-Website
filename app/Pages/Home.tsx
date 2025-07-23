@@ -3,13 +3,26 @@
  * Includes all advanced animations, contact forms, blog, video testimonials, and service pages
  */
 'use client';
-import { DarkModeToggle } from '../components/ThemeProvider';
-import { ContactForm, ContactInfoCards } from '../components/ContactForm';
-import { BlogSection } from '../components/BlogSection';
-import { VideoTestimonials } from '../components/VideoTestimonials';
-import { ServicePages } from '../components/ServicePages';
+import { Button } from 'components/ui/button';
 import {
-  advancedButtonVariants,
+  ArrowRight,
+  Mail,
+  MapPin,
+  Phone,
+  Shield,
+  Star,
+  Stethoscope,
+  TrendingUp,
+  Users,
+} from 'lucide-react';
+import { motion, useInView, useScroll, useTransform } from 'motion/react';
+import { useEffect, useRef, useState } from 'react';
+import { BlogSection } from '../components/BlogSection';
+import { ContactForm, ContactInfoCards } from '../components/ContactForm';
+import { ServicePages } from '../components/ServicePages';
+import { DarkModeToggle } from '../components/ThemeProvider';
+import { VideoTestimonials } from '../components/VideoTestimonials';
+import {
   ctaVariants,
   featureGridVariants,
   featureItemVariants,
@@ -17,58 +30,54 @@ import {
   heroTextVariants,
   heroTitleVariants,
   heroVariants,
-  pulseVariants,
   statItemVariants,
   statsVariants,
   testimonialVariants,
   textContainerVariants,
   textRevealVariants,
 } from '../lib/motionConfig';
-import { Button } from '../components/ui/button';
-import {
-  motion,
-  useInView,
-  useScroll,
-  useTransform,
-} from 'motion/react';
-import { useEffect, useRef, useState } from 'react';
-import { ArrowRight, CheckCircle, Phone, Mail, MapPin, Star, TrendingUp, Users, Shield, Zap, Calendar, Award, Stethoscope, DollarSign } from 'lucide-react';
 
 // --- Data ---
 const features = [
   {
     title: 'Streamlined Billing',
-    description: 'Efficient processes to ensure timely and accurate billing with automated workflows and real-time tracking.',
+    description:
+      'Efficient processes to ensure timely and accurate billing with automated workflows and real-time tracking.',
     icon: '⚡',
     color: 'from-cyan-500 to-blue-600',
   },
   {
     title: 'Compliance Assurance',
-    description: 'Stay compliant with the latest healthcare regulations including HIPAA, ICD-10, and billing standards.',
+    description:
+      'Stay compliant with the latest healthcare regulations including HIPAA, ICD-10, and billing standards.',
     icon: '🛡️',
     color: 'from-purple-500 to-pink-600',
   },
   {
     title: 'Dedicated Support',
-    description: 'Expert support team available 24/7 to handle all your billing inquiries and provide personalized assistance.',
+    description:
+      'Expert support team available 24/7 to handle all your billing inquiries and provide personalized assistance.',
     icon: '🎯',
     color: 'from-green-500 to-teal-600',
   },
   {
     title: 'Revenue Optimization',
-    description: 'Advanced analytics and reporting to maximize your revenue potential and minimize claim denials.',
+    description:
+      'Advanced analytics and reporting to maximize your revenue potential and minimize claim denials.',
     icon: '📈',
     color: 'from-orange-500 to-red-600',
   },
   {
     title: 'Seamless Integration',
-    description: 'Easy integration with existing practice management systems and EHR platforms for smooth operations.',
+    description:
+      'Easy integration with existing practice management systems and EHR platforms for smooth operations.',
     icon: '🔗',
     color: 'from-blue-500 to-indigo-600',
   },
   {
     title: 'Data Security',
-    description: 'Bank-level security measures to protect sensitive patient information and ensure complete data privacy.',
+    description:
+      'Bank-level security measures to protect sensitive patient information and ensure complete data privacy.',
     icon: '🔒',
     color: 'from-pink-500 to-purple-600',
   },
@@ -77,28 +86,32 @@ const features = [
 const testimonials = [
   {
     name: 'Dr. Sarah Johnson',
-    quote: 'BrightWell transformed our billing process completely! Our revenue increased by 40% in just 3 months.',
+    quote:
+      'BrightWell transformed our billing process completely! Our revenue increased by 40% in just 3 months.',
     position: 'Chief Medical Officer',
     company: 'Metro Health Group',
     rating: 5,
   },
   {
     name: 'Mike Chen',
-    quote: 'Our claims are processed faster and with greater accuracy. The team is incredibly responsive and professional.',
+    quote:
+      'Our claims are processed faster and with greater accuracy. The team is incredibly responsive and professional.',
     position: 'Practice Manager',
     company: 'Sunrise Family Practice',
     rating: 5,
   },
   {
     name: 'Lisa Rodriguez',
-    quote: 'The support team is always ready to assist us. Their expertise has been invaluable to our practice growth.',
+    quote:
+      'The support team is always ready to assist us. Their expertise has been invaluable to our practice growth.',
     position: 'Healthcare Provider',
     company: 'Wellness Center Plus',
     rating: 5,
   },
   {
     name: 'Dr. James Wilson',
-    quote: 'Outstanding service and remarkable results. Our denial rate dropped to less than 2% since partnering with BrightWell.',
+    quote:
+      'Outstanding service and remarkable results. Our denial rate dropped to less than 2% since partnering with BrightWell.',
     position: 'Medical Director',
     company: 'Advanced Care Clinic',
     rating: 5,
@@ -115,13 +128,13 @@ const stats = [
 // --- Navigation Component ---
 function Navigation() {
   const [activeSection, setActiveSection] = useState('home');
-  
+
   const sections = [
     { id: 'home', label: 'Home' },
     { id: 'services', label: 'Services' },
     { id: 'testimonials', label: 'Success Stories' },
     { id: 'blog', label: 'Insights' },
-    { id: 'contact', label: 'Contact' }
+    { id: 'contact', label: 'Contact' },
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -146,9 +159,9 @@ function Navigation() {
             </div>
             <span className="text-xl font-bold text-gray-900 dark:text-gray-100">BrightWell</span>
           </div>
-          
+
           <div className="hidden md:flex items-center space-x-8">
-            {sections.map((section) => (
+            {sections.map(section => (
               <button
                 key={section.id}
                 onClick={() => scrollToSection(section.id)}
@@ -320,9 +333,8 @@ export default function UltraAnimatedPage() {
   return (
     <div ref={containerRef}>
       <Navigation />
-      
+
       <main className="flex flex-col bg-gradient-to-br from-slate-50 via-white to-blue-50/40 dark:from-slate-900 dark:via-gray-900 dark:to-blue-950/40 text-gray-900 dark:text-gray-50 font-sans relative overflow-hidden transition-colors duration-700">
-        
         {/* Floating Background Elements */}
         <motion.div
           className="fixed top-20 left-20 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-purple-500/20 rounded-full blur-xl pointer-events-none"
@@ -343,7 +355,10 @@ export default function UltraAnimatedPage() {
         />
 
         {/* Hero Section */}
-        <section id="home" className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 bg-gradient-to-br from-cyan-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-blue-950 dark:to-purple-950 transition-colors duration-700 pt-16">
+        <section
+          id="home"
+          className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 bg-gradient-to-br from-cyan-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-blue-950 dark:to-purple-950 transition-colors duration-700 pt-16"
+        >
           <motion.div
             className="absolute inset-0 bg-gradient-to-br from-cyan-500/8 via-blue-600/12 to-purple-600/8 dark:from-cyan-400/15 dark:via-blue-500/20 dark:to-purple-500/15"
             style={{ y: backgroundY }}
@@ -380,14 +395,11 @@ export default function UltraAnimatedPage() {
               className="text-xl md:text-2xl lg:text-3xl text-slate-700 dark:text-slate-300 mb-12 max-w-4xl leading-relaxed font-light"
               variants={heroTextVariants}
             >
-              Transform your healthcare practice with our comprehensive medical billing solutions. 
+              Transform your healthcare practice with our comprehensive medical billing solutions.
               Maximize revenue, ensure compliance, and focus on what matters most - patient care.
             </motion.p>
 
-            <motion.div
-              className="flex flex-col sm:flex-row gap-6 mb-16"
-              variants={ctaVariants}
-            >
+            <motion.div className="flex flex-col sm:flex-row gap-6 mb-16" variants={ctaVariants}>
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-6 rounded-2xl text-lg font-semibold shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300 transform hover:scale-105"
@@ -430,7 +442,10 @@ export default function UltraAnimatedPage() {
         </section>
 
         {/* Features Section */}
-        <section id="services" className="py-20 px-4 bg-gradient-to-br from-white via-blue-50/30 to-cyan-50/50 dark:from-slate-900 dark:via-blue-950/50 dark:to-cyan-950/30 transition-colors duration-700">
+        <section
+          id="services"
+          className="py-20 px-4 bg-gradient-to-br from-white via-blue-50/30 to-cyan-50/50 dark:from-slate-900 dark:via-blue-950/50 dark:to-cyan-950/30 transition-colors duration-700"
+        >
           <div className="max-w-7xl mx-auto">
             <motion.div
               className="text-center mb-16"
@@ -443,7 +458,8 @@ export default function UltraAnimatedPage() {
                 Our Solutions
               </h2>
               <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-                Comprehensive medical billing services designed to optimize your revenue cycle and streamline your practice operations.
+                Comprehensive medical billing services designed to optimize your revenue cycle and
+                streamline your practice operations.
               </p>
             </motion.div>
 
@@ -468,7 +484,10 @@ export default function UltraAnimatedPage() {
         <VideoTestimonials />
 
         {/* Testimonials Section */}
-        <section id="testimonials" className="py-20 px-4 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20 dark:from-slate-900 dark:via-blue-950/30 dark:to-purple-950/20 transition-colors duration-700">
+        <section
+          id="testimonials"
+          className="py-20 px-4 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20 dark:from-slate-900 dark:via-blue-950/30 dark:to-purple-950/20 transition-colors duration-700"
+        >
           <div className="max-w-7xl mx-auto">
             <motion.div
               className="text-center mb-16"
@@ -481,7 +500,8 @@ export default function UltraAnimatedPage() {
                 Success Stories
               </h2>
               <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-                Hear from healthcare providers who have transformed their practices with BrightWell's medical billing solutions.
+                Hear from healthcare providers who have transformed their practices with
+                BrightWell's medical billing solutions.
               </p>
             </motion.div>
 
@@ -507,7 +527,10 @@ export default function UltraAnimatedPage() {
         <BlogSection />
 
         {/* Contact Section */}
-        <section id="contact" className="py-20 px-4 bg-gradient-to-br from-cyan-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-blue-950 dark:to-purple-950 transition-colors duration-700">
+        <section
+          id="contact"
+          className="py-20 px-4 bg-gradient-to-br from-cyan-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-blue-950 dark:to-purple-950 transition-colors duration-700"
+        >
           <div className="max-w-7xl mx-auto">
             <motion.div
               className="text-center mb-16"
@@ -520,7 +543,8 @@ export default function UltraAnimatedPage() {
                 Get In Touch
               </h2>
               <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-                Ready to transform your medical billing? Contact us today for a free consultation and discover how we can optimize your revenue cycle.
+                Ready to transform your medical billing? Contact us today for a free consultation
+                and discover how we can optimize your revenue cycle.
               </p>
             </motion.div>
 
@@ -544,7 +568,8 @@ export default function UltraAnimatedPage() {
                 Ready to Transform Your Practice?
               </h2>
               <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                Join thousands of healthcare providers who trust BrightWell for their medical billing needs.
+                Join thousands of healthcare providers who trust BrightWell for their medical
+                billing needs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
@@ -579,10 +604,11 @@ export default function UltraAnimatedPage() {
                   <span className="text-xl font-bold">BrightWell</span>
                 </div>
                 <p className="text-slate-400">
-                  Illuminating your path to optimized medical revenue through expert billing solutions.
+                  Illuminating your path to optimized medical revenue through expert billing
+                  solutions.
                 </p>
               </div>
-              
+
               <div>
                 <h4 className="font-semibold mb-4">Services</h4>
                 <ul className="space-y-2 text-slate-400">
@@ -592,7 +618,7 @@ export default function UltraAnimatedPage() {
                   <li>Analytics & Reporting</li>
                 </ul>
               </div>
-              
+
               <div>
                 <h4 className="font-semibold mb-4">Company</h4>
                 <ul className="space-y-2 text-slate-400">
@@ -602,7 +628,7 @@ export default function UltraAnimatedPage() {
                   <li>Case Studies</li>
                 </ul>
               </div>
-              
+
               <div>
                 <h4 className="font-semibold mb-4">Contact</h4>
                 <ul className="space-y-2 text-slate-400">
@@ -621,7 +647,7 @@ export default function UltraAnimatedPage() {
                 </ul>
               </div>
             </div>
-            
+
             <div className="border-t border-slate-800 mt-8 pt-8 text-center text-slate-400">
               <p>&copy; 2024 BrightWell Medical Billing. All rights reserved.</p>
             </div>

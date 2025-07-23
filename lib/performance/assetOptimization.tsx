@@ -1,5 +1,5 @@
 import { motion, useAnimation, useMotionValue } from 'framer-motion';
-import React, { Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 export enum AssetType {
   IMAGE = 'image',
@@ -125,7 +125,7 @@ export class AssetPreloader {
             link.onload = () => resolve(link);
             link.onerror = reject;
             if (crossOrigin) link.crossOrigin = crossOrigin;
-            document.head.appendChild(link);
+            (document as Document).head.appendChild(link);
           }
           break;
 
@@ -278,9 +278,7 @@ export const OptimizedImage = ({
   // Animate opacity on load for GPU acceleration
   useEffect(() => {
     if (isLoaded) {
-      queueAnimation(() => {
-        controls.start({ opacity: 1, transition: { duration: 0.3, ease: 'linear' } });
-      });
+      controls.start({ opacity: 1, transition: { duration: 0.3, ease: 'linear' } });
     }
   }, [isLoaded, controls]);
 
@@ -322,4 +320,19 @@ export const OptimizedImage = ({
       decoding="async"
       onLoad={() => {
         setIsLoaded(true);
-
+        onLoad?.();
+      }}
+      onError={(event: React.SyntheticEvent<HTMLImageElement, Event>) => {
+        setHasError(true);
+        onError?.(new Error(`Failed to load image: ${optimizedSrc}`));
+      }}
+      style={{ opacity: motionOpacity }}
+      className={`${isLoaded ? 'opacity-100' : 'opacity-0'} ${className}`}
+      initial={{ opacity: 0 }}
+      animate={controls}
+      exit={{ opacity: 0 }}
+    />
+  );
+};
+  );
+};
