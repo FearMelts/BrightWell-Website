@@ -1,0 +1,248 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "🚀 Next.js: Debug Client",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/.bin/next",
+      "args": ["dev"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "restart": true,
+      "env": {
+        "NODE_ENV": "development",
+        "NODE_OPTIONS": "--inspect"
+      },
+      "serverReadyAction": {
+        "pattern": "started server on .+, url: (https?://.+)",
+        "uriFormat": "%s",
+        "action": "openExternally"
+      },
+      "presentation": {
+        "hidden": false,
+        "group": "Next.js",
+        "order": 1
+      }
+    },
+    {
+      "name": "🛠️ Next.js: Debug Server (SSR)",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/.bin/next",
+      "args": ["dev"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "restart": true,
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "runtimeArgs": ["--inspect"],
+      "presentation": {
+        "hidden": false,
+        "group": "Next.js",
+        "order": 2
+      }
+    },
+    {
+      "name": "🔍 Chrome: Debug Frontend",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}",
+      "userDataDir": "${workspaceFolder}/.vscode/chrome-debug-profile",
+      "sourceMapPathOverrides": {
+        "webpack:///_next/static/*": "${workspaceFolder}/.next/static/*",
+        "webpack:///./": "${workspaceFolder}/",
+        "webpack:///": "${workspaceFolder}/",
+        "webpack:///*": "*"
+      },
+      "presentation": {
+        "hidden": false,
+        "group": "Browser",
+        "order": 1
+      }
+    },
+    {
+      "name": "🌐 Edge: Debug Frontend",
+      "type": "msedge",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}",
+      "userDataDir": "${workspaceFolder}/.vscode/edge-debug-profile",
+      "sourceMapPathOverrides": {
+        "webpack:///_next/static/*": "${workspaceFolder}/.next/static/*",
+        "webpack:///./": "${workspaceFolder}/",
+        "webpack:///": "${workspaceFolder}/",
+        "webpack:///*": "*"
+      },
+      "presentation": {
+        "hidden": false,
+        "group": "Browser",
+        "order": 2
+      }
+    },
+    {
+      "name": "⚡ Attach to Next.js Process",
+      "type": "node",
+      "request": "attach",
+      "port": 9229,
+      "restart": true,
+      "localRoot": "${workspaceFolder}",
+      "remoteRoot": "${workspaceFolder}",
+      "skipFiles": [
+        "<node_internals>/**",
+        "${workspaceFolder}/node_modules/**"
+      ],
+      "presentation": {
+        "hidden": false,
+        "group": "Attach",
+        "order": 1
+      }
+    },
+    {
+      "name": "🧪 Jest: Debug Tests",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "args": [
+        "--runInBand",
+        "--no-cache",
+        "--testTimeout=60000"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "env": {
+        "NODE_ENV": "test"
+      },
+      "presentation": {
+        "hidden": false,
+        "group": "Testing",
+        "order": 1
+      }
+    },
+    {
+      "name": "🎯 Jest: Debug Current File",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "args": [
+        "--runInBand",
+        "--no-cache",
+        "--testTimeout=60000",
+        "${fileBasenameNoExtension}"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "env": {
+        "NODE_ENV": "test"
+      },
+      "presentation": {
+        "hidden": false,
+        "group": "Testing",
+        "order": 2
+      }
+    },
+    {
+      "name": "🏗️ Next.js: Build Debug",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/.bin/next",
+      "args": ["build"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "presentation": {
+        "hidden": false,
+        "group": "Build",
+        "order": 1
+      }
+    },
+    {
+      "name": "🚀 Next.js: Start Production",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/.bin/next",
+      "args": ["start"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "serverReadyAction": {
+        "pattern": "started server on .+, url: (https?://.+)",
+        "uriFormat": "%s",
+        "action": "openExternally"
+      },
+      "presentation": {
+        "hidden": false,
+        "group": "Production",
+        "order": 1
+      }
+    },
+    {
+      "name": "🔧 TypeScript: Check",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/.bin/tsc",
+      "args": ["--noEmit", "--incremental"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "presentation": {
+        "hidden": false,
+        "group": "TypeScript",
+        "order": 1
+      }
+    },
+    {
+      "name": "🎨 ESLint: Debug",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/.bin/eslint",
+      "args": [
+        ".",
+        "--ext",
+        ".js,.jsx,.ts,.tsx",
+        "--cache",
+        "--fix"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "presentation": {
+        "hidden": false,
+        "group": "Linting",
+        "order": 1
+      }
+    }
+  ],
+  "compounds": [
+    {
+      "name": "🚀 Full Stack Debug",
+      "configurations": [
+        "🚀 Next.js: Debug Client",
+        "🔍 Chrome: Debug Frontend"
+      ],
+      "presentation": {
+        "hidden": false,
+        "group": "Compound",
+        "order": 1
+      }
+    },
+    {
+      "name": "🧪 Test & Debug",
+      "configurations": [
+        "🧪 Jest: Debug Tests",
+        "🔧 TypeScript: Check"
+      ],
+      "presentation": {
+        "hidden": false,
+        "group": "Compound",
+        "order": 2
+      }
+    }
+  ]
+}
