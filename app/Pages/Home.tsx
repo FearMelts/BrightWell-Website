@@ -3,7 +3,7 @@
  * Includes all advanced animations, contact forms, blog, video testimonials, and service pages
  */
 'use client';
-import { Button } from 'components/ui/button';
+import { Button } from '@/components/ui/button';
 import {
   ArrowRight,
   Mail,
@@ -15,13 +15,13 @@ import {
   TrendingUp,
   Users,
 } from 'lucide-react';
-import { motion, useInView, useScroll, useTransform } from 'motion/react';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
-import { BlogSection } from '../components/BlogSection';
-import { ContactForm, ContactInfoCards } from '../components/ContactForm';
-import { ServicePages } from '../components/ServicePages';
-import { DarkModeToggle } from '../components/ThemeProvider';
-import { VideoTestimonials } from '../components/VideoTestimonials';
+import { BlogSection } from '@/components/BlogSection';
+import { ContactForm, ContactInfoCards } from '@/components/ContactForm';
+import { ServicePages } from '@/components/ServicePages';
+import { DarkModeToggle } from '@/components/ThemeProvider';
+import { VideoTestimonials } from '@/components/VideoTestimonials';
 import {
   ctaVariants,
   featureGridVariants,
@@ -35,7 +35,7 @@ import {
   testimonialVariants,
   textContainerVariants,
   textRevealVariants,
-} from '../lib/motionConfig';
+} from '@/lib/motionConfig';
 
 // --- Data ---
 const features = [

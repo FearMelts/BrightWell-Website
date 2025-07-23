@@ -605,3 +605,4 @@ export function UltimateBlogSection() {
     </section>
   );
 }
+export { UltimateBlogSection as UltimateOptimizedBlogSection };

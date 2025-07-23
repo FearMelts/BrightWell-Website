@@ -9,7 +9,7 @@
     "strictFunctionTypes": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./*"]
     },
     "allowJs": true,
     "checkJs": false,

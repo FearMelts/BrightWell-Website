@@ -2,18 +2,8 @@ import SEOEnhancer from '@/components/SEOEnhancer';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import Analytics from '@/lib/analytics';
 import { Metadata } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
 import ClientLayout from './ClientLayout';
 import './globals.css';
-
-const inter = Inter({
-  variable: '--font-inter',
-  subsets: ['latin'],
-});
-const jetbrainsMono = JetBrains_Mono({
-  variable: '--font-jetbrains-mono',
-  subsets: ['latin'],
-});
 
 export const metadata: Metadata = {
   title: 'BrightWell Medical Billing - Illuminate Your Medical Revenue',
@@ -83,7 +73,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body className={`${inter.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
+      <body className="font-sans" suppressHydrationWarning>
         <ThemeProvider>
           <SEOEnhancer />
           <Analytics />
