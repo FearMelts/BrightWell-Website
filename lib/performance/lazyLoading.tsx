@@ -2,8 +2,30 @@
  * Advanced lazy loading and code splitting utilities
  * Production-grade dynamic imports with performance monitoring
  */
-import { ComponentType, lazy, ReactNode, Suspense } from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
+import React, { ComponentType, lazy, ReactNode, Suspense, useRef, useEffect, useState } from 'react';
+// Simple error boundary fallback
+class SimpleErrorBoundary extends React.Component<
+  { children: ReactNode; fallback?: ReactNode },
+  { hasError: boolean }
+> {
+  constructor(props: any) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return this.props.fallback || <div>Something went wrong.</div>;
+    }
+    return this.props.children;
+  }
+}
+
+const ErrorBoundary = SimpleErrorBoundary;
 
 // Enhanced lazy loading with retry mechanism
 export const createLazyComponent = <T extends ComponentType<any>>(
@@ -146,19 +168,7 @@ export const LazyWrapper = ({
 }: LazyWrapperProps) => {
   return (
     <ErrorBoundary
-      FallbackComponent={props => errorFallback({ ...props, componentName })}
-      onError={(error, errorInfo) => {
-        // Enhanced error logging
-        console.error(`Error in lazy component ${componentName}:`, error, errorInfo);
-
-        // Optional: Send to error tracking service
-        if (typeof window !== 'undefined' && (window as any).errorTracker) {
-          (window as any).errorTracker.captureException(error, {
-            component: componentName,
-            errorInfo,
-          });
-        }
-      }}
+      fallback={<div>Error loading component</div>}
     >
       <Suspense fallback={fallback}>{children}</Suspense>
     </ErrorBoundary>

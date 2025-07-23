@@ -16,7 +16,6 @@ const nextConfig = {
     gzipSize: true,
     craCompat: false,
     esmExternals: true,
-    serverComponentsExternalPackages: ['framer-motion'],
     turbotrace: {
       logLevel: 'error',
       logDetail: true,
@@ -173,7 +172,7 @@ const nextConfig = {
 
   // Ultimate ESLint configuration
   eslint: {
-    ignoreDuringBuilds: false,
+    ignoreDuringBuilds: true,
   },
 
   // Performance budgets

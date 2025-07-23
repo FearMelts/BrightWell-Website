@@ -1,4 +1,4 @@
-// File: C:\Users\Fe4rm\BrightWell-Website\app\page.tsx
+// File: /home/runner/work/BrightWell-Website/BrightWell-Website/app/page.tsx
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

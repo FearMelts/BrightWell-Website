@@ -1,5 +1,5 @@
 'use client';
-import { fadeVariants } from '@/lib/motionConfig';
+import { fadeInVariants } from '@/lib/motionConfig';
 import { animate, motion, useMotionValue, useTransform } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
@@ -63,7 +63,7 @@ export default function AnimatedMetric({
 
   return (
     <motion.span
-      variants={fadeVariants}
+      variants={fadeInVariants}
       initial="hidden"
       animate="visible"
       exit="exit"

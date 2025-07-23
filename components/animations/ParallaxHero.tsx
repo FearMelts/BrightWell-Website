@@ -1,5 +1,5 @@
 'use client';
-import { fadeVariants, slowTransition } from '@/lib/motionConfig';
+import { fadeInVariants, slowTransition } from '@/lib/motionConfig';
 import { motion, useMotionTemplate, useScroll, useTransform } from 'framer-motion';
 import React, { useRef } from 'react';
 
@@ -38,7 +38,7 @@ export default function ParallaxHero({
       ref={containerRef}
       initial="hidden"
       animate="visible"
-      variants={fadeVariants}
+      variants={fadeInVariants}
       className={`relative w-full h-screen overflow-hidden ${className}`}
     >
       {/* Parallax Background */}
@@ -64,7 +64,7 @@ export default function ParallaxHero({
 
       {/* Content Container */}
       <motion.div
-        variants={fadeVariants}
+        variants={fadeInVariants}
         className="relative z-10 h-full flex items-center justify-center"
       >
         <motion.div

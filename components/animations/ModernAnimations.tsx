@@ -1,5 +1,5 @@
 'use client';
-import { bouncySpring, fadeVariants, fastTransition, staggerContainer } from '@/lib/motionConfig';
+import { bouncySpring, fadeInVariants, fastTransition, staggerContainer } from '@/lib/motionConfig';
 import { motion, useInView } from 'framer-motion';
 import React from 'react';
 
@@ -23,7 +23,7 @@ export default function ModernAnimations({ className = '' }: ModernAnimationsPro
         {[1, 2, 3].map(item => (
           <motion.div
             key={item}
-            variants={fadeVariants}
+            variants={fadeInVariants}
             className="bg-white rounded-lg p-6 shadow-lg"
           >
             <h3 className="text-xl font-semibold mb-4">Card {item}</h3>

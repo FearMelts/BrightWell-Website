@@ -1,7 +1,8 @@
 'use client';
 
-import { DarkModeToggle } from '@/components/darkModeToggle';
-import { LightningIcon, ShieldIcon, TargetIcon } from '@/components/icons/featureIcons';
+import { DarkModeToggle } from '@/components/DarkModeToggle';
+import { LightningIcon, ShieldIcon, TargetIcon } from '@/components/icons/FeatureIcons';
+import AnimatedCounter from '@/components/AnimatedCounter';
 import {
   advancedButtonVariants,
   ctaVariants,
@@ -65,8 +66,6 @@ const testimonials = [
     position: 'Healthcare Provider',
   },
 ];
-
-import AnimatedCounter from "@/components/AnimatedCounter";
 
 
 // --- FeatureCard ---
