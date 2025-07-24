@@ -4,8 +4,8 @@
  */
 'use client';
 
-import React, { createContext, useContext, useEffect, useState, useMemo } from 'react';
 import { Moon, Sun } from 'lucide-react';
+import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { Button } from './ui/button';
 
 type Theme = 'dark' | 'light' | 'system';
@@ -64,15 +64,18 @@ export function ThemeProvider({
     root.classList.add(theme);
   }, [theme]);
 
-  const value = useMemo(() => ({
-    theme,
-    setTheme: (theme: Theme) => {
-      if (typeof window !== 'undefined') {
-        localStorage.setItem(storageKey, theme);
-      }
-      setTheme(theme);
-    },
-  }), [theme, storageKey]);
+  const value = useMemo(
+    () => ({
+      theme,
+      setTheme: (theme: Theme) => {
+        if (typeof window !== 'undefined') {
+          localStorage.setItem(storageKey, theme);
+        }
+        setTheme(theme);
+      },
+    }),
+    [theme, storageKey]
+  );
 
   return (
     <ThemeProviderContext.Provider {...props} value={value}>

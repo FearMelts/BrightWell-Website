@@ -18,14 +18,7 @@ import {
   textContainerVariants,
   textRevealVariants,
 } from '@/lib/motionConfig';
-import {
-  LazyMotion,
-  domAnimation,
-  motion,
-  useInView,
-  useScroll,
-  useTransform,
-} from 'framer-motion';
+import { LazyMotion, domAnimation, motion, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 // (AnimatedCounter now imported above)
 

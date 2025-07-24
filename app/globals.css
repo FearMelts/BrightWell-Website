@@ -1,4 +1,8 @@
-layer base {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
   :root {
     --font-inter: 'Inter', sans-serif;
   }
@@ -19,9 +23,8 @@ layer base {
   }
 }
 
-layer components {
+@layer components {
   .btn-primary {
-    /* @apply bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-200; */
     background-color: #2563eb;
     color: #fff;
     padding: 0.75rem 1.5rem;
@@ -34,7 +37,6 @@ layer components {
   }
 
   .btn-secondary {
-    /* @apply bg-white hover:bg-gray-50 text-blue-600 px-6 py-3 rounded-lg font-semibold border-2 border-blue-600 transition-colors duration-200; */
     background-color: #fff;
     color: #2563eb;
     padding: 0.75rem 1.5rem;
@@ -48,7 +50,6 @@ layer components {
   }
 
   .card {
-    /* @apply bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300; */
     background-color: #fff;
     border-radius: 1rem;
     padding: 1.5rem;
@@ -65,10 +66,8 @@ layer components {
 }
 
 /* Replace text-wrap: balance with a more compatible property or remove */
-layer utilities {
+@layer utilities {
   .text-balance {
-    /* text-wrap: balance; */
-    /* Fallback: */
     text-align: justify;
   }
 }

@@ -9,7 +9,6 @@ import { UltimatePerformanceProvider } from '@/lib/performance/ultimateOptimizat
 import { motion, LazyMotion, domAnimation } from 'framer-motion';
 import {
   ArrowRight,
-  CheckCircle,
   DollarSign,
   Heart,
   Lightbulb,
