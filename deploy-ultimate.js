@@ -5,7 +5,7 @@
  * Execute complete production optimization and deployment
  */
 
-async function executeProductionDeployment() {
+async function executeProductionDeployment(boolean = true) {
   console.log('🌟 ULTIMATE PRODUCTION DEPLOYMENT INITIATED');
   console.log('='.repeat(60));
 

@@ -4,7 +4,7 @@ export interface Feature {
   title: string;
   description: string;
   image?: string;
-  icon: 'chart' | 'clipboard' | 'shield';
+  icon?: React.ReactNode;
 }
 
 export interface Testimonial {
