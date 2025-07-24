@@ -1,6 +1,6 @@
 {
   "name": "brightwell-website",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -83,7 +83,7 @@
     "i18next": "^25.1.2",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.503.0",
-    "next": "^14.2.15",
+    "next": "^15.1.6",
     "next-themes": "^0.4.6",
     "react": "^18.3.1",
     "react-day-picker": "^8.10.1",
@@ -129,6 +129,6 @@
     "madge": "^6.1.0",
     "prettier": "^3.1.0",
     "size-limit": "^11.0.0",
-    "snyk": "^1.1248.0"
+    "snyk": "^1.1298.1"
   }
 }

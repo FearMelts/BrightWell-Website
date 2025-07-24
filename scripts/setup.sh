@@ -24,6 +24,9 @@ WARNING="⚠️"
 INFO="ℹ️"
 MEDICAL="🏥"
 
+# Prints a visually distinct header for the BrightWell Medical Billing Website
+# setup script, using colors and symbols to enhance readability and emphasis.
+
 print_header() {
     echo ""
     echo -e "${CYAN}================================================${NC}"

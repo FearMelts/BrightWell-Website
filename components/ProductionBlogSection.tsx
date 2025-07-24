@@ -397,4 +397,3 @@ const Modal = ({
  * ULTIMATE OPTIMIZED BLOG SECTION
  */
 // Simplified export to avoid build issues
-

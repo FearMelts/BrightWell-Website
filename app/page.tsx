@@ -41,7 +41,7 @@ const OptimizedHeroSection = memo(() => {
         }}
         style={{ willChange: 'background' }}
       />
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           className="text-center max-w-4xl mx-auto"
@@ -57,7 +57,7 @@ const OptimizedHeroSection = memo(() => {
           >
             BrightWell Medical Billing
           </motion.h1>
-          
+
           <motion.p
             className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
@@ -66,7 +66,7 @@ const OptimizedHeroSection = memo(() => {
           >
             Illuminate Your Medical Revenue with Enterprise-Grade Performance
           </motion.p>
-          
+
           <motion.div
             className="flex flex-wrap justify-center gap-4 mb-8"
             initial={{ opacity: 0, y: 20 }}
@@ -86,7 +86,7 @@ const OptimizedHeroSection = memo(() => {
               <span className="font-semibold">60% Faster Collections</span>
             </div>
           </motion.div>
-          
+
           <motion.button
             className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
             initial={{ opacity: 0, scale: 0.9 }}
@@ -124,14 +124,12 @@ const PerformanceShowcase = memo(() => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            Ultimate Performance Metrics
-          </h2>
+          <h2 className="text-4xl font-bold mb-4 text-gray-900">Ultimate Performance Metrics</h2>
           <p className="text-xl text-gray-600">
             Enterprise-grade optimization delivers measurable results
           </p>
         </motion.div>
-        
+
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {metrics.map((metric, index) => (
             <motion.div
@@ -143,9 +141,7 @@ const PerformanceShowcase = memo(() => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <metric.icon className={`w-12 h-12 mx-auto mb-4 ${metric.color}`} />
-              <div className="text-3xl font-bold mb-2 text-gray-900">
-                {metric.value}
-              </div>
+              <div className="text-3xl font-bold mb-2 text-gray-900">{metric.value}</div>
               <div className="text-gray-600">{metric.label}</div>
             </motion.div>
           ))}
@@ -165,12 +161,14 @@ export default function HomePage() {
         <main className="min-h-screen">
           <OptimizedHeroSection />
           <PerformanceShowcase />
-          
-          <Suspense fallback={
-            <div className="py-20 text-center">
-              <div className="animate-spin w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full mx-auto"></div>
-            </div>
-          }>
+
+          <Suspense
+            fallback={
+              <div className="py-20 text-center">
+                <div className="animate-spin w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full mx-auto"></div>
+              </div>
+            }
+          >
             <UltimateOptimizedBlogSection />
           </Suspense>
         </main>

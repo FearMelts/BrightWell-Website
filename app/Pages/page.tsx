@@ -67,7 +67,6 @@ const testimonials = [
   },
 ];
 
-
 // --- FeatureCard ---
 function FeatureCard({ feature, delay = 0 }: { feature: (typeof features)[0]; delay?: number }) {
   return (

@@ -1,7 +1,0 @@
-User-Agent: *
-Allow: /
-Disallow: /private/
-Disallow: /admin/
-Disallow: /api/
-
-Sitemap: https://brightwell-medical.com/sitemap.xml

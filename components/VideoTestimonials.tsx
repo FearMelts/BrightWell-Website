@@ -7,11 +7,11 @@ import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
-import { 
-  Play, 
-  Pause, 
-  Volume2, 
-  VolumeX, 
+import {
+  Play,
+  Pause,
+  Volume2,
+  VolumeX,
   Maximize2,
   Star,
   Quote,
@@ -23,7 +23,7 @@ import {
   Users,
   Calendar,
   MapPin,
-  Stethoscope
+  Stethoscope,
 } from 'lucide-react';
 
 /**
@@ -64,26 +64,29 @@ const videoTestimonials: VideoTestimonial[] = [
     company: 'Metro Health Group',
     location: 'Atlanta, GA',
     specialty: 'Family Medicine',
-    videoUrl: 'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/42ff39eb-5d4c-49bd-ba1d-39fa62eaeb5c.jpg', // Placeholder
-    posterImage: 'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/4f12a7e0-8ead-418b-bc17-4cfe51f71f4b.jpg',
-    quote: 'BrightWell transformed our billing process completely. Our revenue increased by 40% in just 3 months, and our staff can now focus on patient care instead of paperwork.',
+    videoUrl:
+      'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/42ff39eb-5d4c-49bd-ba1d-39fa62eaeb5c.jpg', // Placeholder
+    posterImage:
+      'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/4f12a7e0-8ead-418b-bc17-4cfe51f71f4b.jpg',
+    quote:
+      'BrightWell transformed our billing process completely. Our revenue increased by 40% in just 3 months, and our staff can now focus on patient care instead of paperwork.',
     metrics: {
       revenueIncrease: '40%',
       claimsAccuracy: '98.5%',
-      timesSaved: '15 hours/week'
+      timesSaved: '15 hours/week',
     },
     results: [
       'Reduced claim denials by 85%',
       'Improved cash flow consistency',
       'Eliminated billing backlogs',
-      'Enhanced patient satisfaction scores'
+      'Enhanced patient satisfaction scores',
     ],
     rating: 5,
     duration: '3:24',
     dateRecorded: '2024-01-10',
     featured: true,
     likes: 127,
-    comments: 23
+    comments: 23,
   },
   {
     id: '2',
@@ -92,26 +95,29 @@ const videoTestimonials: VideoTestimonial[] = [
     company: 'Sunrise Family Practice',
     location: 'San Francisco, CA',
     specialty: 'Internal Medicine',
-    videoUrl: 'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/497b0220-0f81-4ea5-b00a-e90614bbc68c.jpg',
-    posterImage: 'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/51b6dc63-e1e2-484b-90d8-9313ed62a117.jpg',
-    quote: 'The automation and accuracy we gained with BrightWell allowed us to expand our practice without hiring additional billing staff. It\'s been a game-changer for our bottom line.',
+    videoUrl:
+      'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/497b0220-0f81-4ea5-b00a-e90614bbc68c.jpg',
+    posterImage:
+      'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/51b6dc63-e1e2-484b-90d8-9313ed62a117.jpg',
+    quote:
+      "The automation and accuracy we gained with BrightWell allowed us to expand our practice without hiring additional billing staff. It's been a game-changer for our bottom line.",
     metrics: {
       revenueIncrease: '35%',
       claimsAccuracy: '97.8%',
-      timesSaved: '20 hours/week'
+      timesSaved: '20 hours/week',
     },
     results: [
       'Expanded patient capacity by 30%',
       'Reduced overhead costs by $50K annually',
       'Achieved same-day claims processing',
-      'Improved work-life balance for staff'
+      'Improved work-life balance for staff',
     ],
     rating: 5,
     duration: '2:47',
     dateRecorded: '2024-01-05',
     featured: true,
     likes: 95,
-    comments: 18
+    comments: 18,
   },
   {
     id: '3',
@@ -120,26 +126,29 @@ const videoTestimonials: VideoTestimonial[] = [
     company: 'Wellness Center Plus',
     location: 'Houston, TX',
     specialty: 'Multi-Specialty Clinic',
-    videoUrl: 'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/531a799c-d3b6-4204-9447-07d9ed31ad37.jpg',
-    posterImage: 'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/b4d1f70e-9a7c-4809-af59-238e4f7515ae.jpg',
-    quote: 'The support team at BrightWell is incredible. They\'re always ready to assist us, and their expertise has been invaluable to our practice growth.',
+    videoUrl:
+      'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/531a799c-d3b6-4204-9447-07d9ed31ad37.jpg',
+    posterImage:
+      'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/b4d1f70e-9a7c-4809-af59-238e4f7515ae.jpg',
+    quote:
+      "The support team at BrightWell is incredible. They're always ready to assist us, and their expertise has been invaluable to our practice growth.",
     metrics: {
       revenueIncrease: '28%',
       claimsAccuracy: '96.9%',
-      timesSaved: '12 hours/week'
+      timesSaved: '12 hours/week',
     },
     results: [
       'Streamlined multi-specialty billing',
       'Reduced administrative burden',
       'Improved patient scheduling efficiency',
-      'Enhanced revenue cycle visibility'
+      'Enhanced revenue cycle visibility',
     ],
     rating: 5,
     duration: '4:12',
     dateRecorded: '2023-12-28',
     featured: false,
     likes: 76,
-    comments: 14
+    comments: 14,
   },
   {
     id: '4',
@@ -148,27 +157,30 @@ const videoTestimonials: VideoTestimonial[] = [
     company: 'Advanced Care Clinic',
     location: 'Denver, CO',
     specialty: 'Orthopedic Surgery',
-    videoUrl: 'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/c5cf9b53-907b-41b0-be98-8d04124721f6.jpg',
-    posterImage: 'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/057a8ca0-9923-44aa-9004-d8355147aea6.jpg',
-    quote: 'Our denial rate dropped to less than 2% since partnering with BrightWell. The accuracy and speed of their billing process is outstanding.',
+    videoUrl:
+      'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/c5cf9b53-907b-41b0-be98-8d04124721f6.jpg',
+    posterImage:
+      'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/057a8ca0-9923-44aa-9004-d8355147aea6.jpg',
+    quote:
+      'Our denial rate dropped to less than 2% since partnering with BrightWell. The accuracy and speed of their billing process is outstanding.',
     metrics: {
       revenueIncrease: '45%',
       claimsAccuracy: '99.1%',
-      timesSaved: '25 hours/week'
+      timesSaved: '25 hours/week',
     },
     results: [
       'Achieved industry-leading claim acceptance',
       'Reduced appeal processing time by 80%',
       'Increased surgical scheduling capacity',
-      'Enhanced patient financial counseling'
+      'Enhanced patient financial counseling',
     ],
     rating: 5,
     duration: '3:56',
     dateRecorded: '2023-12-20',
     featured: false,
     likes: 152,
-    comments: 31
-  }
+    comments: 31,
+  },
 ];
 
 /**
@@ -206,8 +218,15 @@ export function VideoTestimonials() {
   const [selectedTestimonial, setSelectedTestimonial] = useState<VideoTestimonial | null>(null);
   const [activeCategory, setActiveCategory] = useState('All');
 
-  const categories = ['All', 'Featured', 'Family Medicine', 'Internal Medicine', 'Surgery', 'Multi-Specialty'];
-  
+  const categories = [
+    'All',
+    'Featured',
+    'Family Medicine',
+    'Internal Medicine',
+    'Surgery',
+    'Multi-Specialty',
+  ];
+
   const filteredTestimonials = videoTestimonials.filter(testimonial => {
     if (activeCategory === 'All') return true;
     if (activeCategory === 'Featured') return testimonial.featured;
@@ -234,12 +253,16 @@ export function VideoTestimonials() {
           >
             <Play className="w-8 h-8 text-white ml-1" />
           </motion.div>
-          
+
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-6">
-            Success <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-600 to-red-500">Stories</span>
+            Success{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-600 to-red-500">
+              Stories
+            </span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Hear directly from healthcare providers who transformed their practices with our medical billing solutions.
+            Hear directly from healthcare providers who transformed their practices with our medical
+            billing solutions.
           </p>
         </motion.div>
 
@@ -250,10 +273,10 @@ export function VideoTestimonials() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex flex-wrap justify-center gap-3 mb-16"
         >
-          {categories.map((category) => (
+          {categories.map(category => (
             <Button
               key={category}
-              variant={activeCategory === category ? "default" : "outline"}
+              variant={activeCategory === category ? 'default' : 'outline'}
               size="sm"
               onClick={() => setActiveCategory(category)}
               className={`rounded-full px-6 py-2 transition-all duration-300 ${
@@ -292,7 +315,7 @@ export function VideoTestimonials() {
                       <Quote className="w-8 h-8 text-purple-500 absolute -top-2 -left-4" />
                       {featuredTestimonials[0].quote}
                     </blockquote>
-                    
+
                     {/* Metrics */}
                     <div className="grid grid-cols-3 gap-6 mb-8">
                       {Object.entries(featuredTestimonials[0].metrics).map(([key, value]) => (
@@ -307,13 +330,10 @@ export function VideoTestimonials() {
                       ))}
                     </div>
                   </div>
-                  
+
                   {/* Video Player */}
                   <div className="relative">
-                    <VideoPlayer 
-                      testimonial={featuredTestimonials[0]}
-                      isLarge={true}
-                    />
+                    <VideoPlayer testimonial={featuredTestimonials[0]} isLarge={true} />
                   </div>
                 </div>
               </div>
@@ -328,7 +348,7 @@ export function VideoTestimonials() {
           whileInView="visible"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {filteredTestimonials.map((testimonial) => (
+          {filteredTestimonials.map(testimonial => (
             <TestimonialVideoCard
               key={testimonial.id}
               testimonial={testimonial}
@@ -352,7 +372,7 @@ export function VideoTestimonials() {
               { label: 'Average Revenue Increase', value: '37%', icon: TrendingUp },
               { label: 'Claim Acceptance Rate', value: '98.1%', icon: Award },
               { label: 'Happy Practices', value: '500+', icon: Users },
-              { label: 'Hours Saved Weekly', value: '18', icon: Calendar }
+              { label: 'Hours Saved Weekly', value: '18', icon: Calendar },
             ].map((stat, index) => {
               const IconComponent = stat.icon;
               return (
@@ -369,9 +389,7 @@ export function VideoTestimonials() {
                   <div className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-gray-600 dark:text-gray-400">
-                    {stat.label}
-                  </div>
+                  <div className="text-gray-600 dark:text-gray-400">{stat.label}</div>
                 </motion.div>
               );
             })}
@@ -393,7 +411,13 @@ export function VideoTestimonials() {
 /**
  * Video testimonial card component
  */
-function TestimonialVideoCard({ testimonial, onClick }: { testimonial: VideoTestimonial; onClick: () => void }) {
+function TestimonialVideoCard({
+  testimonial,
+  onClick,
+}: {
+  testimonial: VideoTestimonial;
+  onClick: () => void;
+}) {
   return (
     <motion.div
       variants={cardVariants}
@@ -409,7 +433,7 @@ function TestimonialVideoCard({ testimonial, onClick }: { testimonial: VideoTest
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
-        
+
         {/* Play Button */}
         <motion.div
           whileHover={{ scale: 1.1 }}
@@ -420,12 +444,12 @@ function TestimonialVideoCard({ testimonial, onClick }: { testimonial: VideoTest
             <Play className="w-6 h-6 text-purple-600 ml-1" />
           </div>
         </motion.div>
-        
+
         {/* Duration */}
         <div className="absolute bottom-3 right-3 bg-black/70 text-white text-xs px-2 py-1 rounded">
           {testimonial.duration}
         </div>
-        
+
         {/* Featured Badge */}
         {testimonial.featured && (
           <Badge className="absolute top-3 left-3 bg-gradient-to-r from-purple-500 to-pink-600 text-white">
@@ -433,7 +457,7 @@ function TestimonialVideoCard({ testimonial, onClick }: { testimonial: VideoTest
           </Badge>
         )}
       </div>
-      
+
       {/* Content */}
       <div className="p-6">
         <div className="flex items-center justify-between mb-3">
@@ -446,7 +470,7 @@ function TestimonialVideoCard({ testimonial, onClick }: { testimonial: VideoTest
             {new Date(testimonial.dateRecorded).toLocaleDateString()}
           </div>
         </div>
-        
+
         <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">
           {testimonial.name}
         </h3>
@@ -460,11 +484,9 @@ function TestimonialVideoCard({ testimonial, onClick }: { testimonial: VideoTest
           <Stethoscope className="w-4 h-4" />
           {testimonial.specialty}
         </div>
-        
-        <p className="text-gray-700 dark:text-gray-300 mb-4 line-clamp-3">
-          {testimonial.quote}
-        </p>
-        
+
+        <p className="text-gray-700 dark:text-gray-300 mb-4 line-clamp-3">{testimonial.quote}</p>
+
         {/* Key Metrics */}
         <div className="grid grid-cols-3 gap-2 mb-4">
           <div className="text-center bg-purple-50 dark:bg-purple-900/30 rounded-lg p-2">
@@ -486,7 +508,7 @@ function TestimonialVideoCard({ testimonial, onClick }: { testimonial: VideoTest
             <div className="text-xs text-gray-600 dark:text-gray-400">Saved</div>
           </div>
         </div>
-        
+
         {/* Engagement */}
         <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-500">
           <div className="flex items-center gap-4">
@@ -509,18 +531,26 @@ function TestimonialVideoCard({ testimonial, onClick }: { testimonial: VideoTest
 /**
  * Video player component with controls
  */
-function VideoPlayer({ testimonial, isLarge = false }: { testimonial: VideoTestimonial; isLarge?: boolean }) {
+function VideoPlayer({
+  testimonial,
+  isLarge = false,
+}: {
+  testimonial: VideoTestimonial;
+  isLarge?: boolean;
+}) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
-  
+
   return (
-    <div className={`relative ${isLarge ? 'aspect-video' : 'aspect-video'} bg-black rounded-xl overflow-hidden shadow-2xl`}>
+    <div
+      className={`relative ${isLarge ? 'aspect-video' : 'aspect-video'} bg-black rounded-xl overflow-hidden shadow-2xl`}
+    >
       <img
         src={testimonial.posterImage}
         alt={`${testimonial.name} testimonial`}
         className="w-full h-full object-cover"
       />
-      
+
       {/* Play/Pause Overlay */}
       <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
         <motion.button
@@ -536,7 +566,7 @@ function VideoPlayer({ testimonial, isLarge = false }: { testimonial: VideoTesti
           )}
         </motion.button>
       </div>
-      
+
       {/* Video Controls */}
       <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
         <div className="flex items-center justify-between text-white">
@@ -555,7 +585,7 @@ function VideoPlayer({ testimonial, isLarge = false }: { testimonial: VideoTesti
             </button>
             <span className="text-sm">{testimonial.duration}</span>
           </div>
-          
+
           <button className="hover:text-purple-400 transition-colors">
             <Maximize2 className="w-5 h-5" />
           </button>
@@ -568,7 +598,13 @@ function VideoPlayer({ testimonial, isLarge = false }: { testimonial: VideoTesti
 /**
  * Video modal component for full-screen viewing
  */
-function VideoModal({ testimonial, onClose }: { testimonial: VideoTestimonial; onClose: () => void }) {
+function VideoModal({
+  testimonial,
+  onClose,
+}: {
+  testimonial: VideoTestimonial;
+  onClose: () => void;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -582,7 +618,7 @@ function VideoModal({ testimonial, onClose }: { testimonial: VideoTestimonial; o
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
         className="bg-white dark:bg-slate-900 rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto"
-        onClick={(e) => e.stopPropagation()}
+        onClick={e => e.stopPropagation()}
       >
         <div className="p-8">
           {/* Header */}
@@ -595,16 +631,20 @@ function VideoModal({ testimonial, onClose }: { testimonial: VideoTestimonial; o
                 {testimonial.title} • {testimonial.company}
               </p>
             </div>
-            <Button variant="ghost" onClick={onClose} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+            <Button
+              variant="ghost"
+              onClick={onClose}
+              className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+            >
               ✕
             </Button>
           </div>
-          
+
           {/* Video */}
           <div className="mb-8">
             <VideoPlayer testimonial={testimonial} isLarge={true} />
           </div>
-          
+
           {/* Details */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div>
@@ -613,14 +653,17 @@ function VideoModal({ testimonial, onClose }: { testimonial: VideoTestimonial; o
               </h3>
               <ul className="space-y-2">
                 {testimonial.results.map((result, index) => (
-                  <li key={index} className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
+                  <li
+                    key={index}
+                    className="flex items-center gap-2 text-gray-700 dark:text-gray-300"
+                  >
                     <div className="w-2 h-2 bg-purple-500 rounded-full" />
                     {result}
                   </li>
                 ))}
               </ul>
             </div>
-            
+
             <div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
                 Practice Information

@@ -1,12 +1,12 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
-import { 
-  AssetPreloader, 
-  AssetType, 
-  AssetPriority, 
-  LoadingStrategy, 
-  useAssetPreloader, 
-  OptimizedImage 
+import {
+  AssetPreloader,
+  AssetType,
+  AssetPriority,
+  LoadingStrategy,
+  useAssetPreloader,
+  OptimizedImage,
 } from './assetOptimization';
 
 describe('AssetPreloader', () => {
@@ -46,7 +46,7 @@ describe('AssetPreloader', () => {
               setTimeout(() => {
                 this.onload && this.onload();
               }, 0);
-            }
+            },
           };
         }
         if (tag === 'script') {
@@ -59,7 +59,7 @@ describe('AssetPreloader', () => {
               setTimeout(() => {
                 this.onload && this.onload();
               }, 0);
-            }
+            },
           };
         }
         if (tag === 'video' || tag === 'audio') {
@@ -77,7 +77,7 @@ describe('AssetPreloader', () => {
                   this.oncanplaythrough && this.oncanplaythrough();
                 }
               }, 0);
-            }
+            },
           };
         }
         return {};

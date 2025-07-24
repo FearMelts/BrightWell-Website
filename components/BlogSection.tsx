@@ -8,11 +8,11 @@ import { useState } from 'react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Badge } from './ui/badge';
-import { 
-  Calendar, 
-  Clock, 
-  User, 
-  ArrowRight, 
+import {
+  Calendar,
+  Clock,
+  User,
+  ArrowRight,
   Search,
   Filter,
   BookOpen,
@@ -22,7 +22,7 @@ import {
   FileText,
   Lightbulb,
   Heart,
-  Stethoscope
+  Stethoscope,
 } from 'lucide-react';
 
 /**
@@ -49,54 +49,62 @@ const blogArticles: BlogArticle[] = [
   {
     id: '1',
     title: 'Understanding Medical Billing Compliance in 2024',
-    excerpt: 'Navigate the latest HIPAA requirements and billing regulations that affect your practice revenue.',
+    excerpt:
+      'Navigate the latest HIPAA requirements and billing regulations that affect your practice revenue.',
     content: 'Full article content would be loaded here...',
     author: 'Dr. Sarah Mitchell, CPC',
     date: '2024-01-15',
     readTime: '8 min read',
     category: 'Compliance',
     tags: ['HIPAA', 'Regulations', 'Compliance', 'Revenue Cycle'],
-    imageUrl: 'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/a10d3f9e-82fd-41bc-8053-56d18a323204.jpg',
-    featured: true
+    imageUrl:
+      'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/a10d3f9e-82fd-41bc-8053-56d18a323204.jpg',
+    featured: true,
   },
   {
-    id: '2', 
+    id: '2',
     title: 'AI in Medical Billing: Reducing Claim Denials by 85%',
-    excerpt: 'Discover how artificial intelligence is revolutionizing medical billing accuracy and efficiency.',
+    excerpt:
+      'Discover how artificial intelligence is revolutionizing medical billing accuracy and efficiency.',
     content: 'Explore the latest AI technologies transforming healthcare billing...',
     author: 'Michael Chen, MBA',
     date: '2024-01-12',
     readTime: '6 min read',
     category: 'Technology',
     tags: ['AI', 'Technology', 'Claims Processing', 'Automation'],
-    imageUrl: 'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/48eae65a-5b44-4b91-adf8-4a7aa93a89a4.jpg',
-    featured: true
+    imageUrl:
+      'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/48eae65a-5b44-4b91-adf8-4a7aa93a89a4.jpg',
+    featured: true,
   },
   {
     id: '3',
     title: 'Maximizing Revenue: 15 Billing Optimization Strategies',
-    excerpt: 'Proven strategies to increase your practice revenue and reduce administrative overhead.',
+    excerpt:
+      'Proven strategies to increase your practice revenue and reduce administrative overhead.',
     content: 'Learn the most effective billing optimization techniques...',
     author: 'Jennifer Rodriguez, RN, CCS',
     date: '2024-01-10',
     readTime: '12 min read',
     category: 'Strategy',
     tags: ['Revenue Optimization', 'Best Practices', 'Efficiency'],
-    imageUrl: 'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/2616e26e-721f-4ff6-8235-e72d337afaa2.jpg',
-    featured: false
+    imageUrl:
+      'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/2616e26e-721f-4ff6-8235-e72d337afaa2.jpg',
+    featured: false,
   },
   {
     id: '4',
     title: 'Telehealth Billing: Essential Guidelines for 2024',
-    excerpt: 'Complete guide to telehealth billing codes, reimbursement rates, and compliance requirements.',
+    excerpt:
+      'Complete guide to telehealth billing codes, reimbursement rates, and compliance requirements.',
     content: 'Everything you need to know about telehealth billing...',
     author: 'Dr. Robert Kim, MD, MBA',
     date: '2024-01-08',
-    readTime: '10 min read', 
+    readTime: '10 min read',
     category: 'Telehealth',
     tags: ['Telehealth', 'Billing Codes', 'Remote Care', 'Reimbursement'],
-    imageUrl: 'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/d4a703f7-5661-4c6b-a193-9a12faa69a10.jpg',
-    featured: false
+    imageUrl:
+      'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/d4a703f7-5661-4c6b-a193-9a12faa69a10.jpg',
+    featured: false,
   },
   {
     id: '5',
@@ -108,22 +116,25 @@ const blogArticles: BlogArticle[] = [
     readTime: '7 min read',
     category: 'Small Practice',
     tags: ['Small Practice', 'Cash Flow', 'Independent Providers'],
-    imageUrl: 'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/19b2c82b-44f4-4a79-b01b-77c5a1f49cc9.jpg',
-    featured: false
+    imageUrl:
+      'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/19b2c82b-44f4-4a79-b01b-77c5a1f49cc9.jpg',
+    featured: false,
   },
   {
     id: '6',
     title: 'ICD-11 Transition: What Healthcare Providers Need to Know',
-    excerpt: 'Prepare your practice for the upcoming ICD-11 implementation with our comprehensive guide.',
+    excerpt:
+      'Prepare your practice for the upcoming ICD-11 implementation with our comprehensive guide.',
     content: 'Detailed preparation guide for ICD-11 transition...',
     author: 'Dr. Amanda Foster, RHIA',
     date: '2024-01-03',
     readTime: '15 min read',
     category: 'Coding',
     tags: ['ICD-11', 'Medical Coding', 'Transition', 'Preparation'],
-    imageUrl: 'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/ad1e897d-bc25-4d00-bde4-65181ea4f685.jpg',
-    featured: false
-  }
+    imageUrl:
+      'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/ad1e897d-bc25-4d00-bde4-65181ea4f685.jpg',
+    featured: false,
+  },
 ];
 
 /**
@@ -131,12 +142,36 @@ const blogArticles: BlogArticle[] = [
  */
 const categories = [
   { name: 'All', icon: BookOpen, count: blogArticles.length },
-  { name: 'Compliance', icon: Shield, count: blogArticles.filter(a => a.category === 'Compliance').length },
-  { name: 'Technology', icon: TrendingUp, count: blogArticles.filter(a => a.category === 'Technology').length },
-  { name: 'Strategy', icon: DollarSign, count: blogArticles.filter(a => a.category === 'Strategy').length },
-  { name: 'Telehealth', icon: Heart, count: blogArticles.filter(a => a.category === 'Telehealth').length },
-  { name: 'Small Practice', icon: Stethoscope, count: blogArticles.filter(a => a.category === 'Small Practice').length },
-  { name: 'Coding', icon: FileText, count: blogArticles.filter(a => a.category === 'Coding').length },
+  {
+    name: 'Compliance',
+    icon: Shield,
+    count: blogArticles.filter(a => a.category === 'Compliance').length,
+  },
+  {
+    name: 'Technology',
+    icon: TrendingUp,
+    count: blogArticles.filter(a => a.category === 'Technology').length,
+  },
+  {
+    name: 'Strategy',
+    icon: DollarSign,
+    count: blogArticles.filter(a => a.category === 'Strategy').length,
+  },
+  {
+    name: 'Telehealth',
+    icon: Heart,
+    count: blogArticles.filter(a => a.category === 'Telehealth').length,
+  },
+  {
+    name: 'Small Practice',
+    icon: Stethoscope,
+    count: blogArticles.filter(a => a.category === 'Small Practice').length,
+  },
+  {
+    name: 'Coding',
+    icon: FileText,
+    count: blogArticles.filter(a => a.category === 'Coding').length,
+  },
 ];
 
 /**
@@ -178,9 +213,10 @@ export function BlogSection() {
   // Filter articles based on category and search term
   const filteredArticles = blogArticles.filter(article => {
     const matchesCategory = selectedCategory === 'All' || article.category === selectedCategory;
-    const matchesSearch = article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         article.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         article.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+    const matchesSearch =
+      article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      article.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      article.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
     return matchesCategory && matchesSearch;
   });
 
@@ -205,12 +241,16 @@ export function BlogSection() {
           >
             <Lightbulb className="w-8 h-8 text-white" />
           </motion.div>
-          
+
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-6">
-            Healthcare <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600">Insights</span>
+            Healthcare{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600">
+              Insights
+            </span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Stay informed with the latest medical billing trends, compliance updates, and industry best practices from our experts.
+            Stay informed with the latest medical billing trends, compliance updates, and industry
+            best practices from our experts.
           </p>
         </motion.div>
 
@@ -229,19 +269,19 @@ export function BlogSection() {
                 type="text"
                 placeholder="Search articles, topics, or tags..."
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={e => setSearchTerm(e.target.value)}
                 className="pl-10 bg-white dark:bg-slate-800 border-gray-300 dark:border-slate-600 rounded-xl"
               />
             </div>
 
             {/* Category Filter */}
             <div className="flex flex-wrap gap-2">
-              {categories.map((category) => {
+              {categories.map(category => {
                 const IconComponent = category.icon;
                 return (
                   <Button
                     key={category.name}
-                    variant={selectedCategory === category.name ? "default" : "outline"}
+                    variant={selectedCategory === category.name ? 'default' : 'outline'}
                     size="sm"
                     onClick={() => setSelectedCategory(category.name)}
                     className={`rounded-full px-4 py-2 transition-all duration-300 ${
@@ -275,10 +315,10 @@ export function BlogSection() {
               Featured Articles
             </h3>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {featuredArticles.map((article) => (
-                <FeaturedArticleCard 
-                  key={article.id} 
-                  article={article} 
+              {featuredArticles.map(article => (
+                <FeaturedArticleCard
+                  key={article.id}
+                  article={article}
                   onClick={() => setSelectedArticle(article)}
                 />
               ))}
@@ -293,10 +333,10 @@ export function BlogSection() {
           whileInView="visible"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {regularArticles.map((article) => (
-            <ArticleCard 
-              key={article.id} 
-              article={article} 
+          {regularArticles.map(article => (
+            <ArticleCard
+              key={article.id}
+              article={article}
               onClick={() => setSelectedArticle(article)}
             />
           ))}
@@ -328,7 +368,8 @@ export function BlogSection() {
         >
           <h3 className="text-3xl font-bold mb-4">Stay Updated with Healthcare Insights</h3>
           <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-            Get the latest medical billing tips, industry news, and expert insights delivered to your inbox weekly.
+            Get the latest medical billing tips, industry news, and expert insights delivered to
+            your inbox weekly.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <Input
@@ -345,10 +386,7 @@ export function BlogSection() {
 
       {/* Article Modal/Overlay would go here */}
       {selectedArticle && (
-        <ArticleModal
-          article={selectedArticle}
-          onClose={() => setSelectedArticle(null)}
-        />
+        <ArticleModal article={selectedArticle} onClose={() => setSelectedArticle(null)} />
       )}
     </section>
   );
@@ -372,11 +410,9 @@ function FeaturedArticleCard({ article, onClick }: { article: BlogArticle; onCli
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-        <Badge className="absolute top-4 left-4 bg-cyan-500 text-white">
-          Featured
-        </Badge>
+        <Badge className="absolute top-4 left-4 bg-cyan-500 text-white">Featured</Badge>
       </div>
-      
+
       <div className="p-6">
         <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-3">
           <div className="flex items-center gap-1">
@@ -388,22 +424,24 @@ function FeaturedArticleCard({ article, onClick }: { article: BlogArticle; onCli
             {article.readTime}
           </div>
         </div>
-        
+
         <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
           {article.title}
         </h3>
-        
-        <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
-          {article.excerpt}
-        </p>
-        
+
+        <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">{article.excerpt}</p>
+
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <User className="w-4 h-4 text-gray-400" />
             <span className="text-sm text-gray-600 dark:text-gray-400">{article.author}</span>
           </div>
-          
-          <Button variant="ghost" size="sm" className="group-hover:text-cyan-600 dark:group-hover:text-cyan-400">
+
+          <Button
+            variant="ghost"
+            size="sm"
+            className="group-hover:text-cyan-600 dark:group-hover:text-cyan-400"
+          >
             Read More <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
         </div>
@@ -433,25 +471,25 @@ function ArticleCard({ article, onClick }: { article: BlogArticle; onClick: () =
           {article.category}
         </Badge>
       </div>
-      
+
       <div className="p-6">
         <div className="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400 mb-3">
           <span>{new Date(article.date).toLocaleDateString()}</span>
           <span>•</span>
           <span>{article.readTime}</span>
         </div>
-        
+
         <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
           {article.title}
         </h3>
-        
+
         <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3 text-sm">
           {article.excerpt}
         </p>
-        
+
         <div className="flex items-center justify-between">
           <span className="text-xs text-gray-500 dark:text-gray-500">{article.author}</span>
-          
+
           <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
         </div>
       </div>
@@ -476,7 +514,7 @@ function ArticleModal({ article, onClose }: { article: BlogArticle; onClose: () 
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
         className="bg-white dark:bg-slate-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-        onClick={(e) => e.stopPropagation()}
+        onClick={e => e.stopPropagation()}
       >
         <div className="p-8">
           <div className="flex items-center justify-between mb-6">
@@ -485,17 +523,17 @@ function ArticleModal({ article, onClose }: { article: BlogArticle; onClose: () 
               ✕
             </Button>
           </div>
-          
+
           <img
             src={article.imageUrl}
             alt={article.title}
             className="w-full h-64 object-cover rounded-xl mb-6"
           />
-          
+
           <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">
             {article.title}
           </h1>
-          
+
           <div className="flex items-center gap-6 text-sm text-gray-500 dark:text-gray-400 mb-6">
             <div className="flex items-center gap-2">
               <User className="w-4 h-4" />
@@ -510,15 +548,15 @@ function ArticleModal({ article, onClose }: { article: BlogArticle; onClose: () 
               {article.readTime}
             </div>
           </div>
-          
+
           <div className="prose dark:prose-invert max-w-none">
             <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">{article.excerpt}</p>
             <p className="text-gray-700 dark:text-gray-300">{article.content}</p>
           </div>
-          
+
           <div className="mt-8 pt-6 border-t border-gray-200 dark:border-slate-700">
             <div className="flex flex-wrap gap-2">
-              {article.tags.map((tag) => (
+              {article.tags.map(tag => (
                 <Badge key={tag} variant="outline" className="text-xs">
                   {tag}
                 </Badge>

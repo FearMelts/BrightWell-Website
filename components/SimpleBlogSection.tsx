@@ -3,13 +3,7 @@
  * Basic working version for production build
  */
 'use client';
-import {
-  ArrowRight,
-  BookOpen,
-  Calendar,
-  Clock,
-  User,
-} from 'lucide-react';
+import { ArrowRight, BookOpen, Calendar, Clock, User } from 'lucide-react';
 import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 
@@ -31,7 +25,9 @@ const Input = ({ className = '', ...props }: any) => (
 );
 
 const Badge = ({ children, className = '' }: any) => (
-  <span className={`px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800 ${className}`}>
+  <span
+    className={`px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800 ${className}`}
+  >
     {children}
   </span>
 );
@@ -55,7 +51,8 @@ const articles: BlogArticle[] = [
   {
     id: '1',
     title: 'Medical Billing Compliance 2024: Essential Updates',
-    excerpt: 'Navigate the latest HIPAA requirements and billing regulations affecting practice revenue.',
+    excerpt:
+      'Navigate the latest HIPAA requirements and billing regulations affecting practice revenue.',
     author: 'Dr. Sarah Chen',
     date: '2024-12-15',
     readTime: '8 min read',
@@ -79,7 +76,8 @@ const articles: BlogArticle[] = [
   {
     id: '3',
     title: 'AI-Powered Medical Billing: The Future is Now',
-    excerpt: 'Discover how artificial intelligence is revolutionizing healthcare billing processes.',
+    excerpt:
+      'Discover how artificial intelligence is revolutionizing healthcare billing processes.',
     author: 'Dr. Emily Watson',
     date: '2024-12-05',
     readTime: '10 min read',
@@ -114,25 +112,17 @@ const ArticleCard = ({ article }: { article: BlogArticle }) => (
     className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
   >
     <div className="relative h-48 overflow-hidden">
-      <img
-        src={article.imageUrl}
-        alt={article.title}
-        className="w-full h-full object-cover"
-      />
-      <Badge className="absolute top-3 left-3">
-        {article.category}
-      </Badge>
+      <img src={article.imageUrl} alt={article.title} className="w-full h-full object-cover" />
+      <Badge className="absolute top-3 left-3">{article.category}</Badge>
     </div>
-    
+
     <div className="p-6">
       <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-gray-100 line-clamp-2">
         {article.title}
       </h3>
-      
-      <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
-        {article.excerpt}
-      </p>
-      
+
+      <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">{article.excerpt}</p>
+
       <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-1">
@@ -166,8 +156,9 @@ export function UltimateBlogSection() {
   const filteredArticles = useMemo(() => {
     return articles.filter(article => {
       const matchesCategory = selectedCategory === 'All' || article.category === selectedCategory;
-      const matchesSearch = article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           article.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesSearch =
+        article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        article.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
       return matchesCategory && matchesSearch;
     });
   }, [selectedCategory, searchTerm]);
@@ -184,14 +175,14 @@ export function UltimateBlogSection() {
           <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
             <BookOpen className="w-8 h-8 text-white" />
           </div>
-          
+
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-6">
             Healthcare Insights
           </h2>
-          
+
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
-            Stay ahead with expert insights, industry trends, and actionable strategies 
-            for optimizing your medical billing operations.
+            Stay ahead with expert insights, industry trends, and actionable strategies for
+            optimizing your medical billing operations.
           </p>
         </motion.div>
 
@@ -210,7 +201,7 @@ export function UltimateBlogSection() {
               onChange={(e: any) => setSearchTerm(e.target.value)}
               className="md:max-w-md"
             />
-            
+
             <div className="flex flex-wrap gap-2">
               {categories.map(category => (
                 <Button

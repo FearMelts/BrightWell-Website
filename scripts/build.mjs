@@ -1,13 +1,13 @@
-import * as esbuild from 'esbuild'
-import { rimraf } from 'rimraf'
-import stylePlugin from 'esbuild-style-plugin'
-import autoprefixer from 'autoprefixer'
-import tailwindcss from 'tailwindcss'
+import * as esbuild from 'esbuild';
+import { rimraf } from 'rimraf';
+import stylePlugin from 'esbuild-style-plugin';
+import autoprefixer from 'autoprefixer';
+import tailwindcss from 'tailwindcss';
 
-const args = process.argv.slice(2)
-const isProd = args[0] === '--production'
+const args = process.argv.slice(2);
+const isProd = args[0] === '--production';
 
-await rimraf('dist')
+await rimraf('dist');
 
 /**
  * @type {esbuild.BuildOptions}
@@ -35,16 +35,16 @@ const esbuildOpts = {
       },
     }),
   ],
-}
+};
 
 if (isProd) {
-  await esbuild.build(esbuildOpts)
+  await esbuild.build(esbuildOpts);
 } else {
-  const ctx = await esbuild.context(esbuildOpts)
-  await ctx.watch()
-  const { hosts, port } = await ctx.serve()
-  console.log(`Running on:`)
-  hosts.forEach((host) => {
-    console.log(`http://${host}:${port}`)
-  })
+  const ctx = await esbuild.context(esbuildOpts);
+  await ctx.watch();
+  const { hosts, port } = await ctx.serve();
+  console.log(`Running on:`);
+  hosts.forEach(host => {
+    console.log(`http://${host}:${port}`);
+  });
 }

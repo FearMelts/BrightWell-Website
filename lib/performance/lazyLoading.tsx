@@ -2,7 +2,15 @@
  * Advanced lazy loading and code splitting utilities
  * Production-grade dynamic imports with performance monitoring
  */
-import React, { ComponentType, lazy, ReactNode, Suspense, useRef, useEffect, useState } from 'react';
+import React, {
+  ComponentType,
+  lazy,
+  ReactNode,
+  Suspense,
+  useRef,
+  useEffect,
+  useState,
+} from 'react';
 // Simple error boundary fallback
 class SimpleErrorBoundary extends React.Component<
   { children: ReactNode; fallback?: ReactNode },
@@ -167,9 +175,7 @@ export const LazyWrapper = ({
   preloadDelay = 100,
 }: LazyWrapperProps) => {
   return (
-    <ErrorBoundary
-      fallback={<div>Error loading component</div>}
-    >
+    <ErrorBoundary fallback={<div>Error loading component</div>}>
       <Suspense fallback={fallback}>{children}</Suspense>
     </ErrorBoundary>
   );

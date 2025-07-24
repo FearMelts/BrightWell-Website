@@ -738,9 +738,5 @@ if (typeof window !== 'undefined') {
 
 // Ultimate Performance Provider Component
 export function UltimatePerformanceProvider({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="ultimate-performance-optimized">
-      {children}
-    </div>
-  );
+  return <div className="ultimate-performance-optimized">{children}</div>;
 }

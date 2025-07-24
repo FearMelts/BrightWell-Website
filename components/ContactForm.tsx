@@ -81,14 +81,14 @@ export function ContactForm() {
    */
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    
+
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 2000));
-    
+
     console.log('Form submitted:', data);
     setIsSubmitting(false);
     setIsSubmitted(true);
-    
+
     // Reset form after success message
     setTimeout(() => {
       setIsSubmitted(false);
@@ -106,7 +106,7 @@ export function ContactForm() {
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          transition={{ delay: 0.2, type: "spring" }}
+          transition={{ delay: 0.2, type: 'spring' }}
           className="w-20 h-20 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-6"
         >
           <CheckCircle className="w-10 h-10 text-green-600 dark:text-green-400" />
@@ -115,11 +115,13 @@ export function ContactForm() {
           Thank You for Your Interest!
         </h3>
         <p className="text-gray-600 dark:text-gray-400 mb-6">
-          We've received your message and will contact you within 24 hours to discuss your medical billing needs.
+          We've received your message and will contact you within 24 hours to discuss your medical
+          billing needs.
         </p>
         <div className="bg-blue-50 dark:bg-blue-900/30 rounded-lg p-4">
           <p className="text-sm text-blue-800 dark:text-blue-200">
-            <strong>What's Next?</strong> Our billing specialists will review your practice details and prepare a customized solution proposal.
+            <strong>What's Next?</strong> Our billing specialists will review your practice details
+            and prepare a customized solution proposal.
           </p>
         </div>
       </motion.div>
@@ -177,9 +179,7 @@ export function ContactForm() {
             className="bg-white dark:bg-slate-800 border-gray-300 dark:border-slate-600"
             placeholder="your.email@practice.com"
           />
-          {errors.email && (
-            <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
-          )}
+          {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
         </motion.div>
 
         <motion.div variants={inputVariants}>
@@ -192,9 +192,7 @@ export function ContactForm() {
             className="bg-white dark:bg-slate-800 border-gray-300 dark:border-slate-600"
             placeholder="(555) 123-4567"
           />
-          {errors.phone && (
-            <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>
-          )}
+          {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
         </motion.div>
       </div>
 
@@ -204,7 +202,7 @@ export function ContactForm() {
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Practice Type *
           </label>
-          <Select onValueChange={(value) => setValue('practiceType', value)}>
+          <Select onValueChange={value => setValue('practiceType', value)}>
             <SelectTrigger className="bg-white dark:bg-slate-800 border-gray-300 dark:border-slate-600">
               <SelectValue placeholder="Select practice type" />
             </SelectTrigger>
@@ -230,7 +228,7 @@ export function ContactForm() {
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Practice Size *
           </label>
-          <Select onValueChange={(value) => setValue('practiceSize', value)}>
+          <Select onValueChange={value => setValue('practiceSize', value)}>
             <SelectTrigger className="bg-white dark:bg-slate-800 border-gray-300 dark:border-slate-600">
               <SelectValue placeholder="Select practice size" />
             </SelectTrigger>
@@ -269,16 +267,14 @@ export function ContactForm() {
           className="bg-white dark:bg-slate-800 border-gray-300 dark:border-slate-600 min-h-[120px]"
           placeholder="Tell us about your billing challenges, goals, or specific questions..."
         />
-        {errors.message && (
-          <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
-        )}
+        {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>}
       </motion.div>
 
       <motion.div variants={inputVariants}>
         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
           Request Priority
         </label>
-        <Select onValueChange={(value) => setValue('urgency', value)}>
+        <Select onValueChange={value => setValue('urgency', value)}>
           <SelectTrigger className="bg-white dark:bg-slate-800 border-gray-300 dark:border-slate-600">
             <SelectValue placeholder="Select priority level" />
           </SelectTrigger>
@@ -291,11 +287,7 @@ export function ContactForm() {
       </motion.div>
 
       {/* Submit Button */}
-      <motion.div
-        variants={inputVariants}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-      >
+      <motion.div variants={inputVariants} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
         <Button
           type="submit"
           disabled={isSubmitting}
@@ -304,7 +296,7 @@ export function ContactForm() {
           {isSubmitting ? (
             <motion.div
               animate={{ rotate: 360 }}
-              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
               className="w-6 h-6 border-2 border-white border-t-transparent rounded-full mx-auto"
             />
           ) : (
@@ -356,40 +348,40 @@ export function ContactInfoCards() {
   const contactMethods = [
     {
       icon: Phone,
-      title: "Phone Support",
-      description: "Speak directly with our billing specialists",
-      details: "1-800-BILLING (1-800-245-5464)",
-      available: "Available 24/7 for urgent matters",
-      bgColor: "from-cyan-500 to-blue-600",
-      textColor: "text-cyan-600 dark:text-cyan-400"
+      title: 'Phone Support',
+      description: 'Speak directly with our billing specialists',
+      details: '1-800-BILLING (1-800-245-5464)',
+      available: 'Available 24/7 for urgent matters',
+      bgColor: 'from-cyan-500 to-blue-600',
+      textColor: 'text-cyan-600 dark:text-cyan-400',
     },
     {
       icon: Mail,
-      title: "Email Support", 
-      description: "Send us detailed questions and documentation",
-      details: "support@brightwell.com",
-      available: "Response within 4 hours",
-      bgColor: "from-blue-500 to-purple-600",
-      textColor: "text-blue-600 dark:text-blue-400"
+      title: 'Email Support',
+      description: 'Send us detailed questions and documentation',
+      details: 'support@brightwell.com',
+      available: 'Response within 4 hours',
+      bgColor: 'from-blue-500 to-purple-600',
+      textColor: 'text-blue-600 dark:text-blue-400',
     },
     {
       icon: Stethoscope,
-      title: "Practice Visit",
-      description: "On-site consultation and setup assistance",
-      details: "Schedule a consultation",
-      available: "Available in major metropolitan areas",
-      bgColor: "from-purple-500 to-pink-600", 
-      textColor: "text-purple-600 dark:text-purple-400"
+      title: 'Practice Visit',
+      description: 'On-site consultation and setup assistance',
+      details: 'Schedule a consultation',
+      available: 'Available in major metropolitan areas',
+      bgColor: 'from-purple-500 to-pink-600',
+      textColor: 'text-purple-600 dark:text-purple-400',
     },
     {
       icon: MapPin,
-      title: "Office Locations",
-      description: "Visit our regional offices for in-person support",
-      details: "12 locations nationwide",
-      available: "Mon-Fri 8AM-6PM local time",
-      bgColor: "from-green-500 to-teal-600",
-      textColor: "text-green-600 dark:text-green-400"
-    }
+      title: 'Office Locations',
+      description: 'Visit our regional offices for in-person support',
+      details: '12 locations nationwide',
+      available: 'Mon-Fri 8AM-6PM local time',
+      bgColor: 'from-green-500 to-teal-600',
+      textColor: 'text-green-600 dark:text-green-400',
+    },
   ];
 
   return (
@@ -405,7 +397,9 @@ export function ContactInfoCards() {
             whileHover={{ y: -5, scale: 1.02 }}
             className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200 dark:border-slate-700"
           >
-            <div className={`w-12 h-12 bg-gradient-to-br ${method.bgColor} rounded-xl flex items-center justify-center mb-4`}>
+            <div
+              className={`w-12 h-12 bg-gradient-to-br ${method.bgColor} rounded-xl flex items-center justify-center mb-4`}
+            >
               <IconComponent className="w-6 h-6 text-white" />
             </div>
             <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-2">{method.title}</h3>

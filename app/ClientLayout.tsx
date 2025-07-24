@@ -9,9 +9,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
 
   return (
     <LazyMotion features={domAnimation}>
-      <div className="min-h-screen flex flex-col">
-        {children}
-      </div>
+      <div className="min-h-screen flex flex-col">{children}</div>
     </LazyMotion>
   );
 }

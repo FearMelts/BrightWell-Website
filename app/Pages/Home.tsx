@@ -157,7 +157,7 @@ function Navigation() {
         zIndex: 50,
         backgroundColor: 'rgba(255, 255, 255, 0.9)',
         backdropFilter: 'blur(12px)',
-        borderBottom: '1px solid rgba(226, 232, 240, 1)'
+        borderBottom: '1px solid rgba(226, 232, 240, 1)',
       }}
     >
       <div className="max-w-7xl mx-auto px-4">

@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
-import { 
+import {
   ArrowRight,
   CheckCircle,
   Star,
@@ -29,7 +29,7 @@ import {
   ChevronRight,
   PlayCircle,
   Download,
-  Phone
+  Phone,
 } from 'lucide-react';
 
 /**
@@ -97,49 +97,52 @@ const serviceDetails: ServiceDetail[] = [
   {
     id: 'streamlined-billing',
     title: 'Streamlined Billing Solutions',
-    shortDescription: 'Efficient processes to ensure timely and accurate billing with automated workflows.',
-    fullDescription: 'Our streamlined billing solution revolutionizes your revenue cycle management through advanced automation, intelligent claim processing, and real-time analytics. Eliminate manual errors, reduce processing time by 75%, and maximize your revenue potential.',
+    shortDescription:
+      'Efficient processes to ensure timely and accurate billing with automated workflows.',
+    fullDescription:
+      'Our streamlined billing solution revolutionizes your revenue cycle management through advanced automation, intelligent claim processing, and real-time analytics. Eliminate manual errors, reduce processing time by 75%, and maximize your revenue potential.',
     icon: Zap,
-    heroImage: 'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/4d477f27-4582-4137-98ef-10986c37bf91.jpg',
+    heroImage:
+      'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/4d477f27-4582-4137-98ef-10986c37bf91.jpg',
     benefits: [
       'Automated claim submission and tracking',
       'Real-time eligibility verification',
       'Intelligent denial management',
       'Advanced reporting and analytics',
       'Seamless EHR integration',
-      'HIPAA-compliant processes'
+      'HIPAA-compliant processes',
     ],
     features: [
       {
         name: 'Automated Claims Processing',
         description: 'AI-powered system processes claims 24/7 with 99.2% accuracy',
-        included: true
+        included: true,
       },
       {
         name: 'Real-time Eligibility Checks',
         description: 'Instant insurance verification before patient visits',
-        included: true
+        included: true,
       },
       {
         name: 'Smart Denial Management',
         description: 'Automated appeal generation and resubmission workflows',
-        included: true
+        included: true,
       },
       {
         name: 'Custom Reporting Dashboard',
         description: 'Comprehensive analytics and performance metrics',
-        included: true
+        included: true,
       },
       {
         name: 'EHR Integration',
         description: 'Seamless connection with 50+ popular EHR systems',
-        included: true
+        included: true,
       },
       {
         name: 'Dedicated Support Team',
         description: '24/7 expert support with average 30-second response time',
-        included: true
-      }
+        included: true,
+      },
     ],
     pricing: {
       starter: {
@@ -150,8 +153,8 @@ const serviceDetails: ServiceDetail[] = [
           'Basic reporting',
           'Email support',
           'Standard integrations',
-          'Monthly reconciliation'
-        ]
+          'Monthly reconciliation',
+        ],
       },
       professional: {
         price: '$599/month',
@@ -163,8 +166,8 @@ const serviceDetails: ServiceDetail[] = [
           'Custom integrations',
           'Weekly reconciliation',
           'Denial management',
-          'Patient billing portal'
-        ]
+          'Patient billing portal',
+        ],
       },
       enterprise: {
         price: 'Custom pricing',
@@ -178,34 +181,35 @@ const serviceDetails: ServiceDetail[] = [
           'Advanced denial management',
           'White-label patient portal',
           'Custom workflows',
-          'Priority support'
-        ]
-      }
+          'Priority support',
+        ],
+      },
     },
     implementation: {
       timeline: '2-4 weeks',
       steps: [
         {
           title: 'Initial Assessment',
-          description: 'Comprehensive review of current billing processes and system integration requirements',
-          duration: '3-5 days'
+          description:
+            'Comprehensive review of current billing processes and system integration requirements',
+          duration: '3-5 days',
         },
         {
           title: 'System Configuration',
           description: 'Custom setup of billing workflows, integrations, and user permissions',
-          duration: '1 week'
+          duration: '1 week',
         },
         {
           title: 'Staff Training',
           description: 'Comprehensive training for your team on new processes and system features',
-          duration: '3-5 days'
+          duration: '3-5 days',
         },
         {
           title: 'Go-Live & Monitoring',
           description: 'Launch new system with close monitoring and immediate support',
-          duration: '1 week'
-        }
-      ]
+          duration: '1 week',
+        },
+      ],
     },
     caseStudies: [
       {
@@ -216,76 +220,82 @@ const serviceDetails: ServiceDetail[] = [
           'Reduced denial rate to 2.1%',
           'Improved cash flow by 40%',
           'Decreased days in A/R from 45 to 28 days',
-          'Eliminated manual claim reviews'
-        ]
-      }
+          'Eliminated manual claim reviews',
+        ],
+      },
     ],
     faqs: [
       {
         question: 'How long does implementation typically take?',
-        answer: 'Most practices are fully operational within 2-4 weeks, depending on complexity and system integrations required.'
+        answer:
+          'Most practices are fully operational within 2-4 weeks, depending on complexity and system integrations required.',
       },
       {
         question: 'Do you integrate with our existing EHR system?',
-        answer: 'Yes, we integrate with 50+ popular EHR systems including Epic, Cerner, AllScripts, and Practice Fusion.'
+        answer:
+          'Yes, we integrate with 50+ popular EHR systems including Epic, Cerner, AllScripts, and Practice Fusion.',
       },
       {
         question: 'What kind of support do you provide?',
-        answer: 'We offer 24/7 support with dedicated account managers, comprehensive training, and ongoing optimization services.'
-      }
+        answer:
+          'We offer 24/7 support with dedicated account managers, comprehensive training, and ongoing optimization services.',
+      },
     ],
     metrics: {
       accuracy: '99.2%',
       efficiency: '75% faster',
-      satisfaction: '98% client satisfaction'
-    }
+      satisfaction: '98% client satisfaction',
+    },
   },
   {
     id: 'compliance-assurance',
     title: 'Compliance Assurance',
-    shortDescription: 'Stay compliant with the latest healthcare regulations including HIPAA, ICD-10, and billing standards.',
-    fullDescription: 'Ensure your practice meets all regulatory requirements with our comprehensive compliance management system. Stay up-to-date with changing regulations, maintain audit trails, and protect patient data with enterprise-grade security.',
+    shortDescription:
+      'Stay compliant with the latest healthcare regulations including HIPAA, ICD-10, and billing standards.',
+    fullDescription:
+      'Ensure your practice meets all regulatory requirements with our comprehensive compliance management system. Stay up-to-date with changing regulations, maintain audit trails, and protect patient data with enterprise-grade security.',
     icon: Shield,
-    heroImage: 'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/61d8c221-7bab-4330-b160-d9f121aeada0.jpg',
+    heroImage:
+      'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/61d8c221-7bab-4330-b160-d9f121aeada0.jpg',
     benefits: [
       'HIPAA compliance monitoring',
       'Automated audit trail generation',
       'Regular compliance assessments',
       'Staff training programs',
       'Risk mitigation strategies',
-      'Regulatory update notifications'
+      'Regulatory update notifications',
     ],
     features: [
       {
         name: 'HIPAA Compliance Management',
         description: 'Comprehensive HIPAA compliance monitoring and reporting',
-        included: true
+        included: true,
       },
       {
         name: 'Audit Trail Systems',
         description: 'Detailed logging of all system activities and data access',
-        included: true
+        included: true,
       },
       {
         name: 'Regulatory Updates',
         description: 'Automatic updates for changing healthcare regulations',
-        included: true
+        included: true,
       },
       {
         name: 'Risk Assessment Tools',
         description: 'Regular compliance risk assessments and recommendations',
-        included: true
+        included: true,
       },
       {
         name: 'Staff Training Modules',
         description: 'Ongoing compliance training for your team members',
-        included: true
+        included: true,
       },
       {
         name: 'Incident Response',
         description: '24/7 breach response and incident management support',
-        included: true
-      }
+        included: true,
+      },
     ],
     pricing: {
       starter: {
@@ -296,8 +306,8 @@ const serviceDetails: ServiceDetail[] = [
           'Monthly assessments',
           'Email alerts',
           'Standard training modules',
-          'Incident reporting'
-        ]
+          'Incident reporting',
+        ],
       },
       professional: {
         price: '$399/month',
@@ -309,8 +319,8 @@ const serviceDetails: ServiceDetail[] = [
           'Custom training programs',
           'Priority incident response',
           'Compliance dashboard',
-          'Regulatory consultation'
-        ]
+          'Regulatory consultation',
+        ],
       },
       enterprise: {
         price: 'Custom pricing',
@@ -323,9 +333,9 @@ const serviceDetails: ServiceDetail[] = [
           'Immediate incident response',
           'Advanced analytics',
           'Regulatory representation',
-          'Multi-location support'
-        ]
-      }
+          'Multi-location support',
+        ],
+      },
     },
     implementation: {
       timeline: '1-3 weeks',
@@ -333,104 +343,111 @@ const serviceDetails: ServiceDetail[] = [
         {
           title: 'Compliance Audit',
           description: 'Comprehensive assessment of current compliance status and gaps',
-          duration: '3-5 days'
+          duration: '3-5 days',
         },
         {
           title: 'Policy Implementation',
           description: 'Development and implementation of required policies and procedures',
-          duration: '1 week'
+          duration: '1 week',
         },
         {
           title: 'System Configuration',
           description: 'Setup of monitoring systems and security controls',
-          duration: '2-3 days'
+          duration: '2-3 days',
         },
         {
           title: 'Staff Training',
           description: 'Compliance training for all staff members and ongoing education setup',
-          duration: '2-3 days'
-        }
-      ]
+          duration: '2-3 days',
+        },
+      ],
     },
     caseStudies: [
       {
         client: 'Regional Health Network',
-        challenge: 'Multiple compliance violations and failed HIPAA audit requiring immediate remediation',
+        challenge:
+          'Multiple compliance violations and failed HIPAA audit requiring immediate remediation',
         solution: 'Implemented comprehensive compliance management system with 24/7 monitoring',
         results: [
           'Achieved 100% HIPAA compliance within 30 days',
           'Passed subsequent audits with zero violations',
           'Reduced compliance-related incidents by 95%',
-          'Established ongoing compliance monitoring'
-        ]
-      }
+          'Established ongoing compliance monitoring',
+        ],
+      },
     ],
     faqs: [
       {
         question: 'What compliance standards do you cover?',
-        answer: 'We cover HIPAA, HITECH, ICD-10/11, CPT, Medicare/Medicaid regulations, and state-specific healthcare compliance requirements.'
+        answer:
+          'We cover HIPAA, HITECH, ICD-10/11, CPT, Medicare/Medicaid regulations, and state-specific healthcare compliance requirements.',
       },
       {
         question: 'How do you handle compliance violations?',
-        answer: 'We provide immediate incident response, remediation guidance, and ongoing monitoring to prevent future violations.'
+        answer:
+          'We provide immediate incident response, remediation guidance, and ongoing monitoring to prevent future violations.',
       },
       {
         question: 'Do you provide compliance training?',
-        answer: 'Yes, we offer comprehensive staff training programs with regular updates and certification tracking.'
-      }
+        answer:
+          'Yes, we offer comprehensive staff training programs with regular updates and certification tracking.',
+      },
     ],
     metrics: {
       accuracy: '100% compliance rate',
       efficiency: '90% fewer violations',
-      satisfaction: '96% audit success rate'
-    }
+      satisfaction: '96% audit success rate',
+    },
   },
   {
     id: 'dedicated-support',
     title: 'Dedicated Support Services',
-    shortDescription: 'Expert support team available 24/7 to handle all your billing inquiries and provide personalized assistance.',
-    fullDescription: 'Our dedicated support team consists of certified medical billing specialists, compliance experts, and technology professionals committed to your practice\'s success. Get personalized assistance, proactive account management, and expert guidance whenever you need it.',
+    shortDescription:
+      'Expert support team available 24/7 to handle all your billing inquiries and provide personalized assistance.',
+    fullDescription:
+      "Our dedicated support team consists of certified medical billing specialists, compliance experts, and technology professionals committed to your practice's success. Get personalized assistance, proactive account management, and expert guidance whenever you need it.",
     icon: Headphones,
-    heroImage: 'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/8bb35300-2601-4cb1-9cfe-1040d2b6c31a.jpg',
+    heroImage:
+      'https://pub-cdn.sider.ai/u/U05XH919WYG/web-coder/687b5cca00bcf77ebb7774ef/resource/8bb35300-2601-4cb1-9cfe-1040d2b6c31a.jpg',
     benefits: [
       '24/7 expert support availability',
       'Dedicated account managers',
       'Proactive issue resolution',
       'Personalized training programs',
       'Performance optimization',
-      'Strategic billing consultation'
+      'Strategic billing consultation',
     ],
     features: [
       {
         name: '24/7 Expert Support',
         description: 'Round-the-clock access to certified billing specialists',
-        included: true
+        included: true,
       },
       {
         name: 'Dedicated Account Manager',
         description: 'Personal account manager who knows your practice intimately',
-        included: true
+        included: true,
       },
       {
         name: 'Proactive Monitoring',
         description: 'Continuous monitoring and proactive issue identification',
-        included: true
+        included: true,
       },
       {
         name: 'Performance Analytics',
         description: 'Regular performance reviews and optimization recommendations',
-        included: true
+        included: true,
       },
       {
         name: 'Custom Training',
         description: 'Tailored training programs for your specific needs',
-        included: true
+        included: true,
       },
       {
         name: 'Strategic Consulting',
         description: 'Expert guidance on billing strategy and optimization',
-        included: true
-      }
+        included: true,
+      },
     ],
     pricing: {
       starter: {
@@ -441,8 +458,8 @@ const serviceDetails: ServiceDetail[] = [
           'Email and chat support',
           'Monthly check-ins',
           'Basic training resources',
-          'Standard response times'
-        ]
+          'Standard response times',
+        ],
       },
       professional: {
         price: '$299/month',
@@ -454,8 +471,8 @@ const serviceDetails: ServiceDetail[] = [
           'Dedicated account manager',
           'Priority response times',
           'Custom training sessions',
-          'Performance reviews'
-        ]
+          'Performance reviews',
+        ],
       },
       enterprise: {
         price: 'Custom pricing',
@@ -468,9 +485,9 @@ const serviceDetails: ServiceDetail[] = [
           'Immediate response guarantee',
           'On-site training available',
           'Strategic consulting',
-          'Executive reporting'
-        ]
-      }
+          'Executive reporting',
+        ],
+      },
     },
     implementation: {
       timeline: '1 week',
@@ -478,24 +495,24 @@ const serviceDetails: ServiceDetail[] = [
         {
           title: 'Account Setup',
           description: 'Assignment of dedicated account manager and support team introduction',
-          duration: '1 day'
+          duration: '1 day',
         },
         {
           title: 'Needs Assessment',
           description: 'Comprehensive evaluation of support requirements and preferences',
-          duration: '2 days'
+          duration: '2 days',
         },
         {
           title: 'Support Configuration',
           description: 'Setup of support channels, escalation procedures, and monitoring systems',
-          duration: '2 days'
+          duration: '2 days',
         },
         {
           title: 'Team Training',
           description: 'Initial training session and establishment of ongoing support schedule',
-          duration: '2 days'
-        }
-      ]
+          duration: '2 days',
+        },
+      ],
     },
     caseStudies: [
       {
@@ -506,30 +523,33 @@ const serviceDetails: ServiceDetail[] = [
           'Reduced support tickets by 80%',
           'Improved staff satisfaction scores to 95%',
           'Eliminated billing-related revenue delays',
-          'Achieved 99.8% system uptime'
-        ]
-      }
+          'Achieved 99.8% system uptime',
+        ],
+      },
     ],
     faqs: [
       {
         question: 'What are your support hours?',
-        answer: 'We offer 24/7 support for urgent issues, with business hours support for general inquiries. Response times vary by support tier.'
+        answer:
+          'We offer 24/7 support for urgent issues, with business hours support for general inquiries. Response times vary by support tier.',
       },
       {
         question: 'How quickly do you respond to support requests?',
-        answer: 'Response times range from immediate (Enterprise) to within 4 hours (Starter), depending on your support level and issue urgency.'
+        answer:
+          'Response times range from immediate (Enterprise) to within 4 hours (Starter), depending on your support level and issue urgency.',
       },
       {
         question: 'Can you provide on-site support?',
-        answer: 'Yes, we offer on-site support for Enterprise clients and can arrange on-site visits for other tiers when needed.'
-      }
+        answer:
+          'Yes, we offer on-site support for Enterprise clients and can arrange on-site visits for other tiers when needed.',
+      },
     ],
     metrics: {
       accuracy: '30-second avg response',
       efficiency: '99.8% uptime',
-      satisfaction: '97% satisfaction rate'
-    }
-  }
+      satisfaction: '97% satisfaction rate',
+    },
+  },
 ];
 
 /**
@@ -565,12 +585,7 @@ export function ServicePages() {
   if (selectedService) {
     const service = serviceDetails.find(s => s.id === selectedService);
     if (service) {
-      return (
-        <ServiceDetailPage 
-          service={service} 
-          onBack={() => setSelectedService(null)}
-        />
-      );
+      return <ServiceDetailPage service={service} onBack={() => setSelectedService(null)} />;
     }
   }
 
@@ -592,12 +607,16 @@ export function ServicePages() {
           >
             <Settings className="w-8 h-8 text-white" />
           </motion.div>
-          
+
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-6">
-            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 via-teal-600 to-blue-600">Services</span>
+            Our{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 via-teal-600 to-blue-600">
+              Services
+            </span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Comprehensive medical billing solutions tailored to your practice's unique needs and growth objectives.
+            Comprehensive medical billing solutions tailored to your practice's unique needs and
+            growth objectives.
           </p>
         </motion.div>
 
@@ -608,7 +627,7 @@ export function ServicePages() {
           whileInView="visible"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {serviceDetails.map((service) => (
+          {serviceDetails.map(service => (
             <ServiceCard
               key={service.id}
               service={service}
@@ -626,14 +645,18 @@ export function ServicePages() {
         >
           <h3 className="text-3xl font-bold mb-4">Ready to Transform Your Billing?</h3>
           <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-            Let our experts analyze your current billing processes and recommend the perfect solution for your practice.
+            Let our experts analyze your current billing processes and recommend the perfect
+            solution for your practice.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button className="bg-white text-green-600 hover:bg-gray-100 rounded-xl px-8 py-3 font-semibold">
               <Phone className="w-5 h-5 mr-2" />
               Schedule Consultation
             </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-white/10 rounded-xl px-8 py-3 font-semibold bg-transparent">
+            <Button
+              variant="outline"
+              className="border-white text-white hover:bg-white/10 rounded-xl px-8 py-3 font-semibold bg-transparent"
+            >
               <Download className="w-5 h-5 mr-2" />
               Download Service Guide
             </Button>
@@ -649,7 +672,7 @@ export function ServicePages() {
  */
 function ServiceCard({ service, onClick }: { service: ServiceDetail; onClick: () => void }) {
   const IconComponent = service.icon;
-  
+
   return (
     <motion.div
       variants={itemVariants}
@@ -663,15 +686,15 @@ function ServiceCard({ service, onClick }: { service: ServiceDetail; onClick: ()
         </div>
         <ChevronRight className="w-6 h-6 text-gray-400 group-hover:text-green-600 group-hover:translate-x-1 transition-all" />
       </div>
-      
+
       <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4 group-hover:text-green-600 transition-colors">
         {service.title}
       </h3>
-      
+
       <p className="text-gray-600 dark:text-gray-400 mb-6 line-clamp-3">
         {service.shortDescription}
       </p>
-      
+
       {/* Key Metrics */}
       <div className="grid grid-cols-3 gap-2 mb-6">
         <div className="text-center bg-green-50 dark:bg-green-900/30 rounded-lg p-3">
@@ -693,7 +716,7 @@ function ServiceCard({ service, onClick }: { service: ServiceDetail; onClick: ()
           <div className="text-xs text-gray-600 dark:text-gray-400">Satisfaction</div>
         </div>
       </div>
-      
+
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
@@ -710,7 +733,7 @@ function ServiceCard({ service, onClick }: { service: ServiceDetail; onClick: ()
  */
 function ServiceDetailPage({ service, onBack }: { service: ServiceDetail; onBack: () => void }) {
   const IconComponent = service.icon;
-  
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-slate-50 to-blue-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-blue-950/30">
       {/* Hero Section */}
@@ -723,7 +746,7 @@ function ServiceDetailPage({ service, onBack }: { service: ServiceDetail; onBack
           >
             ← Back to Services
           </Button>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-white">
               <div className="flex items-center gap-4 mb-6">
@@ -732,47 +755,52 @@ function ServiceDetailPage({ service, onBack }: { service: ServiceDetail; onBack
                 </div>
                 <Badge className="bg-white/20 text-white">Premium Service</Badge>
               </div>
-              
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                {service.title}
-              </h1>
-              
-              <p className="text-xl opacity-90 mb-8">
-                {service.fullDescription}
-              </p>
-              
+
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">{service.title}</h1>
+
+              <p className="text-xl opacity-90 mb-8">{service.fullDescription}</p>
+
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button className="bg-white text-green-600 hover:bg-gray-100 rounded-xl px-8 py-3 font-semibold">
                   Get Started Today
                 </Button>
-                <Button variant="outline" className="border-white text-white hover:bg-white/10 bg-transparent rounded-xl px-8 py-3 font-semibold">
+                <Button
+                  variant="outline"
+                  className="border-white text-white hover:bg-white/10 bg-transparent rounded-xl px-8 py-3 font-semibold"
+                >
                   <PlayCircle className="w-5 h-5 mr-2" />
                   Watch Demo
                 </Button>
               </div>
             </div>
-            
+
             <div className="relative">
-              <img
-                src={service.heroImage}
-                alt={service.title}
-                className="rounded-2xl shadow-2xl"
-              />
+              <img src={service.heroImage} alt={service.title} className="rounded-2xl shadow-2xl" />
             </div>
           </div>
         </div>
       </div>
-      
+
       {/* Content Tabs */}
       <div className="py-20">
         <div className="max-w-7xl mx-auto px-4">
           <Tabs defaultValue="overview" className="space-y-8">
             <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 bg-white dark:bg-slate-800 rounded-xl p-2 shadow-lg">
-              <TabsTrigger value="overview" className="rounded-lg">Overview</TabsTrigger>
-              <TabsTrigger value="features" className="rounded-lg">Features</TabsTrigger>
-              <TabsTrigger value="pricing" className="rounded-lg">Pricing</TabsTrigger>
-              <TabsTrigger value="implementation" className="rounded-lg">Implementation</TabsTrigger>
-              <TabsTrigger value="support" className="rounded-lg">Support</TabsTrigger>
+              <TabsTrigger value="overview" className="rounded-lg">
+                Overview
+              </TabsTrigger>
+              <TabsTrigger value="features" className="rounded-lg">
+                Features
+              </TabsTrigger>
+              <TabsTrigger value="pricing" className="rounded-lg">
+                Pricing
+              </TabsTrigger>
+              <TabsTrigger value="implementation" className="rounded-lg">
+                Implementation
+              </TabsTrigger>
+              <TabsTrigger value="support" className="rounded-lg">
+                Support
+              </TabsTrigger>
             </TabsList>
 
             <TabsContent value="overview">
@@ -825,11 +853,13 @@ function ServiceOverview({ service }: { service: ServiceDetail }) {
           ))}
         </div>
       </div>
-      
+
       {/* Case Study */}
       {service.caseStudies.length > 0 && (
         <div>
-          <h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8">Success Story</h3>
+          <h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8">
+            Success Story
+          </h3>
           <div className="bg-gradient-to-br from-green-50 to-teal-50 dark:from-green-900/20 dark:to-teal-900/20 rounded-2xl p-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div>
@@ -838,12 +868,20 @@ function ServiceOverview({ service }: { service: ServiceDetail }) {
                 </h4>
                 <div className="space-y-4">
                   <div>
-                    <h5 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">Challenge</h5>
-                    <p className="text-gray-600 dark:text-gray-400">{service.caseStudies[0].challenge}</p>
+                    <h5 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                      Challenge
+                    </h5>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      {service.caseStudies[0].challenge}
+                    </p>
                   </div>
                   <div>
-                    <h5 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">Solution</h5>
-                    <p className="text-gray-600 dark:text-gray-400">{service.caseStudies[0].solution}</p>
+                    <h5 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                      Solution
+                    </h5>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      {service.caseStudies[0].solution}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -881,7 +919,9 @@ function ServiceFeatures({ service }: { service: ServiceDetail }) {
           className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg border border-slate-200 dark:border-slate-700"
         >
           <div className="flex items-start gap-4">
-            <CheckCircle className={`w-6 h-6 mt-1 ${feature.included ? 'text-green-500' : 'text-gray-400'}`} />
+            <CheckCircle
+              className={`w-6 h-6 mt-1 ${feature.included ? 'text-green-500' : 'text-gray-400'}`}
+            />
             <div>
               <h4 className="font-bold text-gray-900 dark:text-gray-100 mb-2">{feature.name}</h4>
               <p className="text-gray-600 dark:text-gray-400">{feature.description}</p>
@@ -900,9 +940,9 @@ function ServicePricing({ service }: { service: ServiceDetail }) {
   const plans = [
     { key: 'starter', name: 'Starter', popular: false },
     { key: 'professional', name: 'Professional', popular: true },
-    { key: 'enterprise', name: 'Enterprise', popular: false }
+    { key: 'enterprise', name: 'Enterprise', popular: false },
   ];
-  
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       {plans.map((plan, index) => {
@@ -914,8 +954,8 @@ function ServicePricing({ service }: { service: ServiceDetail }) {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
             className={`relative bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg border ${
-              plan.popular 
-                ? 'border-green-500 ring-2 ring-green-500/20' 
+              plan.popular
+                ? 'border-green-500 ring-2 ring-green-500/20'
                 : 'border-slate-200 dark:border-slate-700'
             }`}
           >
@@ -924,15 +964,17 @@ function ServicePricing({ service }: { service: ServiceDetail }) {
                 Most Popular
               </Badge>
             )}
-            
+
             <div className="text-center mb-8">
-              <h4 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">{plan.name}</h4>
+              <h4 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                {plan.name}
+              </h4>
               <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">
                 {planData.price}
               </div>
               <p className="text-gray-600 dark:text-gray-400">{planData.description}</p>
             </div>
-            
+
             <ul className="space-y-3 mb-8">
               {planData.features.map((feature, i) => (
                 <li key={i} className="flex items-center gap-2">
@@ -941,12 +983,14 @@ function ServicePricing({ service }: { service: ServiceDetail }) {
                 </li>
               ))}
             </ul>
-            
-            <Button className={`w-full rounded-xl ${
-              plan.popular
-                ? 'bg-green-500 hover:bg-green-600 text-white'
-                : 'bg-gray-100 hover:bg-gray-200 text-gray-900 dark:bg-slate-700 dark:hover:bg-slate-600 dark:text-gray-100'
-            }`}>
+
+            <Button
+              className={`w-full rounded-xl ${
+                plan.popular
+                  ? 'bg-green-500 hover:bg-green-600 text-white'
+                  : 'bg-gray-100 hover:bg-gray-200 text-gray-900 dark:bg-slate-700 dark:hover:bg-slate-600 dark:text-gray-100'
+              }`}
+            >
               Get Started
             </Button>
           </motion.div>
@@ -970,11 +1014,11 @@ function ServiceImplementation({ service }: { service: ServiceDetail }) {
           Our proven implementation process ensures a smooth transition to your new billing system
         </p>
       </div>
-      
+
       <div className="relative">
         {/* Timeline Line */}
         <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-green-500 to-teal-600"></div>
-        
+
         {/* Steps */}
         <div className="space-y-12">
           {service.implementation.steps.map((step, index) => (
@@ -988,10 +1032,12 @@ function ServiceImplementation({ service }: { service: ServiceDetail }) {
               <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
                 {index + 1}
               </div>
-              
+
               <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg border border-slate-200 dark:border-slate-700 flex-1">
                 <div className="flex items-center justify-between mb-4">
-                  <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100">{step.title}</h4>
+                  <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100">
+                    {step.title}
+                  </h4>
                   <Badge variant="outline" className="text-green-600 border-green-600">
                     {step.duration}
                   </Badge>
@@ -1014,7 +1060,9 @@ function ServiceSupport({ service }: { service: ServiceDetail }) {
     <div className="space-y-12">
       {/* FAQ Section */}
       <div>
-        <h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8">Frequently Asked Questions</h3>
+        <h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8">
+          Frequently Asked Questions
+        </h3>
         <div className="space-y-6">
           {service.faqs.map((faq, index) => (
             <motion.div
@@ -1030,7 +1078,7 @@ function ServiceSupport({ service }: { service: ServiceDetail }) {
           ))}
         </div>
       </div>
-      
+
       {/* Contact CTA */}
       <div className="bg-gradient-to-r from-green-500 via-teal-600 to-blue-600 rounded-2xl p-8 text-center text-white">
         <h3 className="text-3xl font-bold mb-4">Still Have Questions?</h3>
@@ -1041,7 +1089,10 @@ function ServiceSupport({ service }: { service: ServiceDetail }) {
           <Button className="bg-white text-green-600 hover:bg-gray-100 rounded-xl px-8 py-3 font-semibold">
             Schedule a Call
           </Button>
-          <Button variant="outline" className="border-white text-white hover:bg-white/10 bg-transparent rounded-xl px-8 py-3 font-semibold">
+          <Button
+            variant="outline"
+            className="border-white text-white hover:bg-white/10 bg-transparent rounded-xl px-8 py-3 font-semibold"
+          >
             Live Chat Support
           </Button>
         </div>
