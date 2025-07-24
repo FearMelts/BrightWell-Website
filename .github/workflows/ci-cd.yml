@@ -180,7 +180,7 @@ jobs:
           name: build-files
           path: .next/
 
-      - name: 🚀 Deploy to Vercel Preview
+      - name: 2🚀 Deploy to Vercel Preview
         uses: amondnet/vercel-action@v25
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}

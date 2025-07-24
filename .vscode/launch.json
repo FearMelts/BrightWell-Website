@@ -90,10 +90,7 @@
       "restart": true,
       "localRoot": "${workspaceFolder}",
       "remoteRoot": "${workspaceFolder}",
-      "skipFiles": [
-        "<node_internals>/**",
-        "${workspaceFolder}/node_modules/**"
-      ],
+      "skipFiles": ["<node_internals>/**", "${workspaceFolder}/node_modules/**"],
       "presentation": {
         "hidden": false,
         "group": "Attach",
@@ -105,11 +102,7 @@
       "type": "node",
       "request": "launch",
       "program": "${workspaceFolder}/node_modules/.bin/jest",
-      "args": [
-        "--runInBand",
-        "--no-cache",
-        "--testTimeout=60000"
-      ],
+      "args": ["--runInBand", "--no-cache", "--testTimeout=60000"],
       "cwd": "${workspaceFolder}",
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
@@ -127,12 +120,7 @@
       "type": "node",
       "request": "launch",
       "program": "${workspaceFolder}/node_modules/.bin/jest",
-      "args": [
-        "--runInBand",
-        "--no-cache",
-        "--testTimeout=60000",
-        "${fileBasenameNoExtension}"
-      ],
+      "args": ["--runInBand", "--no-cache", "--testTimeout=60000", "${fileBasenameNoExtension}"],
       "cwd": "${workspaceFolder}",
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
@@ -203,13 +191,7 @@
       "type": "node",
       "request": "launch",
       "program": "${workspaceFolder}/node_modules/.bin/eslint",
-      "args": [
-        ".",
-        "--ext",
-        ".js,.jsx,.ts,.tsx",
-        "--cache",
-        "--fix"
-      ],
+      "args": [".", "--ext", ".js,.jsx,.ts,.tsx", "--cache", "--fix"],
       "cwd": "${workspaceFolder}",
       "console": "integratedTerminal",
       "presentation": {
@@ -222,10 +204,7 @@
   "compounds": [
     {
       "name": "🚀 Full Stack Debug",
-      "configurations": [
-        "🚀 Next.js: Debug Client",
-        "🔍 Chrome: Debug Frontend"
-      ],
+      "configurations": ["🚀 Next.js: Debug Client", "🔍 Chrome: Debug Frontend"],
       "presentation": {
         "hidden": false,
         "group": "Compound",
@@ -234,10 +213,7 @@
     },
     {
       "name": "🧪 Test & Debug",
-      "configurations": [
-        "🧪 Jest: Debug Tests",
-        "🔧 TypeScript: Check"
-      ],
+      "configurations": ["🧪 Jest: Debug Tests", "🔧 TypeScript: Check"],
       "presentation": {
         "hidden": false,
         "group": "Compound",

@@ -35,9 +35,9 @@
       "  groupNumber?: string;",
       "  memberID: string;",
       "}",
-      "$0"
+      "$0",
     ],
-    "description": "Medical Billing TypeScript Interfaces"
+    "description": "Medical Billing TypeScript Interfaces",
   },
   "API Response Type": {
     "prefix": "bwapi",
@@ -65,9 +65,9 @@
       "export interface ${1:Endpoint}Response {",
       "  $3",
       "}",
-      "$0"
+      "$0",
     ],
-    "description": "BrightWell API Response Types"
+    "description": "BrightWell API Response Types",
   },
   "Form Validation Schema": {
     "prefix": "bwvalidation",
@@ -86,9 +86,9 @@
       "export const validate${1/(.*)/${1:/capitalize}/} = (data: unknown): ${1/(.*)/${1:/capitalize}/}FormData => {",
       "  return ${1:formName}Schema.parse(data);",
       "};",
-      "$0"
+      "$0",
     ],
-    "description": "BrightWell Form Validation with Zod"
+    "description": "BrightWell Form Validation with Zod",
   },
   "Medical Service Type": {
     "prefix": "bwservice",
@@ -124,9 +124,9 @@
       "    annual?: number;",
       "  };",
       "}",
-      "$0"
+      "$0",
     ],
-    "description": "Medical Service TypeScript Types"
+    "description": "Medical Service TypeScript Types",
   },
   "Error Handling Types": {
     "prefix": "bwerror",
@@ -165,9 +165,9 @@
       "} as const;",
       "",
       "export type ErrorCode = typeof ErrorCodes[keyof typeof ErrorCodes];",
-      "$0"
+      "$0",
     ],
-    "description": "BrightWell Error Handling Types"
+    "description": "BrightWell Error Handling Types",
   },
   "React Props with Children": {
     "prefix": "bwprops",
@@ -182,9 +182,9 @@
       "  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';",
       "  size?: 'sm' | 'md' | 'lg' | 'xl';",
       "  $4",
-      "}"
+      "}",
     ],
-    "description": "BrightWell React Component Props Interface"
+    "description": "BrightWell React Component Props Interface",
   },
   "Next.js API Route Types": {
     "prefix": "bwnextapi",
@@ -227,9 +227,9 @@
       "    );",
       "  }",
       "}",
-      "$0"
+      "$0",
     ],
-    "description": "Next.js API Route with TypeScript"
+    "description": "Next.js API Route with TypeScript",
   },
   "Zustand Store Definition": {
     "prefix": "bwstore",
@@ -287,8 +287,8 @@
       "    { name: '${1:Store}' }",
       "  )",
       ");",
-      "$0"
+      "$0",
     ],
-    "description": "Zustand Store with TypeScript and Persistence"
-  }
+    "description": "Zustand Store with TypeScript and Persistence",
+  },
 }

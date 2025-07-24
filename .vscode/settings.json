@@ -282,6 +282,23 @@
     "sound": "off"
   },
   "terminal.integrated.enableVisualBell": false,
-  "cSpell.words": ["AUTOCODING"],
+  "cSpell.words": [
+    "amondnet",
+    "AUTOCODING",
+    "bradlc",
+    "brightwell",
+    "bwfc",
+    "cmdk",
+    "commitlint",
+    "dbaeumer",
+    "embla",
+    "esbenp",
+    "geekyeggo",
+    "lighthouserc",
+    "sonner",
+    "treosh",
+    "turbopack",
+    "vaul"
+  ],
   "todo-tree.tree.scanMode": "workspace only"
 }

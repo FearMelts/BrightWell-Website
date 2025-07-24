@@ -1,7 +1,7 @@
 name: ✨ Feature Request
 description: Suggest a new feature for BrightWell Website
-title: "[FEATURE] "
-labels: ["enhancement", "feature-request"]
+title: '[FEATURE] '
+labels: ['enhancement', 'feature-request']
 assignees: [enhancement]
 
 body:
@@ -32,17 +32,17 @@ body:
       label: 🏷️ Feature Category
       description: What category does this feature belong to?
       options:
-        - "🏥 Medical Billing Core Features"
-        - "🎨 UI/UX Improvements"
-        - "⚡ Performance Enhancements"
-        - "🔒 Security Features"
-        - "📱 Mobile/Responsive Features"
-        - "♿ Accessibility Features"
-        - "📊 Analytics/Reporting"
-        - "🤖 Automation Features"
-        - "🔧 Developer Experience"
-        - "📚 Documentation"
-        - "Other"
+        - '🏥 Medical Billing Core Features'
+        - '🎨 UI/UX Improvements'
+        - '⚡ Performance Enhancements'
+        - '🔒 Security Features'
+        - '📱 Mobile/Responsive Features'
+        - '♿ Accessibility Features'
+        - '📊 Analytics/Reporting'
+        - '🤖 Automation Features'
+        - '🔧 Developer Experience'
+        - '📚 Documentation'
+        - 'Other'
     validations:
       required: true
 
@@ -52,10 +52,10 @@ body:
       label: 🚨 Priority Level
       description: How important is this feature to you?
       options:
-        - "🔴 Critical - Blocking business operations"
-        - "🟠 High - Significantly improves workflow"
-        - "🟡 Medium - Nice to have improvement"
-        - "🔵 Low - Minor enhancement"
+        - '🔴 Critical - Blocking business operations'
+        - '🟠 High - Significantly improves workflow'
+        - '🟡 Medium - Nice to have improvement'
+        - '🔵 Low - Minor enhancement'
     validations:
       required: true
 
@@ -162,11 +162,11 @@ body:
       label: ⚙️ Complexity Estimate
       description: How complex do you think this feature would be to implement?
       options:
-        - "🟢 Simple - Minor UI changes or configuration"
-        - "🟡 Medium - New component or moderate backend work"
-        - "🟠 Complex - Major system changes or integrations"
-        - "🔴 Very Complex - Requires significant architecture changes"
-        - "❓ Unsure"
+        - '🟢 Simple - Minor UI changes or configuration'
+        - '🟡 Medium - New component or moderate backend work'
+        - '🟠 Complex - Major system changes or integrations'
+        - '🔴 Very Complex - Requires significant architecture changes'
+        - '❓ Unsure'
 
   - type: textarea
     id: business-impact

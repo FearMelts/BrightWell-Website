@@ -23,10 +23,7 @@
       "runOptions": {
         "runOn": "default"
       },
-      "problemMatcher": [
-        "$tsc-watch",
-        "$eslint-stylish"
-      ]
+      "problemMatcher": ["$tsc-watch", "$eslint-stylish"]
     },
     {
       "label": "🏗️ Build Production",
@@ -44,10 +41,7 @@
       "options": {
         "cwd": "${workspaceFolder}"
       },
-      "problemMatcher": [
-        "$tsc",
-        "$eslint-stylish"
-      ]
+      "problemMatcher": ["$tsc", "$eslint-stylish"]
     },
     {
       "label": "🧪 Run Tests",

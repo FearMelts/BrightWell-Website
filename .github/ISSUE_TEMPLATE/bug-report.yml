@@ -1,7 +1,7 @@
 name: 🐛 Bug Report
 description: Report a bug to help us improve BrightWell Website
-title: "[BUG] "
-labels: ["bug", "triage"]
+title: '[BUG] '
+labels: ['bug', 'triage']
 assignees: [bug]
 
 body:
@@ -32,16 +32,16 @@ body:
       label: 🏷️ Bug Category
       description: What category does this bug fall into?
       options:
-        - "🎨 UI/UX Issues"
-        - "⚡ Performance Problems"
-        - "🔒 Security Concerns"
-        - "📱 Responsive/Mobile Issues"
-        - "🔧 Functionality Bugs"
-        - "♿ Accessibility Issues"
-        - "🏥 Medical Billing Specific"
-        - "📊 Data/Analytics Issues"
-        - "🚀 Build/Deployment Problems"
-        - "Other"
+        - '🎨 UI/UX Issues'
+        - '⚡ Performance Problems'
+        - '🔒 Security Concerns'
+        - '📱 Responsive/Mobile Issues'
+        - '🔧 Functionality Bugs'
+        - '♿ Accessibility Issues'
+        - '🏥 Medical Billing Specific'
+        - '📊 Data/Analytics Issues'
+        - '🚀 Build/Deployment Problems'
+        - 'Other'
     validations:
       required: true
 
@@ -51,10 +51,10 @@ body:
       label: 🚨 Severity Level
       description: How severe is this bug?
       options:
-        - "🔴 Critical - System unusable/broken"
-        - "🟠 High - Major functionality affected"
-        - "🟡 Medium - Minor functionality affected"
-        - "🔵 Low - Cosmetic/minor issue"
+        - '🔴 Critical - System unusable/broken'
+        - '🟠 High - Major functionality affected'
+        - '🟡 Medium - Minor functionality affected'
+        - '🔵 Low - Cosmetic/minor issue'
     validations:
       required: true
 
@@ -136,7 +136,7 @@ body:
     attributes:
       label: 📺 Screen Resolution
       description: What is your screen resolution?
-      placeholder: "e.g., 1920x1080, 375x812"
+      placeholder: 'e.g., 1920x1080, 375x812'
 
   - type: textarea
     id: console-errors

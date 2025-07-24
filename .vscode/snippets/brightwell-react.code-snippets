@@ -16,9 +16,9 @@
       "  );",
       "};",
       "",
-      "export default ${1:ComponentName};"
+      "export default ${1:ComponentName};",
     ],
-    "description": "BrightWell React Functional Component with TypeScript"
+    "description": "BrightWell React Functional Component with TypeScript",
   },
   "Next.js Page Component": {
     "prefix": "bwpage",
@@ -44,9 +44,9 @@
       "  );",
       "};",
       "",
-      "export default ${3:PageName}Page;"
+      "export default ${3:PageName}Page;",
     ],
-    "description": "BrightWell Next.js Page Component with metadata"
+    "description": "BrightWell Next.js Page Component with metadata",
   },
   "Framer Motion Component": {
     "prefix": "bwmotion",
@@ -77,9 +77,9 @@
       "  );",
       "};",
       "",
-      "export default ${1:ComponentName};"
+      "export default ${1:ComponentName};",
     ],
-    "description": "BrightWell Framer Motion Animated Component"
+    "description": "BrightWell Framer Motion Animated Component",
   },
   "Medical Feature Card": {
     "prefix": "bwcard",
@@ -110,9 +110,9 @@
       "    </li>",
       "  </ul>",
       "  $0",
-      "</motion.div>"
+      "</motion.div>",
     ],
-    "description": "BrightWell Medical Feature Card with animation"
+    "description": "BrightWell Medical Feature Card with animation",
   },
   "Hero Section": {
     "prefix": "bwhero",
@@ -160,9 +160,9 @@
       "    </motion.div>",
       "  </div>",
       "  $0",
-      "</section>"
+      "</section>",
     ],
-    "description": "BrightWell Hero Section with animations"
+    "description": "BrightWell Hero Section with animations",
   },
   "TypeScript Interface": {
     "prefix": "bwinterface",
@@ -172,9 +172,9 @@
       "  title: string;",
       "  description: string;",
       "  $2",
-      "}"
+      "}",
     ],
-    "description": "BrightWell TypeScript Interface"
+    "description": "BrightWell TypeScript Interface",
   },
   "Custom Hook": {
     "prefix": "bwhook",
@@ -195,9 +195,9 @@
       "  return {",
       "    $6",
       "  };",
-      "};"
+      "};",
     ],
-    "description": "BrightWell Custom React Hook with TypeScript"
+    "description": "BrightWell Custom React Hook with TypeScript",
   },
   "Contact Form Component": {
     "prefix": "bwform",
@@ -272,9 +272,9 @@
       "  );",
       "};",
       "",
-      "export default ${1:ContactForm};"
+      "export default ${1:ContactForm};",
     ],
-    "description": "BrightWell Contact Form Component"
+    "description": "BrightWell Contact Form Component",
   },
   "Medical Statistics Component": {
     "prefix": "bwstats",
@@ -356,8 +356,8 @@
       "  );",
       "};",
       "",
-      "export default ${1:StatisticsSection};"
+      "export default ${1:StatisticsSection};",
     ],
-    "description": "BrightWell Medical Statistics Section"
-  }
+    "description": "BrightWell Medical Statistics Section",
+  },
 }

@@ -5,12 +5,12 @@
   "service": "app",
   "workspaceFolder": "/app",
   "shutdownAction": "stopCompose",
-  
+
   // === DEVELOPMENT CONTAINER CONFIGURATION ===
   "build": {
     "target": "development"
   },
-  
+
   // === FEATURES AND EXTENSIONS ===
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {},
@@ -29,7 +29,7 @@
       "nvmVersion": "latest"
     }
   },
-  
+
   // === VS CODE CUSTOMIZATIONS ===
   "customizations": {
     "vscode": {
@@ -39,39 +39,39 @@
         "bradlc.vscode-tailwindcss",
         "esbenp.prettier-vscode",
         "dbaeumer.vscode-eslint",
-        
+
         // React & Next.js
         "dsznajder.es7-react-js-snippets",
         "formulahendry.auto-rename-tag",
         "christian-kohler.path-intellisense",
         "christian-kohler.npm-intellisense",
-        
+
         // GitHub Integration
         "github.copilot",
         "github.copilot-chat",
         "github.vscode-pull-request-github",
         "github.vscode-github-actions",
-        
+
         // Collaboration
         "ms-vsliveshare.vsliveshare",
         "ms-vsliveshare.vsliveshare-audio",
-        
+
         // Remote Development
         "ms-vscode-remote.remote-containers",
-        
+
         // Testing
         "orta.vscode-jest",
         "ms-playwright.playwright",
-        
+
         // Productivity
         "alefragnani.bookmarks",
         "gruntfuggly.todo-tree",
         "streetsidesoftware.code-spell-checker",
-        
+
         // Docker
         "ms-azuretools.vscode-docker"
       ],
-      
+
       "settings": {
         "terminal.integrated.defaultProfile.linux": "zsh",
         "terminal.integrated.profiles.linux": {
@@ -82,7 +82,7 @@
       }
     }
   },
-  
+
   // === PORT FORWARDING ===
   "forwardPorts": [3000, 3001, 3002, 5432, 6379, 9090],
   "portsAttributes": {
@@ -111,46 +111,41 @@
       "onAutoForward": "silent"
     }
   },
-  
+
   // === LIFECYCLE COMMANDS ===
   "onCreateCommand": "npm install",
   "updateContentCommand": "npm install",
   "postCreateCommand": "npm run setup",
   "postStartCommand": "npm run type-check",
-  
+
   // === ENVIRONMENT VARIABLES ===
   "containerEnv": {
     "NODE_ENV": "development",
     "NEXT_TELEMETRY_DISABLED": "1",
     "FORCE_COLOR": "1"
   },
-  
+
   // === MOUNT CONFIGURATIONS ===
   "mounts": [
     "source=brightwell-node-modules,target=/app/node_modules,type=volume",
     "source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind,readonly"
   ],
-  
+
   // === DEVELOPMENT USER ===
   "remoteUser": "node",
   "containerUser": "node",
-  
+
   // === GIT CONFIGURATION ===
   "postAttachCommand": {
     "configure-git": "git config --global --add safe.directory /app"
   },
-  
+
   // === SECURITY ===
   "privileged": false,
   "capAdd": [],
-  "securityOpt": [
-    "seccomp=unconfined"
-  ],
-  
+  "securityOpt": ["seccomp=unconfined"],
+
   // === WORKSPACE SETTINGS ===
   "workspaceMount": "source=${localWorkspaceFolder},target=/app,type=bind,consistency=cached",
-  "runArgs": [
-    "--init",
-    "--security-opt", "seccomp=unconfined"
-  ]
+  "runArgs": ["--init", "--security-opt", "seccomp=unconfined"]
 }
