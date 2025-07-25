@@ -83,7 +83,7 @@
     "i18next": "^25.1.2",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.503.0",
-    "next.js": "^15.3.5",
+    "next.js": "1.0.3",
     "next-themes": "^0.4.6",
     "react": "^18.3.1",
     "react-day-picker": "^8.10.1",
@@ -121,13 +121,13 @@
     "@types/jest": "^29.5.8",
     "cross-env": "^7.0.3",
     "husky": "^8.0.3",
-    "jest": "^29.7.0",
+    "jest": "30.0.5",
     "jest-environment-jsdom": "^29.7.0",
     "lighthouse": "^11.3.0",
     "lint-staged": "^15.1.0",
     "madge": "^6.1.0",
     "prettier": "^3.1.0",
-    "size-limit": "^11.0.0",
+    "size-limit": "^11.2.0",
     "snyk": "^1.1298.1"
   }
 }
