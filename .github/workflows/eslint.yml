@@ -1,0 +1,106 @@
+name: ESLint Enhanced Security & Quality Pipeline
+
+on:
+  push:
+    branches: [main, develop, 'release/*', 'hotfix/*']
+  pull_request:
+    branches: [main, develop]
+  schedule:
+    - cron: '0 2 * * 1-5'  # Weekdays 2 AM UTC
+  workflow_dispatch:
+
+jobs:
+  eslint-matrix:
+    name: ESLint Analysis (${{ matrix.node-version }}, ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: ['18.x', '20.x', '22.x']
+        os: [ubuntu-latest, windows-latest, macos-latest]
+      fail-fast: false
+    
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
+      pull-requests: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for better analysis
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      
+      - name: Cache ESLint
+        uses: actions/cache@v4
+        with:
+          path: ~/.eslint-cache
+          key: eslint-${{ matrix.os }}-${{ matrix.node-version }}-${{ hashFiles('**/.eslintrc.*', '**/package-lock.json') }}
+      
+      - name: Install dependencies with security audit
+        run: |
+          npm ci
+          npm audit --audit-level=moderate
+          npm install eslint@latest
+          npm install @microsoft/eslint-formatter-sarif@latest
+      
+      - name: Run ESLint with enhanced reporting
+        env:
+          SARIF_ESLINT_IGNORE_SUPPRESSED: "true"
+          NODE_OPTIONS: "--max-old-space-size=4096"
+        run: |
+          # Run ESLint with different output formats
+          npx eslint . --ext .js,.jsx,.ts,.tsx --
+format=@microsoft/eslint-formatter-sarif --output-file=eslint-
+
+results.sarif || true
+          npx eslint . --ext .js,.jsx,.ts,.tsx --format=json --output-file=eslint-results.json || true
+          npx eslint . --ext .js,.jsx,.ts,.tsx --format=html --output-file=reports/eslint-report.html || true
+          
+          # Create reports directory
+          mkdir -p reports
+          
+          # Run main ESLint check
+          npx eslint . --ext .js,.jsx,.ts,.tsx --format=compact
+
+      - name: Upload ESLint SARIF results to GitHub Security
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: eslint-results.sarif
+          category: eslint
+
+      - name: Upload ESLint reports as artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eslint-reports-${{ matrix.os }}-${{ matrix.node-version }}
+          path: |
+            eslint-results.json
+            reports/
+          retention-days: 30
+
+      - name: Comment on Pull Request with results
+        if: github.event_name == 'pull_request' && failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            if (fs.existsSync('eslint-results.json')) {
+              const results = JSON.parse(fs.readFileSync('eslint-results.json', 'utf8'));
+              const errorCount = results.reduce((sum, file) => sum + file.errorCount, 0);
+              const warningCount = results.reduce((sum, file) => sum + file.warningCount, 0);
+              
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `## 🔍 ESLint Results\n\n- **Errors:** ${errorCount}\n- **Warnings:** ${warningCount}\n\nPlease fix the linting issues before merging.`
+              });
+            }
