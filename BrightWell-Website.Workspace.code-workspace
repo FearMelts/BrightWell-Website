@@ -8,7 +8,7 @@
     },
   ],
   "settings": {
-    "powershell.cwd": "BrightWell-Website",
+    "powershell.cwd": "brightwell-website",
     "liveServer.settings.multiRootWorkspaceName": "BrightWell-Website",
   },
 }

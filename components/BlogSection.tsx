@@ -4,26 +4,25 @@
  */
 'use client';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Badge } from './ui/badge';
 import {
+  ArrowRight,
+  BookOpen,
   Calendar,
   Clock,
-  User,
-  ArrowRight,
-  Search,
-  Filter,
-  BookOpen,
-  TrendingUp,
-  Shield,
   DollarSign,
   FileText,
-  Lightbulb,
   Heart,
+  Lightbulb,
+  Search,
+  Shield,
   Stethoscope,
+  TrendingUp,
+  User,
 } from 'lucide-react';
+import React, { useState } from 'react';
+import { Badge } from './ui/badge';
+import { Button } from './ui/button';
+import { Input } from './ui/input';
 
 /**
  * Blog article data structure
@@ -224,7 +223,10 @@ export function BlogSection() {
   const regularArticles = filteredArticles.filter(article => !article.featured);
 
   return (
-    <section className="py-24 bg-gradient-to-br from-slate-50 to-blue-50/30 dark:from-slate-900 dark:to-blue-950/30 transition-colors duration-700">
+    <section
+      className="py-24 bg-gradient-to-br from-slate-50 to-blue-50/30 dark:from-slate-900 dark:to-blue-950/30 transition-colors duration-700"
+      {...({} as React.HTMLAttributes<HTMLElement>)}
+    >
       <div className="max-w-7xl mx-auto px-4">
         {/* Section Header */}
         <motion.div
@@ -376,6 +378,7 @@ export function BlogSection() {
               type="email"
               placeholder="Enter your email address"
               className="bg-white text-gray-900 border-0 rounded-xl"
+              autoComplete="off"
             />
             <Button className="bg-white text-cyan-600 hover:bg-gray-100 rounded-xl px-6">
               Subscribe
@@ -519,7 +522,13 @@ function ArticleModal({ article, onClose }: { article: BlogArticle; onClose: () 
         <div className="p-8">
           <div className="flex items-center justify-between mb-6">
             <Badge className="bg-blue-500 text-white">{article.category}</Badge>
-            <Button variant="ghost" size="sm" onClick={onClose}>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={onClose}
+              type="button"
+              aria-label="Close article modal"
+            >
               ✕
             </Button>
           </div>
