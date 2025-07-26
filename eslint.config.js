@@ -5,6 +5,8 @@ import prettier from 'eslint-config-prettier';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
+import unusedImports from 'eslint-plugin-unused-imports';
+import tailwindcss from 'eslint-plugin-tailwindcss';
 
 export default [
   js.configs.recommended,
@@ -27,8 +29,8 @@ export default [
       react,
       'react-hooks': reactHooks,
       'jsx-a11y': jsxA11y,
-      'unused-imports': 'eslint-plugin-unused-imports',
-      tailwindcss: 'eslint-plugin-tailwindcss',
+      'unused-imports': unusedImports,
+      tailwindcss,
     },
     rules: {
       ...react.configs.recommended.rules,
@@ -68,8 +70,8 @@ export default [
       react,
       'react-hooks': reactHooks,
       'jsx-a11y': jsxA11y,
-      'unused-imports': 'eslint-plugin-unused-imports',
-      tailwindcss: 'eslint-plugin-tailwindcss',
+      'unused-imports': unusedImports,
+      tailwindcss,
     },
     rules: {
       ...typescript.configs.recommended.rules,
